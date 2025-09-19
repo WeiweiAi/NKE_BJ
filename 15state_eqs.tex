@@ -1,0 +1,53 @@
+The equations for conservation of mass are expressed as below.
+\begin{align*}
+\frac{d q_m^1}{dt}&=v_m^{15}-v_m^{1}      &  \frac{d q_m^2}{dt} &=v_m^{1}-v_m^{2}   &  \frac{d q_m^3}{dt}&=v_m^{2}-v_m^{3}\\
+\frac{d q_m^4}{dt}&=v_m^{3}-v_m^{4}       &  \frac{d q_m^5}{dt} &=v_m^{4}-v_m^{5}    &  \frac{d q_m^6}{dt}&=v_m^{5}-v_m^{6}\\
+\frac{d q_m^7}{dt}&=v_m^{6}-v_m^{7}       &  \frac{d q_m^8}{dt} &=v_m^{7}-v_m^{8}    &  \frac{d q_m^9}{dt}&=v_m^{8}-v_m^{9} \\
+\frac{d q_m^{10}}{dt}&=v_m^{9}-v_m^{10}   &  \frac{d q_m^{11}}{dt}&=v_m^{10}-v_m^{11} &  \frac{d q_m^{12}}{dt}&=v_m^{11}-v_m^{12}\\
+\frac{d q_m^{13}}{dt}&=v_m^{12}-v_m^{13}  &  \frac{d q_m^{14}}{dt}&=v_m^{13}-v_m^{14} &  \frac{d q_m^{15}}{dt}&=v_m^{14}-v_m^{15}\\
+\end{align*}
+
+The chemical potentials are given by the following.
+
+\begin{align*}
+\mu_m^1 & = RT\ln(K_1q_m^1) & \mu_m^2 & = RT\ln(K_2q_m^2) & \mu_m^3 & = RT\ln(K_3q_m^3) & \mu_m^4 & = RT\ln(K_4q_m^4) & \mu_m^5 & = RT\ln(K_5q_m^5) \\
+\mu_m^6 & = RT\ln(K_6q_m^6) & \mu_m^7 & = RT\ln(K_7q_m^7) & \mu_m^8 & = RT\ln(K_8q_m^8) & \mu_m^9 & = RT\ln(K_9q_m^9) & \mu_m^{10} & = RT\ln(K_{10}q_m^{10}) \\
+\mu_m^{11} & = RT\ln(K_{11}q_m^{11}) & \mu_m^{12} & = RT\ln(K_{12}q_m^{12}) & \mu_m^{13} & = RT\ln(K_{13}q_m^{13}) & \mu_m^{14} & = RT\ln(K_{14}q_m^{14}) & \mu_m^{15} & = RT\ln(K_{15}q_m^{15})
+\end{align*}
+
+\begin{align*}
+\mu_i^{K+} & = RT\ln(K_i^Kq_i^{K+}) & \mu_i^{Na+} & = RT\ln(K_i^{Na}q_i^{Na+}) & \mu_o^{Na+} & = RT\ln(K_o^{Na}q_o^{Na+}) & \mu_o^{K+} & = RT\ln(K_o^Kq_o^{K+})\\
+\mu_i^{ATP} & = RT\ln(K_i^{ATP}q_i^{ATP}) & \mu_i^{ADP} & = RT\ln(K_i^{ADP}q_i^{ADP}) & \mu_i^{P_i} & = RT\ln(K_i^{P_i}q_i^{P_i}) & \mu_i^{H} & = RT\ln(K_i^{H}q_i^{H}) \\
+\end{align*}
+
+The flow rates are given by:
+
+\begin{alignat*}{2}
+v_m^{1}  &= \kappa_1 \left( K_1 q_m^1 - K_2 q_m^2 K_i^{K} q_i^{K+} \right)
+&\qquad
+v_m^{2}  &= \kappa_2 \left( K_2 q_m^2 - K_3 q_m^3 K_i^{K} q_i^{K+} \right) \\[6pt]
+v_m^{3}  &= \kappa_3 \left( K_3 q_m^3 K_i^{Na} q_i^{Na+} - K_4 q_m^4 \right)
+&\qquad
+v_m^{4}  &= \kappa_4 \left( K_4 q_m^4 K_i^{Na} q_i^{Na+} - K_5 q_m^5 \right) \\[6pt]
+v_m^{5}  &= \kappa_5 \left( K_5 q_m^5 K_i^{Na} q_i^{Na+}
+            - K_6 q_m^6 \exp\left( \frac{z_1 F u_m^e}{RT} \right) \right)
+&\qquad
+v_m^{6}  &= \kappa_6 \left( K_6 q_m^6 - K_7 q_m^7 K_i^{ADP} q_i^{ADP} \right) \\[6pt]
+v_m^{7}  &= \kappa_7 \left( K_7 q_m^7 - K_8 q_m^8 \right)
+&\qquad
+v_m^{8}  &= \kappa_8 \left( K_8 q_m^8 - K_9 q_m^9 K_o^{Na} q_o^{Na+}
+             \exp\left( \frac{z_1 F u_m^e}{RT} \right) \right) \\[6pt]
+v_m^{9}  &= \kappa_9 \left( K_9 q_m^9 - K_{10} q_m^{10} K_o^{Na} q_o^{Na+} \right)
+&\qquad
+v_m^{10} &= \kappa_{10} \left( K_{10} q_m^{10} - K_{11} q_m^{11} K_o^{Na} q_o^{Na+} \right) \\[6pt]
+v_m^{11} &= \kappa_{11} \left( K_{11} q_m^{11} K_o^{K} q_o^{K+} - K_{12} q_m^{12} \right)
+&\qquad
+v_m^{12} &= \kappa_{12} \left( K_{12} q_m^{12} K_o^{K} q_o^{K+} - K_{13} q_m^{13} \right) \\[6pt]
+v_m^{13} &= \kappa_{13} \left( K_{13} q_m^{13}
+             - K_{14} q_m^{14} K_i^{P_i} q_i^{P_i} K_i^{H} q_i^{H} \right)
+&\qquad
+v_m^{14} &= \kappa_{14} \left( K_{14} q_m^{14} K_i^{ATP} q_i^{ATP}
+             - K_{15} q_m^{15} \right) \\[6pt]
+v_m^{15} &= \kappa_{15} \left( K_{15} q_m^{15} - K_{16} q_m^{16} \right)
+& &
+\end{alignat*}
