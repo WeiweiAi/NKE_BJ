@@ -1,0 +1,218 @@
+% \documentclass[lineno,twocolumn,endfloat,biblatex]{biophys-new}
+\documentclass{biophys-new}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[colorlinks,allcolors=cyan!70!black]{hyperref}
+
+% Uncomment if using biblatex
+% \addbibresource{sample.bib}
+
+\usepackage{lipsum}
+
+\title{Model comparison and system analysis of Na+/K+-ATPase using bond graph}
+\runningtitle{Biophysical Journal Template} %% For page header
+
+\author[1,*]{First author}
+\author[2]{Second author}
+\runningauthor{Author1 and Author2} %% For page header
+
+\affil[1]{Institution A, Address A}
+\affil[2]{Institution B, Address B}
+
+\corrauthor[*]{abx@xyz.edu}
+
+% \papertype{Letters}
+\papertype{Article}
+% \papertype{Computational Tools}
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+\begin{abstract}
+Each manuscript must be accompanied by an informative abstract of no more than 300 words. Abstracts should describe the substance of the manuscript in language non-specialists can understand, and must make clear the biological significance of the research. Reference citations are not allowed in the Abstract of a manuscript. 
+\end{abstract}
+
+\begin{sigstatement}
+Each manuscript must also have a statement of significance or no more than 120 words. Each manuscript must also have a statement of significance or no more than 120 words. Each manuscript must also have a statement of significance or no more than 120 words.
+\end{sigstatement}
+\end{frontmatter}
+
+\section*{Introduction}
+
+The sodium-potassium ATPase pump (NKA) uses the hydrolysis of one
+molecule of ATP to move three sodium ions out of the cell and two
+potassium ions into the cell, in both cases against steep concentration
+gradients. ATP hydrolysis provides about 50.8kJ.mol\textsuperscript{-1}
+and 73\% of this energy is needed to move three Na\textsuperscript{+}
+and two K\textsuperscript{+} against their gradients
+(19.8kJ.mol\textsuperscript{-1} and 17.4kJ.mol\textsuperscript{-1},
+respectively). The energy cost of maintaining low intracellular sodium
+and high intracellular potassium accounts for about one third of resting
+metabolism. ATP hydrolysis is driven primarily by the ATP/ADP
+concentration ratio (typically about 10) and can be thought of as the
+energy source that tops up the cell's `sodium' battery, since the the
+majority of transmembrane transport processes are driven by this sodium
+gradient. The NKA pump is therefore critical to cellular function in all
+cell types.
+
+In this paper we use a bond graph approach to examine a number of models
+of NKA in which mass, charge and energy are each conserved. The
+Post-Albers kinetic scheme {[}.{]} is used for the underlying
+biochemistry. We examine a previously published 15-state bond graph
+model and then show how a much simpler 6-state model captures the
+biophysics of the pump, matches experimental data and, under the
+Briggs-Haldane steady state approximation, allows us to derive analytic
+expressions that show precisely how the flux depends on the
+intracellular and extracellular solutes. We also show how the full bond
+graph expression for the steady-state flux relates to a simpler
+expression favoured by biochemists
+
+This paper builds on a previous publication {[}.{]} where we developed
+models of transmembrane glucose transport using facilitated diffusion
+with the GLUT2 transporter and sodium-driven glucose cotransport with
+the electrogenic SGLT2 transporter. These models were also developed
+using bond graph methods to ensure thermodynamic consistency
+(conservation of mass, conservation of charge and conservation of
+energy) but for convenience we begin with a summary of the bond graph
+approach that underpins all subsequent analysis.
+
+\subsection*{Na+/K+-ATPase physiology and models}
+
+
+\subsection*{Bond graph basics}
+
+Theoretical manuscripts may include just a \textbf{Methods} section and do not require \textbf{Materials}.
+
+
+\section*{Methods}
+
+
+\subsection*{Bond graph models of Na+/K+-ATPase}
+
+\subsubsection{15-state model}
+
+\subsubsection{6-state model and parameter fitting}
+
+\subsubsection{Steady-state model and parameter fitting}
+
+\subsubsection{Activity comparison }
+
+\subsection*{Figures and Tables}
+
+Use the table and tabular commands for basic tables --- see Table \ref{tab:widgets}, for example. \href{http://tablesgenerator.com}{TablesGenerator.com} is a handy tool for designing tables and generating the \LaTeX{} \texttt{tabular} code, which you can copy and paste into your article here.
+
+You can upload a figure (JPG, PNG or PDF) using the PROJECT menu (Files\ldots > Add files). To include it in your document, use the \verb|graphicx| package and the \verb|\includegraphics| command as in the code for Figure \ref{fig:view}. 
+
+In addition, you can use \verb|\ref{...}| and \verb|\label{...}| commands for cross-references.
+
+\begin{table}[hbt!]
+\caption{An example table}
+\label{tab:widgets}
+\centering
+
+\begin{threeparttable}
+
+\begin{tabular}{c l r}
+\hline
+Code & Item & Quantity \\\hline
+W1 & Widgets\tnote{a} & 42 \\
+G35 & Gadgets & 13\tnote{b} \\
+\hline
+\end{tabular}
+
+\begin{tablenotes}
+\item[a] This is a table note.
+\item[b] This is another table note.
+\end{tablenotes}
+
+\end{threeparttable}
+
+\end{table}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.6\linewidth]{example-image}
+\caption{A figure example.}
+\label{fig:view}
+
+\end{figure}
+
+\section*{Results}
+
+\LaTeX{} is great at typesetting mathematics:
+
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+\begin{equation}
+\label{eq:CLT}
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+\end{equation}
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$. Thus concludes the explanation about Eq.~\ref{eq:CLT}.
+
+
+You can make lists with automatic numbering \dots
+
+\begin{enumerate}
+\item Like this,
+\item and like this.
+\end{enumerate}
+
+\dots or bullet points \dots
+
+\begin{itemize} 
+\item Like this,
+\item and like this.
+\end{itemize}
+
+\dots or with words and descriptions \dots
+
+\begin{description}
+\item[Word] Definition
+\item[Concept] Explanation
+\item[Idea] Text
+\end{description}
+
+An example quotation:
+
+\begin{quote}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+\end{quote}
+
+
+\section*{Discussion}
+
+\LaTeX{} formats citations and references automatically using the bibliography records in your .bib file, which you can edit via the project menu. Use the \verb|\cite| command to insert a citation, like this: \cite{Chen_Nicholson00} Multiple citations can be given as \cite{Stiles_Bartol01,el-Kareh_etal93,Callaghan91}. You can use either BibTeX or biblatex: see the following subsections.
+
+If your manuscript is accepted, the Biophysical production team will re-format the references for publication. \emph{It is not necessary to format the reference list yourself to mirror the final published form.}
+
+\subsection*{Using bibtex} 
+This is the default. Specify your \texttt{.bib} file with \verb|\bibliography{sample}| (the extension is unnecessary) near the end of your manuscript, where you want the references list to appear.
+
+\subsection*{Using biblatex} 
+Pass the \texttt{biblatex} option to the \verb|\documentclass| declaration, then specify your \texttt{.bib} file name in the \emph{preamble}: \verb|\addbibresources{sample.bib}| (the extension is necessary). Write \verb|\printbibliography| near the end of your manuscript where you want the references to appear.
+
+\section*{Conclusion}
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+
+\section*{Author Contributions}
+
+Author1 designed the research. Author2 carried out all simulations, analyzed the data. Author1 and Author2 wrote the article. 
+
+\section*{Acknowledgments}
+
+We thank G. Harrison, B. Harper, and J. Doe for their help.
+
+% Uncomment if using bibtex (default)
+\bibliography{sample}
+
+% Uncomment if using biblatex
+% \printbibliography
+
+\section*{Supplementary Material}
+
+An online supplement to this article can be found by visiting BJ Online at \url{http://www.biophysj.org}.
+
+\end{document}
