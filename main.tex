@@ -3,12 +3,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[colorlinks,allcolors=cyan!70!black]{hyperref}
-
+\usepackage{glossaries}
 % Uncomment if using biblatex
 % \addbibresource{sample.bib}
-
-\usepackage{lipsum}
-
+\newacronym{nka}{NKA}{sodium-potassium ATPase pump}
 \title{Model comparison and system analysis of Na+/K+-ATPase using bond graph}
 \runningtitle{Biophysical Journal Template} %% For page header
 
@@ -41,26 +39,14 @@ Each manuscript must also have a statement of significance or no more than 120 w
 
 \section*{Introduction}
 
-The sodium-potassium ATPase pump (NKA) uses the hydrolysis of one
-molecule of ATP to move three sodium ions out of the cell and two
-potassium ions into the cell, in both cases against steep concentration
-gradients. ATP hydrolysis provides about 50.8kJ.mol\textsuperscript{-1}
-and 73\% of this energy is needed to move three Na\textsuperscript{+}
-and two K\textsuperscript{+} against their gradients
-(19.8kJ.mol\textsuperscript{-1} and 17.4kJ.mol\textsuperscript{-1},
-respectively). The energy cost of maintaining low intracellular sodium
-and high intracellular potassium accounts for about one third of resting
-metabolism. ATP hydrolysis is driven primarily by the ATP/ADP
-concentration ratio (typically about 10) and can be thought of as the
-energy source that tops up the cell's `sodium' battery, since the the
-majority of transmembrane transport processes are driven by this sodium
-gradient. The NKA pump is therefore critical to cellular function in all
-cell types.
+The \gls{nka} uses the hydrolysis of one molecule of ATP to move three sodium ions out of the cell and two potassium ions into the cell,
+in both cases against steep concentration gradients. ATP hydrolysis can be thought of as the energy source that tops up the cell's `sodium' battery,
+since the the majority of transmembrane transport processes are driven by this sodium gradient.
+The NKA pump is therefore critical to cellular function in all cell types.
 
-In this paper we use a bond graph approach to examine a number of models
-of NKA in which mass, charge and energy are each conserved. The
-Post-Albers kinetic scheme {[}.{]} is used for the underlying
-biochemistry. We examine a previously published 15-state bond graph
+In this paper we use a bond graph approach to examine a number of models of NKA in which mass, charge and energy are each conserved.
+The Post-Albers kinetic scheme {[}.{]} is used for the underlying biochemistry.
+We examine a previously published 15-state bond graph
 model and then show how a much simpler 6-state model captures the
 biophysics of the pump, matches experimental data and, under the
 Briggs-Haldane steady state approximation, allows us to derive analytic
@@ -100,6 +86,7 @@ Theoretical manuscripts may include just a \textbf{Methods} section and do not r
 
 % include 6state_eqs.tex to get the equations
 \input{6state_eqs.tex}
+
 
 \subsubsection{Steady-state model and parameter fitting}
 
