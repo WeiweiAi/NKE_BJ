@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage[colorlinks,allcolors=cyan!70!black]{hyperref}
 \usepackage{glossaries}
+\usepackage{textcomp}
 % Uncomment if using biblatex
 % \addbibresource{sample.bib}
 \newacronym{nka}{NKA}{sodium-potassium ATPase pump}
@@ -39,21 +40,56 @@ Each manuscript must also have a statement of significance or no more than 120 w
 
 \section*{Introduction}
 
-The \gls{nka} uses the hydrolysis of one molecule of ATP to move three sodium ions out of the cell and two potassium ions into the cell,
+The \gls{nka} uses the hydrolysis of ATP to move Na\textsuperscript{+} ions out of the cell and K\textsuperscript{+} ions into the cell,
 in both cases against steep concentration gradients. ATP hydrolysis can be thought of as the energy source that tops up the cell's `sodium' battery,
 since the the majority of transmembrane transport processes are driven by this sodium gradient.
 The NKA pump is therefore critical to cellular function in all cell types.
 
 In this paper we use a bond graph approach to examine a number of models of NKA in which mass, charge and energy are each conserved.
-The Post-Albers kinetic scheme {[}.{]} is used for the underlying biochemistry.
-We examine a previously published 15-state bond graph
-model and then show how a much simpler 6-state model captures the
-biophysics of the pump, matches experimental data and, under the
-Briggs-Haldane steady state approximation, allows us to derive analytic
-expressions that show precisely how the flux depends on the
-intracellular and extracellular solutes. We also show how the full bond
-graph expression for the steady-state flux relates to a simpler
-expression favoured by biochemists
+We examine a previously published 15-state bond graph model,
+and then show how a much simpler 6-state model captures the biophysics of the pump, matches experimental data.
+We then use the bond graph to examine the energy expenditure of the \Gls{nka}p and energy storage under different conditions.
+
+\subsection*{\Gls{nka} physiology and models}
+
+The \Gls{nka} was discovered in 1957\cite{skou_influence_1957},
+and is a chemical molecular machine responsible for the movement of Na\textsuperscript{+} and K\textsuperscript{+} ions across the cell membrane against their concentration gradients.
+The Albers–Post kinetic scheme \cite{albers_role_1963,post_activation_1972} was proposed to describe the transport mechanism of the \Gls{nka} \cite{apell_electrogenic_1989},
+where the \Gls{nka} undergoes Na\textsuperscript{+}-dependent phosphorylation and K\textsuperscript{+}-dependent dephosphorylation reactions and alternates between two main conformations, 
+\textit{E1} and \textit{E2}, which expose the transport sites to the intracellular and extracellular sides of the membrane, respectively.
+
+Many intermediate conformational states and partial reaction steps have been proposed \cite{post_flexibility_1969,karlish_conformational_1978,glynn_na_1985, apell_electrogenic_1989,terkildsen_balance_2007},
+while structural studies have provided insights into the molecular mechanism of the \Gls{nka}.
+The cryo-electron microscopy (cryo-EM) structures of \Gls{nka} in different conformational states were reported,
+including exoplasmic side-open (\textit{E2\textperiodcentered P})\cite{kanai_binding_2021,nguyen_structural_2022},
+K\textsuperscript{+}-occluded (\textit{E2\textperiodcentered [2K] \textperiodcentered Pi}) \cite{morth_crystal_2007,shinoda_crystal_2009,nguyen_structural_2022},
+(\textit{E2\textperiodcentered [2K]})\cite{guo_cryo-em_2022},
+cytoplasmic side-open (\textit{E1})\cite{nguyen_structural_2022}, ATP bound cytoplasmic side-open (\textit{E1\textperiodcentered ATP})\cite{nguyen_structural_2022},
+(\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP})\cite{guo_cryo-em_2022}.
+Na\textsuperscript{+}-occluded (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}) \cite{nyblom_crystal_2013,kanai_crystal_2013,nguyen_structural_2022},
+and (\textit{E1\textperiodcentered [3Na]})\cite{guo_cryo-em_2022}.
+
+Since the \Gls{nka} transports three Na\textsuperscript{+} ions outward and two K\textsuperscript{+} ions inward,
+the process gives rise to a net outward current and is therefore electrogenic\cite{apell_electrogenic_1989,glitsch_electrophysiology_2001}.
+That is, the \Gls{nka} contributes to the membrane potential and the transport rate is a function of the membrane potential.
+The electrogenicity of the \Gls{nka} has been studied experimentally and the main voltage-dependent steps are associated with the binding and release of Na\textsuperscript{+} ions.
+These include Na\textsuperscript{+}-mediated transient electrical currents \cite{nakao_voltage_1986} and Na\textsuperscript{+} efflux \cite{gadsby_extracellular_1993}.
+More recently, the electrogenicity of extracellular K\textsuperscript{+} binding was also investigated \cite{peluffo_electrogenic_1997}
+while K\textsuperscript{+} uptake was found to be less voltage-dependent \cite{moreno_transient_2020}.
+
+Terkildsen et al. \cite{terkildsen_balance_2007} developed a kinetic model of the \Gls{nka} based on the Albers-Post scheme including fifteen intermediate states.
+This model detailed the binding and release of Na\textsuperscript{+} and K\textsuperscript{+} ions and their voltage dependence.
+It also explicitly included the proton to enable the study of the effect of pH on the pump function,
+which was found to be significant in ischemic conditions.
+The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model,
+and re-parameterised to ensure thermodynamic consistency using a bond graph.
+The \Gls{nka} is responsible for 9\% of myocardial energy expenditure during contraction and 17\% at rest \cite{schramm1994energy},
+so it is important to guarantee thermodynamic consistency.
+Hence, the bond graph is also used in this study to facilitate energy-based analysis.
+The reduction of free energy available from ATP hydrolysis results in an accumulation of intracellular Na\textsuperscript{+} ions \cite{jansen2003energy},
+while increase in intracellular Pi and decreases in intracellular pH and ATP were associated with ischemic conditions \cite{huang1984regulation}.
+
+\subsection*{Bond graph basics}
 
 This paper builds on a previous publication {[}.{]} where we developed
 models of transmembrane glucose transport using facilitated diffusion
@@ -64,18 +100,11 @@ using bond graph methods to ensure thermodynamic consistency
 energy) but for convenience we begin with a summary of the bond graph
 approach that underpins all subsequent analysis.
 
-\subsection*{Na+/K+-ATPase physiology and models}
-
-
-\subsection*{Bond graph basics}
-
-Theoretical manuscripts may include just a \textbf{Methods} section and do not require \textbf{Materials}.
-
 
 \section*{Methods}
 
 
-\subsection*{Bond graph models of Na+/K+-ATPase}
+\subsection*{Bond graph models of \Gls{nka}}
 
 \subsubsection{15-state model}
 
@@ -107,6 +136,12 @@ Theoretical manuscripts may include just a \textbf{Methods} section and do not r
 \end{figure}
 \input{6state_eqs.tex}
 
+\begin{figure}
+\caption{6-state model with voltage dependence in the Na binding step.}
+\centering
+\includegraphics[width=0.7\linewidth]{6state_3.pdf}
+\end{figure}
+\input{6state_eqs_3.tex}
 
 \subsubsection{Steady-state model and parameter fitting}
 

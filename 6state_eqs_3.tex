@@ -19,14 +19,13 @@ The chemical potentials are given by the following.
 The flow rates are given by:
 
 \begin{alignat*}{2}
-v_m^1 &= \kappa_1\left( K_1 q_m^1 K_i^{ATP} q_i^{ATP}
+v_m^1 &= \kappa_1\left( K_1 q_m^1 (K_i^{Na} q_i^{Na+})^3 K_i^{ATP} q_i^{ATP}
          - K_2 q_m^2 \right)
 &\qquad
-v_m^2 &= \kappa_2\left( K_2 q_m^2 (K_i^{Na} q_i^{Na+})^3
-         - K_3 q_m^3 
-         \exp\left( \frac{z_1 F u_m^e}{RT} \right) \right) \\[6pt]
+v_m^2 &= \kappa_2\left( K_2 q_m^2
+         - K_3 q_m^3 K_i^{ADP} q_i^{ADP} \exp\left( \frac{z_1 F u_m^e}{RT} \right)\right) \\[6pt]
 v_m^3 &= \kappa_3\left( K_3 q_m^3
-         - K_4 q_m^4 (K_o^{Na} q_o^{Na+})^3 K_i^{ADP} q_i^{ADP}
+         - K_4 q_m^4 (K_o^{Na} q_o^{Na+})^3
          \exp\left( \frac{z_2 F u_m^e}{RT} \right)\right)
 &\qquad
 v_m^4 &= \kappa_4\left( K_4 q_m^4 (K_o^{K} q_o^{K+})^2
@@ -35,40 +34,34 @@ v_m^5 &= \kappa_5\left( K_5 q_m^5
          - K_6 q_m^6 K_i^{P_i} q_i^{P_i} K_i^{H} q_i^{H} \right)
 &\qquad
 v_m^6 &= \kappa_6\left( K_6 q_m^6
-         - K_7 q_m^7 (K_i^{K} q_i^{K+})^2\right)
+         - K_7 q_m^7 (K_i^{K} q_i^{K+})^2
+         \right)
 \end{alignat*}
 
 The constraint on the thermodynamicparameters of reaction $Rx_m^1$ is as follows:
-
 \begin{equation}
-      \label{eq:constraint_ATP_2}
-\dfrac{K_1W_iK_i^{ATP}W_i}{K_2W_i} = \dfrac{1}{K_{d,ATP}}
+      \label{eq:constraint_ATPNai_3}
+\dfrac{K_1W_i(K_i^{Na}W_i)^3K_i^{ATP}}{K_2W_i} = \dfrac{1}{(K_{d,Na_i})^2 K_{d,Na_i}^0K_{d,ATP}}
 \end{equation}
-where $K_{d,ATP}$ is voltage-independent dissociation constant of intracellular ATP.
-
-\begin{equation}
-      \label{eq:constraint_Nai_2}
-\dfrac{K_2W_i(K_i^{Na+}W_i)^3}{K_3W_i} = \dfrac{1}{(K_{d,Na_i})^2 K_{d,Na_i}^0}
-\end{equation}
-where $K_{d,Na_i}$ and $K_{d,Na_i}^0$ are voltage-independent dissociation constant and voltage-dependent dissociation constant of intracellular sodium respectively.
+where $K_{d,Na_i}$ and $K_{d,Na_i}^0$ are voltage-independent dissociation constant and voltage-dependent dissociation constant of intracellular sodium respectively, $K_{d,ATP}$ is voltage-independent dissociation constant of intracellular ATP.
 
 The constraint on the parameters of reaction $Rx_m^3$ is as follows:
 \begin{equation}
-      \label{eq:constraint_Nao_2}
-\dfrac{K_3W_i}{K_4W_o(K_o^{Na+}W_o)^3} = \dfrac{(K_{d,Na_o})^2K_{d,Na_o}^0}{1}
+      \label{eq:constraint_Nao_3}
+\dfrac{K_3W_i}{K_4W_o(K_o^{Na}W_o)^3} = \dfrac{(K_{d,Na_o})^2K_{d,Na_o}^0}{1}
 \end{equation}
 where $K_{d,Na_o}$ are voltage-independent dissociation constant of extracellular sodium.
 
 The constraint on the parameters of reaction $Rx_m^4$ is as follows:
 \begin{equation}
-      \label{eq:constraint3_Ko_2}
-\dfrac{K_4W_o(K_o^{K+}W_o)^2}{K_5W_o} = \dfrac{1}{(K_{d,K_o})^2}
+      \label{eq:constraint_Ko_3}
+\dfrac{K_4W_o(K_o^{K}W_o)^2}{K_5W_o} = \dfrac{1}{(K_{d,K_o})^2}
 \end{equation}
 where $K_{d,K_o}$ is the dissociation constant of extracellular potassium.
 The constraint on the parameters of reaction $Rx_m^6$ is as follows:
 \begin{equation}
-      \label{eq:constraint4_Ki_2}
-\dfrac{K_6W_o}{K_1W_i(K_i^{K+}W_i)^2} = \dfrac{(K_{d,K_i})^2}{1}
+      \label{eq:constraint_Ki_3}
+\dfrac{K_6W_o}{K_1W_i(K_i^{K}W_i)^2} = \dfrac{(K_{d,K_i})^2}{1}
 \end{equation}
 where $K_{d,K_i}$ is the dissociation constant of intracellular potassium.
 
