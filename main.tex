@@ -104,9 +104,8 @@ approach that underpins all subsequent analysis.
 \section*{Methods}
 
 
-\subsection*{Bond graph models of \Gls{nka}}
+\subsection*{Bond graph model of \Gls{nka} with 15 states}
 
-\subsubsection{15-state model}
 
 \cite{pan_cardiac_2020}
 
@@ -118,30 +117,41 @@ approach that underpins all subsequent analysis.
 \includegraphics[width=1\linewidth]{15state.pdf}
 \end{figure}
 
-\subsubsection{6-state model and parameter fitting}
+\subsection*{6-state model and parameter fitting}
 
-% include 6state_eqs.tex to get the equations
-\cite{nguyen_structural_2022}
-\begin{figure}
-\caption{6-state model, based on the proposed scheme in \cite{nguyen_structural_2022}.}
-\centering
-\includegraphics[width=0.7\linewidth]{6state_2.pdf}
-\end{figure}
-\input{6state_eqs_2.tex}
-
+We build a 6-state model, in Figure \ref{fig:6state}, based on the scheme in Fig. 1b of \cite{nguyen_structural_2022} with slight modifications.
+We merged (\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP}) and (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}), 
+while splitting the release of ADP AND Na\textsuperscript{+} into two steps.
 \begin{figure}
 \caption{6-state model.}
+      \label{fig:6state}
 \centering
 \includegraphics[width=0.7\linewidth]{6state_1.pdf}
 \end{figure}
+
 \input{6state_eqs.tex}
 
+Figure \ref{fig:6state_v3} shows a 6-state model with voltage dependence in the Na binding step.
 \begin{figure}
 \caption{6-state model with voltage dependence in the Na binding step.}
+\label{fig:6state_v3}
 \centering
 \includegraphics[width=0.7\linewidth]{6state_3.pdf}
 \end{figure}
+
 \input{6state_eqs_3.tex}
+
+% include 6state_eqs.tex to get the equations
+We build a 6-state model, in Figure \ref{fig:6state_v2}, based on the proposed scheme in the supplmental material of \cite{nguyen_structural_2022} using bond graph approach.
+\begin{figure}
+\caption{6-state model, based on the proposed scheme in \cite{nguyen_structural_2022}.}
+\label{fig:6state_v2}
+\centering
+\includegraphics[width=0.7\linewidth]{6state_2.pdf}
+\end{figure}
+
+\input{6state_eqs_2.tex}
+
 
 \subsubsection{Steady-state model and parameter fitting}
 
