@@ -46,7 +46,7 @@
  |[greencycle]| $v_m^{2}$ \\  |[yellowbox]| $Rx_m^{2}$ \\ |[greencycle]| $v_m^{2}$ \\  |[rectred]| $q_m^{3}$\\ 
 };
 
-\foreach \row/\text in {4/$E_i\cdot ATP\cdot 3Na^+$, 8/$E_i\cdot P_i\cdot 3Na^+$}{
+\foreach \row/\text in {4/$E_i\cdot ATP$, 8/$E_i\cdot ATP\cdot 3Na^+$}{
   \node[rectblue,right=2mm of right-\row-1] (right2-\row) {\text};}
 
 
@@ -81,17 +81,17 @@
 \node[bluecycle,right=2mm of Ko] (zko)   {\textcolor{white}{$2$}} ;
 \node[rectred,below=13mm of Ko] (Nao)  {$q_o^{Na^+}$} ;
 \node[bluecycle,right=6mm of Nao] (zNao)   {\textcolor{white}{$3$}} ;
-\node[rectred,right=\sepp of right-1-1] (Nai)   {$q_i^{Na^+}$} ;
+\node[rectred,right=\sepp of right-1-1] (ATP)  {$q_i^{ATP}$} ;
+\node[rectred,right=\sepp of right-5-1] (Nai)   {$q_i^{Na^+}$} ;
 \node[bluecycle,left=2mm of Nai] (z3)   {\textcolor{white}{$3$}} ;
-\node[rectred,above=16mm of Nai] (Ki)  {$q_i^{K^+}$} ;
+\node[rectred,above=16mm of ATP] (Ki)  {$q_i^{K^+}$} ;
 \node[bluecycle,left=6mm of Ki] (zki)   {\textcolor{white}{$2$}} ;
 \node[rectred,right=\sepp of left-1-1] (Pi)  {$q_i^{P_i}$} ;
 \node[rectred,below=\sep of Pi] (H)  {$q_i^{H}$} ;
-\node[rectred,below=\sep of Nai] (ATP)  {$q_i^{ATP}$} ;
-\node[rectred,right=\sepp of right-7-1] (ADP)  {$q_i^{ADP}$} ;
+\node[rectred,above=\sep of bottom-1-2] (ADP)  {$q_i^{ADP}$} ;
 \node[rectred,above=20mm of bottom-1-2] (um)  {$u_m^{e}$} ;
 \node[bluecycle,right=\sep of um] (z1)  {\textcolor{white}{$z_1F$}} ;
-\node[bluecycle, left= 7.5mm of um] (z2)  {\textcolor{white}{$z_2F$}} ;
+\node[bluecycle,left=7.5mm of um] (z2)  {\textcolor{white}{$z_2F$}} ;
 \draw[arrow] (z1) -- (um);
 \draw[arrow] (z2) -- (um);
 \draw[arrow] (right-7-1) -| (z1);
@@ -99,8 +99,8 @@
 \draw[arrow] (Ko) -- (left-7-1);
 \draw[arrow] (bottom-1-1) |- (Nao);
 \draw[arrow] (top-1-4) |- (Ki);
-\draw[arrow] (Nai) -- (right-1-1);
-\draw[arrow] (right-7-1) -- (ADP);
+\draw[arrow] (Nai) -- (right-5-1);
+\draw[arrow] (bottom-1-1) -- (ADP);
 \draw[arrow] (left-1-1) -- (Pi);
 \draw[arrow] (left-1-1) -- (H);
 \draw[arrow] (ATP) -- (right-1-1);

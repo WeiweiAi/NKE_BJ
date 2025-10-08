@@ -48,7 +48,7 @@ The NKA pump is therefore critical to cellular function in all cell types.
 In this paper we use a bond graph approach to examine a number of models of NKA in which mass, charge and energy are each conserved.
 We examine a previously published 15-state bond graph model,
 and then show how a much simpler 6-state model captures the biophysics of the pump, matches experimental data.
-We then use the bond graph to examine the energy expenditure of the \Gls{nka}p and energy storage under different conditions.
+We then show how the bond graph facilitates analysis to examine the energy expenditure of the \Gls{nka} and energy storage and dissipation under different conditions.
 
 \subsection*{\Gls{nka} physiology and models}
 
@@ -81,73 +81,53 @@ Terkildsen et al. \cite{terkildsen_balance_2007} developed a kinetic model of th
 This model detailed the binding and release of Na\textsuperscript{+} and K\textsuperscript{+} ions and their voltage dependence.
 It also explicitly included the proton to enable the study of the effect of pH on the pump function,
 which was found to be significant in ischemic conditions.
-The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model,
+The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model using a bond graph approach to ensure thermodynamic consistency.
 The \Gls{nka} consumes 19-28\% of the total ATP consumption in mammals, and up to 50-60\% in brain and kidney \cite{rolfe_cellular_1997}.
 The experimental study in guinea-pig cardiac ventricular muscle showed that the \Gls{nka} is responsible for 9\% of myocardial heat production during contraction,
 and 17\% at rest \cite{schramm1994energy}.
 Hence, it is important to guarantee thermodynamic consistency in \Gls{nka} models, and the bond graph is also used in this study to facilitate energy-based analysis.
-The reduction of free energy available from ATP hydrolysis results in an accumulation of intracellular Na\textsuperscript{+} ions \cite{jansen2003energy},
-while increase in intracellular Pi and decreases in intracellular pH and ATP were associated with ischemic conditions \cite{huang1984regulation}.
 
-ATP concentration ranges from 1.92–7.47 mM with average of 4.4 mM \cite{greiner_intracellular_2021},
-while the recent study showed lower diastolic cytosolic ATP levels (less than 1 mM) than previously estimated and fluctuations during excitation-contraction coupling \cite{rhana_fueling_2024}.
 
-\subsection*{Bond graph basics}
+\subsection*{Bond graph in systems biology}
 
-This paper builds on a previous publication {[}.{]} where we developed
-models of transmembrane glucose transport using facilitated diffusion
-with the GLUT2 transporter and sodium-driven glucose cotransport with
-the electrogenic SGLT2 transporter. These models were also developed
-using bond graph methods to ensure thermodynamic consistency
-(conservation of mass, conservation of charge and conservation of
-energy) but for convenience we begin with a summary of the bond graph
-approach that underpins all subsequent analysis.
-
+\begin{itemize}
+      \item Brief history of bond graph 
+      \item Application of bond graph in systems biology: Mehran's review paper \cite{akbarpour_ghazani_review_2024}, Melbourn's papers \cite{gawthrop_hierarchical_2015,gawthrop_bond_2017-1,gawthrop_energy-based_2014,gawthrop_energy-based_2017,gawthrop_energy-based_2021,gawthrop_hierarchical_2015,gawthrop_network_2022,pan_bond_2018,pan_bond_2019},
+      model composition \cite{shahidi_hierarchical_2021,shahidi_sbml_2022,safaei_bond_2018}      
+      \item Modified notation of bond graph: SLC transporters BJ paper\cite{hunter_energy-based_2025}
+\end{itemize}
 
 \section*{Methods}
 
-
 \subsection*{Bond graph model of \Gls{nka} with 15 states}
 
-
-\cite{pan_cardiac_2020}
+Refer to \cite{pan_cardiac_2020}
 
 % include 15state_eqs.tex to get the equations
 \input{15state_eqs.tex}
 \begin{figure}
-\caption{15-state model, adapted from \cite{pan_cardiac_2020}.}
+\caption{Bond graph of the 15-state model, adapted from \cite{pan_cardiac_2020}.}
 \centering
 \includegraphics[width=1\linewidth]{15state.pdf}
 \end{figure}
 
-\subsection*{6-state model and parameter fitting}
+\subsection*{Bond graph modes of \Gls{nka} with 6 states}
 
-We build a 6-state model, in Figure \ref{fig:6state}, based on the scheme in Fig. 1b of \cite{nguyen_structural_2022} with slight modifications.
+We build a bond graph mode of \Gls{nka} with 6 states, in Figure \ref{fig:6state_v1}, based on the scheme in Fig. 1b of \cite{nguyen_structural_2022} with slight modifications.
 We merged (\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP}) and (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}), 
 while splitting the release of ADP AND Na\textsuperscript{+} into two steps.
 \begin{figure}
-\caption{6-state model.}
-      \label{fig:6state}
+\caption{Bond graph mode of \Gls{nka} with 6 states (V1).}
+      \label{fig:6state_v1}
 \centering
 \includegraphics[width=0.7\linewidth]{6state_1.pdf}
 \end{figure}
 
 \input{6state_eqs.tex}
 
-Figure \ref{fig:6state_v3} shows a 6-state model with voltage dependence in the Na binding step.
+Figure \ref{fig:6state_v2} shows a 6-state model with voltage dependence over the Na binding step.
 \begin{figure}
-\caption{6-state model with voltage dependence in the Na binding step.}
-\label{fig:6state_v3}
-\centering
-\includegraphics[width=0.7\linewidth]{6state_3.pdf}
-\end{figure}
-
-\input{6state_eqs_3.tex}
-
-% include 6state_eqs.tex to get the equations
-We build a 6-state model, in Figure \ref{fig:6state_v2}, based on the proposed scheme in the supplmental material of \cite{nguyen_structural_2022} using bond graph approach.
-\begin{figure}
-\caption{6-state model, based on the proposed scheme in \cite{nguyen_structural_2022}.}
+\caption{Bond graph mode of \Gls{nka} with 6 states (V2) with voltage dependence over the Na binding step.}
 \label{fig:6state_v2}
 \centering
 \includegraphics[width=0.7\linewidth]{6state_2.pdf}
@@ -155,87 +135,33 @@ We build a 6-state model, in Figure \ref{fig:6state_v2}, based on the proposed s
 
 \input{6state_eqs_2.tex}
 
-
-\subsubsection{Steady-state model and parameter fitting}
-
-\subsubsection{Activity comparison }
-
-\subsection*{Figures and Tables}
-
-
-
-\begin{table}[hbt!]
-\caption{An example table}
-\label{tab:widgets}
+% include 6state_eqs.tex to get the equations
+We build a 6-state model, in Figure \ref{fig:6state_v3}, based on the proposed scheme in the supplmental material of \cite{nguyen_structural_2022} using bond graph approach.
+\begin{figure}
+\caption{Bond graph mode of \Gls{nka} with 6 states (V3), based on the proposed scheme in \cite{nguyen_structural_2022}.}
+\label{fig:6state_v3}
 \centering
-
-\begin{threeparttable}
-
-\begin{tabular}{c l r}
-\hline
-Code & Item & Quantity \\\hline
-W1 & Widgets\tnote{a} & 42 \\
-G35 & Gadgets & 13\tnote{b} \\
-\hline
-\end{tabular}
-
-\begin{tablenotes}
-\item[a] This is a table note.
-\item[b] This is another table note.
-\end{tablenotes}
-
-\end{threeparttable}
-
-\end{table}
-
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=0.6\linewidth]{example-image}
-\caption{A figure example.}
-\label{fig:view}
-
+\includegraphics[width=0.7\linewidth]{6state_3.pdf}
 \end{figure}
+
+\input{6state_eqs_3.tex}
+
 
 \section*{Results}
 
-\LaTeX{} is great at typesetting mathematics:
-
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-\begin{equation}
-\label{eq:CLT}
-S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i
-\end{equation}
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$. Thus concludes the explanation about Eq.~\ref{eq:CLT}.
+\subsection*{Model fitting to experimental data}
 
 
-You can make lists with automatic numbering \dots
+Loose the parameter boundaries and run the fitting again.
 
-\begin{enumerate}
-\item Like this,
-\item and like this.
-\end{enumerate}
+\subsection*{Energy based analysis of models of \Gls{nka} and comparision}
+The reduction of free energy available from ATP hydrolysis results in an accumulation of intracellular Na\textsuperscript{+} ions \cite{jansen2003energy},
+while increase in intracellular Pi and decreases in intracellular pH and ATP were associated with ischemic conditions \cite{huang1984regulation}.
 
-\dots or bullet points \dots
+ATP concentration ranges from 1.92–7.47 mM with average of 4.4 mM \cite{greiner_intracellular_2021},
+while the recent study showed lower diastolic cytosolic ATP levels (less than 1 mM) than previously estimated and fluctuations during excitation-contraction coupling \cite{rhana_fueling_2024}.
 
-\begin{itemize} 
-\item Like this,
-\item and like this.
-\end{itemize}
 
-\dots or with words and descriptions \dots
-
-\begin{description}
-\item[Word] Definition
-\item[Concept] Explanation
-\item[Idea] Text
-\end{description}
-
-An example quotation:
-
-\begin{quote}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-\end{quote}
 
 
 \section*{Discussion}
@@ -243,7 +169,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \section*{Conclusion}
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+ 
 
 \section*{Author Contributions}
 
@@ -251,7 +177,7 @@ Author1 designed the research. Author2 carried out all simulations, analyzed the
 
 \section*{Acknowledgments}
 
-We thank G. Harrison, B. Harper, and J. Doe for their help.
+
 
 % Uncomment if using bibtex (default)
 \bibliography{sample}
