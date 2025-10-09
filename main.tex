@@ -180,7 +180,17 @@ We build a 6-state model, in Figure \ref{fig:6state_v3}, based on the proposed s
       \end{subfigure}
 \end{figure}
 
-Loose the parameter boundaries and run the fitting again.
+Notes:
+\begin{itemize}
+      \item I had tried time course fitting (to save fitting time), the results are worse so I didn’t include them in the above figures.
+      6-state\_v3\_ss\_free is not included as well due to the poor fitting.
+      \item “ss” means that we fitted the steady state data, “\_free” means no constraints on the thermodynamical parameters of the NKE states.
+      \item In general, ss with the constraints fit the data better than the “free” ones.
+      \item The constraints mainly affect the figures with potential $V_m$ and $K_e$.
+      \item The voltage dependency (v1 vs v2) does not seem to affect the steady state. I will analyze their effect on the dynamics later.
+      \item The separation of  unbind of Na and ADP steps (v1 and v2 separated them while  v3 combined them) seems to be critical.
+\end{itemize}
+
 
 \subsection*{Energy based analysis of models of \Gls{nka} and comparision}
 The reduction of free energy available from ATP hydrolysis results in an accumulation of intracellular Na\textsuperscript{+} ions \cite{jansen2003energy},
@@ -189,8 +199,13 @@ while increase in intracellular Pi and decreases in intracellular pH and ATP wer
 ATP concentration ranges from 1.92–7.47 mM with average of 4.4 mM \cite{greiner_intracellular_2021},
 while the recent study showed lower diastolic cytosolic ATP levels (less than 1 mM) than previously estimated and fluctuations during excitation-contraction coupling \cite{rhana_fueling_2024}.
 
-
-
+TODO:
+\begin{itemize}
+      \item Thermodynamic efficiency of the pump under different conditions (vary ATP, ADP, Pi, pH, Na, K, V)
+      \item Compare the efficiency of different models
+      \item Compare the dynamics of different models
+      \item Compare the heat production of different models
+\end{itemize}
 
 \section*{Discussion}
 
