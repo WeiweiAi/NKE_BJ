@@ -1,0 +1,64 @@
+The equations for conservation of mass are expressed as below.
+\begin{align*}
+\frac{d q_m^1}{dt}&=v_m^{6}-v_m^{1}      &  \frac{d q_m^2}{dt} &=v_m^{1}-v_m^{2} \\  
+\frac{d q_m^3}{dt}&=v_m^{2}-v_m^{3}       &  \frac{d q_m^4}{dt}&=v_m^{3}-v_m^{4} \\
+\end{align*}
+
+The chemical potentials are given by the following.
+
+\begin{align*}
+\mu_m^1 & = RT\ln(K_1q_m^1) & \mu_m^2 & = RT\ln(K_2q_m^2) \\ 
+\mu_m^3 & = RT\ln(K_3q_m^3) & \mu_m^4 & = RT\ln(K_4q_m^4) \\ 
+\end{align*}
+
+\begin{align*}
+\mu_i^{K+} & = RT\ln(K_i^Kq_i^{K+}) & \mu_i^{Na+} & = RT\ln(K_i^{Na}q_i^{Na+}) & \mu_o^{Na+} & = RT\ln(K_o^{Na}q_o^{Na+}) & \mu_o^{K+} & = RT\ln(K_o^Kq_o^{K+})\\
+\mu_i^{ATP} & = RT\ln(K_i^{ATP}q_i^{ATP}) & \mu_i^{ADP} & = RT\ln(K_i^{ADP}q_i^{ADP}) & \mu_i^{P_i} & = RT\ln(K_i^{P_i}q_i^{P_i}) & \mu_i^{H} & = RT\ln(K_i^{H}q_i^{H}) \\
+\end{align*}
+
+The flow rates are given by:
+
+\begin{alignat*}{2}
+v_m^1 &= \kappa_1\left( K_1 q_m^1 (K_i^{Na} q_i^{Na+})^3 K_i^{ATP} q_i^{ATP}
+         - K_2 q_m^2 K_i^{ADP} q_i^{ADP}\right)
+&\qquad
+v_m^2 &= \kappa_2\left( K_2 q_m^2\exp\left( \frac{z_2 F u_m^e}{RT} \right)
+         - K_3 q_m^3 (K_o^{Na} q_o^{Na+})^3 \right) \\[6pt]
+v_m^3 &= \kappa_3\left( K_3 q_m^3 (K_o^{K} q_o^{K+})^2
+         - K_4 q_m^4 K_i^{P_i} q_i^{P_i} K_i^{H} q_i^{H}
+         \exp\left( \frac{z_2 F u_m^e}{RT} \right)\right)
+&\qquad
+v_m^4 &= \kappa_4\left( K_4 q_m^4 
+         - K_5 q_m^5 (K_i^{K} q_i^{K+})^2 \right) \\[6pt]
+&\qquad
+\end{alignat*}
+
+The constraint on the thermodynamicparameters of reaction $Rx_m^1$ is as follows:
+\begin{equation}
+      \label{eq:constraint1_4state}
+\dfrac{K_1(K_i^{Na}W_i)^3K_i^{ATP}W_i}{K_2} = \dfrac{1}{(K_{d,Na_i})^2 K_{d,Na_i}^0K_{d,ATP}}
+\end{equation}
+where $K_{d,Na_i}$ and $K_{d,Na_i}^0$ are voltage-independent dissociation constant and voltage-dependent dissociation constant of intracellular sodium respectively,
+$K_{d,ATP}$ is the dissociation constant of intracellular ATP.
+
+The constraint on the parameters of reaction $Rx_m^2$ is as follows:
+\begin{equation}
+      \label{eq:constraint2_4state}
+\dfrac{K_2}{K_3(K_o^{Na}W_o)^3} = \dfrac{(K_{d,Na_o})^2K_{d,Na_o}^0}{1}
+\end{equation}
+where $K_{d,Na_o}$ are voltage-independent dissociation constant of extracellular sodium.
+
+The constraint on the parameters of reaction $Rx_m^3$ is as follows:
+\begin{equation}
+      \label{eq:constraint3_4state}
+\dfrac{K_3(K_o^{K}W_o)^2}{K_4} = \dfrac{1}{(K_{d,K_o})^2}
+\end{equation}
+where $K_{d,K_o}$ is the dissociation constant of extracellular potassium.
+
+The constraint on the parameters of reaction $Rx_m^4$ is as follows:
+\begin{equation}
+      \label{eq:constraint4_4state}
+\dfrac{K_4}{K_1(K_i^{K}W_i)^2} = \dfrac{(K_{d,K_i})^2}{1}
+\end{equation}
+where $K_{d,K_i}$ is the dissociation constant of intracellular potassium.
+

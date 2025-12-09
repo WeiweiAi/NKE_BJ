@@ -1,0 +1,20 @@
+
+
+\begin{tikzpicture}[scale=0.75]
+% Add an arrow from (0,0) to (3,0) and the above text at the midpoint is $\mu$ (in red) and below text at the midpoint is $v$( in green)
+   \node[draw=black,fill=red!80!black!10, thick, rounded corners, inner sep=3pt,minimum height=3cm] (atp) {ATP Hydrolysis};
+   \node[draw=black,fill=red!80!black!10, thick, rounded corners, inner sep=10pt, minimum height=3cm, right=2cm of atp] (nka) {NKA};
+% nodes Na^+ storage, K^+ storage, membrane storage, heat production at the right of nka evenly spaced out in vertically
+   \node[rectred, right=2cm of nka, yshift=1.5cm] (Na_i) {Na$^+$ storage};
+   \node[rectred, right=2cm of nka, yshift=0cm] (K_i) {K$^+$ storage};
+   \node[rectred, right=2cm of nka, yshift=-1.5cm] (mem) {Membrane storage};
+   \node[rectred, above=1cm of nka] (heat) {Heat production};
+   \draw[arrow] (atp) -- (nka);
+   \draw[arrow] (nka) -- (Na_i);
+   \draw[arrow] (nka) -- (K_i);
+   \draw[arrow] (nka) -- (mem);
+   \draw[arrow] (nka) -- (heat);
+\end{tikzpicture}
+
+
+
