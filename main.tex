@@ -113,19 +113,24 @@ It is important to guarantee thermodynamic consistency in \Gls{nka} model develo
 
 \subsection*{Bond graph in systems biology}
 
-\begin{itemize}
-      \item Brief history of bond graph 
-      \item Application of bond graph in systems biology: Mehran's review paper \cite{akbarpour_ghazani_review_2024}, Melbourn's papers \cite{gawthrop_hierarchical_2015,gawthrop_bond_2017-1,gawthrop_energy-based_2014,gawthrop_energy-based_2017,gawthrop_energy-based_2021,gawthrop_hierarchical_2015,gawthrop_network_2022,pan_bond_2018,pan_bond_2019},
-      model composition \cite{shahidi_hierarchical_2021,shahidi_sbml_2022,safaei_bond_2018}, SLC transporters BJ paper\cite{hunter_energy-based_2025}     
-\end{itemize}
+Bond graphs are an energy-based modelling framework originally developed in the field of engineering \cite{paynter1961analysis,karnopp2012system,breedveld1985multibond}. A comprehensive review of bond graphs in systems biology can be found in \cite{akbarpour_ghazani_review_2024}.
+
+Gawthrop and Crampin \cite{gawthrop_energy-based_2014} pioneered the application of bond graphs to biochemical systems, demonstrating how bond graphs can ensure thermodynamic consistency in biochemical network models.
+They showed that bond graphs can be used to model metabolic networks while adhering to the laws of thermodynamics, and to facilitate model reduction while preserving structural and thermodynamic properties.
+The modularity of bond graphs was further explored to enable model composition with guaranteed thermodynamic consistency in \cite{gawthrop_hierarchical_2015,shahidi_hierarchical_2021,shahidi_sbml_2022,safaei_bond_2018}.
+The bond graph has been extended to include chemoelectrical transduction \cite{gawthrop_bond_2017-1}, which illustrates how the energy-based approach can explicitly account for the energy flows in excitable membranes.
+Pan et al. \cite{pan_bond_2018,pan_bond_2019} developed bond graph models of cardiac action potentials, demonstrating how the bond graph framework can be used to examine the conservation of physics and explain the model drift and non-unique steady states.
+In \cite{gawthrop_energy-based_2017}, they domonstrated how bond graphs can facilitate analysis of energy transduction in single transporters. More complex bond graph models with feedback control have been used in \cite{gawthrop_energy-based_2021}, where the authors integrate linear control theory with bond graph modelling to analyse energy flows in biochemical networks with cyclic flow modulation.
+These studies highlight the versatility and power of bond graphs in systems biology, particularly in ensuring thermodynamic consistency and facilitating energy-based analysis \cite{gawthrop_network_2022}.
 
 \section*{Methods}
 \subsection*{The bond graph modelling framework}
 
 Bond graphs provide a useful way of formulating and visualising a thermodynamically valid biophysical model because they ensure that mass, charge and energy are each conserved, and they clearly distinguish the mechanisms for (i) transmission of power, (ii) energy storage (mechanically in a spring, electrically in a capacitor or chemically in a solute dissolved in a solvent), (iii) energy dissipation to heat (a mechanical damper, an electrical resistance or a chemical reaction), and (iv) energy transfer between mechanical, electrical or biochemical domains. Most importantly they distinguish between the conservation laws of physics and the empirically measured constitutive parameters that characterise particular materials.
 
-In this article, we use a slightly deferent notation to that used in previous bond graph papers \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} to make the bond graph more accessible to a wider audience.
-The key concepts are illustrated in Figure~\ref{fig:bg_concepts}.
+In this article, we use a slightly deferent notation to that used in previous bond graph papers \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} to make the bond graph more accessible to a wider audience. 
+We refer the reader to \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} for more details of the bond graph methodology.
+Here, we only briefly introduce the key concepts of bond graph modelling relevant to this paper and explain the new notation used in the bond graph models of \Gls{nka}, as shown in in Figure~\ref{fig:bg_concepts}.
 Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $\mu$, and the product of flux $v$ and potential $\mu$ is power, i.e., $P=\mu\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power. In a dynamic system, the energy flow  $P(t)=\mu(t)\cdot v(t)$ direction may change over time, while a postive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
 
 If these bonds meet, the sum of powers must be zero $\sum \mu\cdot v=0$, to ensure power conservation. If they share a common potential $\mu$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux. Alternatively, if they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum \mu=0$ (for non-zero v), which is energy conservation.  
