@@ -50,7 +50,7 @@
 \begin{frontmatter}
 
 \begin{abstract}
-The sodium-potassium ATPase (NKA) consumes 19–28\% of cellular ATP and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions, approximately 65\% of energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which electrical conversion efficiency drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps. Energetic profiles serve as quantitative biomarkers for assessing NKA function and may inform therapeutic strategies for ion pump dysfunction in heart failure and other diseases. 
+The sodium-potassium ATPase (NKA) consumes 19–28\% of cellular ATP and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions, approximately 65\% of energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps. Energetic profiles serve as quantitative biomarkers for assessing NKA function and may inform therapeutic strategies for ion pump dysfunction in heart failure and other diseases. 
 \end{abstract}
 
 \begin{sigstatement}
@@ -68,11 +68,11 @@ The \gls{nka} is therefore critical to cellular function in all cell types and r
 
 In this paper we use a bond graph approach to examine a number of models of \gls{nka} in which mass, charge and energy are each conserved.
 We examine a previously published 15-state bond graph model,
-and then show how a much simpler 6-state model captures the biophysics of the pump, matches experimental data.
-We then mainly focus on how the bond graph facilitates analysis to examine the energy expenditure of the \Gls{nka} and energy storage and dissipation under different conditions.
+and then show how a much simpler 6-state model captures the biophysics of the pump and matches experimental data.
+We then examine the energy expenditure of the \Gls{nka} and energy storage and dissipation under different conditions.
 These enegergetic analyses are important to understand the efficiency of the \gls{nka} and its role in cellular energetics.
 We also discuss how the energetic analysis can provide insights into the physiological function of the \gls{nka} and its implications for cellular health and disease.
-We highlight energetic profiles of \gls{nka} under physiological and pathophysiological conditions can be used for model validation, model comparison and model selection for different applications.
+We show how energetic profiles of \gls{nka} under physiological and pathophysiological conditions can be used for model validation, model comparison and model selection for different applications.
 
 \subsection*{\Gls{nka} physiology and models}
 
@@ -90,26 +90,26 @@ cytoplasmic side-open (\textit{E1})\cite{nguyen_structural_2022}, ATP bound cyto
 (\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP})\cite{guo_cryo-em_2022}.
 Na\textsuperscript{+}-occluded (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}) \cite{nyblom_crystal_2013,kanai_crystal_2013,nguyen_structural_2022},
 and (\textit{E1\textperiodcentered [3Na]})\cite{guo_cryo-em_2022}.
-While these structural studies have provided insights into the molecular mechanism of the \Gls{nka}, Wagoner et al. found out that \gls{nka} achieved high speed and efficiency by ustilizing theses multiple conformational states \cite{wagoner_mechanisms_2019}.
+While these structural studies have provided insights into the molecular mechanism of \Gls{nka}, Wagoner et al. \cite{wagoner_mechanisms_2019} discorvered that \gls{nka} achieved high speed and efficiency by ustilizing theses multiple conformational states.
 
 Since the \Gls{nka} transports three Na\textsuperscript{+} ions outward and two K\textsuperscript{+} ions inward,
-the process gives rise to a net outward current and is therefore electrogenic\cite{apell_electrogenic_1989,glitsch_electrophysiology_2001}.
+the process gives rise to a net outward current and is therefore electrogenic \cite{apell_electrogenic_1989,glitsch_electrophysiology_2001}.
 That is, the \Gls{nka} contributes to the membrane potential and the transport rate is a function of the membrane potential.
 The electrogenicity of the \Gls{nka} has been studied experimentally and the main voltage-dependent steps are associated with the binding and release of Na\textsuperscript{+} ions \cite{nakao_voltage_1986,gadsby_extracellular_1993,wuddel_electrogenicity_1995,domaszewicz_binding_1999,holmgren_three_2000,holmgren_charge_2006,stanley_intracellular_2016}.
 More recently, the electrogenicity of extracellular K\textsuperscript{+} binding was also investigated \cite{peluffo_electrogenic_1997,castillo_mechanism_2015}
 while K\textsuperscript{+} uptake was found to be less voltage-dependent \cite{moreno_transient_2020,castillo_mechanism_2015}.
 
-Many kinetic \Gls{nka} models including varied number ofintermediate conformational states and partial reaction steps have been proposed \cite{post_flexibility_1969,karlish_conformational_1978,glynn_na_1985, apell_electrogenic_1989,terkildsen_balance_2007,guerra_multistate_2025}.
+Many kinetic \Gls{nka} models, including a varied number of intermediate conformational states and partial reaction steps, have been proposed \cite{post_flexibility_1969,karlish_conformational_1978,glynn_na_1985, apell_electrogenic_1989,terkildsen_balance_2007,guerra_multistate_2025}.
 Most of these models are based on the Albers-Post scheme \cite{albers_role_1963,post_activation_1972}.
 Terkildsen et al. \cite{terkildsen_balance_2007} developed a kinetic model of the \Gls{nka} including fifteen intermediate states, also based on the Albers-Post scheme.
 This model detailed the binding and release of Na\textsuperscript{+} and K\textsuperscript{+} ions and their voltage dependence.
-It also explicitly included the proton to enable the study of the effect of pH on the pump function,
+It also explicitly included the proton to enable the study of the effect of pH on pump function,
 which was found to be significant in ischemic conditions.
 The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model using a bond graph approach to ensure thermodynamic consistency.
 
 The \Gls{nka} consumes 19-28\% of the total ATP consumption in mammals, and up to 50-60\% in brain and kidney \cite{rolfe_cellular_1997}.
 The experimental study in guinea-pig cardiac ventricular muscle showed that the \Gls{nka} is responsible for 10\% of myocardial heat production during contraction, and 17\% at rest \cite{schramm1994energy}.
-It is important to guarantee thermodynamic consistency in \Gls{nka} model development. Hence, the bond graph is also used in this study, and more importantly we demonstrate how the bond graph facilitates energy-based analysis.
+It is therefore important to guarantee thermodynamic consistency in \Gls{nka} model development. Hence, the bond graph is also used in this study, and we demonstrate how this approach facilitates energy-based analysis.
 
 \subsection*{Bond graph in systems biology}
 
@@ -128,25 +128,25 @@ These studies highlight the versatility and power of bond graphs in systems biol
 
 Bond graphs provide a useful way of formulating and visualising a thermodynamically valid biophysical model because they ensure that mass, charge and energy are each conserved, and they clearly distinguish the mechanisms for (i) transmission of power, (ii) energy storage (mechanically in a spring, electrically in a capacitor or chemically in a solute dissolved in a solvent), (iii) energy dissipation to heat (a mechanical damper, an electrical resistance or a chemical reaction), and (iv) energy transfer between mechanical, electrical or biochemical domains. Most importantly they distinguish between the conservation laws of physics and the empirically measured constitutive parameters that characterise particular materials.
 
-In this article, we use a slightly deferent notation to that used in previous bond graph papers \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} to make the bond graph more accessible to a wider audience. 
+In this article, we use a slightly different notation to that used in previous bond graph papers \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} to make the bond graph more accessible to a wider audience. 
 We refer the reader to \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} for more details of the bond graph methodology.
 Here, we only briefly introduce the key concepts of bond graph modelling relevant to this paper and explain the new notation used in the bond graph models of \Gls{nka}, as shown in in Figure~\ref{fig:bg_concepts}.
-Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $\mu$, and the product of flux $v$ and potential $\mu$ is power, i.e., $P=\mu\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power. In a dynamic system, the energy flow  $P(t)=\mu(t)\cdot v(t)$ direction may change over time, while a postive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
+Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $u$, and the product of flux $v$ and potential $u$ is power, i.e., $P=u\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power flow. In a dynamic system, the energy flow  $P(t)=u(t)\cdot v(t)$ direction may change over time, while a postive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
 
-If these bonds meet, the sum of powers must be zero $\sum \mu\cdot v=0$, to ensure power conservation. If they share a common potential $\mu$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux. Alternatively, if they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum \mu=0$ (for non-zero v), which is energy conservation.  
+If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux. Alternatively, if they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation.  
 
 \begin{figure}[H]  
 \centering  
 \input{Fig1a.tex}
-\caption{(a) a bond, which transmits energy, carries a flow $v_j$ and a potential $\mu_j$;
+\caption{(a) a bond, which transmits energy, carries a flow $v_j$ and a potential $u_j$;
 (b) a 1 node is a bond junction, where the flow is the same for all bonds and therefore the sum of potentials is zero (conservation of energy);
 (c) a 0 node is a bond junction, where the potential is the same for all bonds and therefore the sum of flows is zero (conservation of mass or charge);
 (d) a 0 node is usually associated with capacitive energy storage;
-(e) a concise way to be more succinctly expressed by the red-bordered box where the potential $\mu_c^1$ is given by an empirically defined capacitive storage relationship $\mu_c^1=f(q_c^1)$.}
+(e) a concise way to be more succinctly expressed by the red-bordered box where the potential $u_j$ is given by an empirically defined capacitive storage relationship $u_j=f(q_j)$.}
 \label{fig:bg_concepts}
 \end{figure}
 
-The explicity expression of energy flows in bond graphs makes them particularly suitable for thermodynamic analysis of biochemical systems. For each component $j$ in the bond graph, the energy flow can be calculated as the sum of the power transmitted by each of its bonds, that is $P_j=\sum_{i = 1}^{k}  \mu_j^i \cdot v_j^i$ with $i=1,2,\ldots,k$ indicating the number of bonds connected to the component. For dynamic systems, the power can be integrated over time to give the total energy stored or dissipated by the component over the time interval $t_0$ to $t_1$, that is $E_j=\int_{t_0}^{t_1} P_j(t) \mathrm{d}t$.
+The explicit expression of energy flows in bond graphs makes them particularly suitable for thermodynamic analysis of biochemical systems. For each component $j$ in the bond graph, the energy flow can be calculated as the sum of the power transmitted by each of its bonds, that is $P_j=\sum_{i = 1}^{k}  u_j^i \cdot v_j^i$ with $i=1,2,\ldots,k$ indicating the number of bonds connected to the component. For dynamic systems, the power can be integrated over time to give the total energy stored or dissipated by the component over the time interval $t_0$ to $t_1$, that is $E_j=\int_{t_0}^{t_1} P_j(t) \mathrm{d}t$.
 
 The total energy storage and dissipation of the system can then be determined by summing the energy flows of all components. This allows for a detailed analysis of the energy budget of the system, including identifying which components are storing or dissipating the most energy, and how changes in system parameters affect the overall energy balance.
 
@@ -177,18 +177,18 @@ where the subscripts $i$ and $o$ denote intracellular and extracellular species,
 The energy released from \gls{atp} hydrolysis is used to drive the transport of Na\textsuperscript{+} and K\textsuperscript{+} ions against their electrochemical gradients. The Gibbs free energy change associated with \gls{atp} hydrolysis can be expressed as:
 \begin{equation}
       \label{eq:atp_hydrolysis}
-      \Delta G_{ATP} =  \mu_{ADP} + \mu_{P_i} + \mu_{H^+} - \mu_{ATP}
+      \Delta G_{ATP} =  u_{ADP} + u_{P_i} + u_{H^+} - u_{ATP}
 \end{equation}
-where $\mu_{ATP}$, $\mu_{ADP}$, $\mu_{P_i}$, and $\mu_{H^+}$ are the chemical potentials of \gls{atp}, \gls{adp}, \gls{pi}, and protons $H^+$, respectively.
+where $u_{ATP}$, $u_{ADP}$, $u_{P_i}$, and $u_{H^+}$ are the chemical potentials of \gls{atp}, \gls{adp}, \gls{pi}, and protons $H^+$, respectively.
 
 The thermodynamic efficiency of the \gls{nka} at steady state can be estimated using Equation \ref{eq:efficiency_estimate} \cite{wagoner_mechanisms_2019} below:
 \begin{equation}
       \label{eq:efficiency_estimate}
-      \eta_{est} = \frac{\left(3\mu_o^{Na^+} + 2\mu_i^{K^+}-3\mu_i^{Na^+}-2\mu_o^{K^+}-FV_m\right)}{\Delta G_{ATP}} \cdot 100\%
+      \eta_{est} = \frac{\left(3u_o^{Na^+} + 2u_i^{K^+}-3u_i^{Na^+}-2u_o^{K^+}-FV_m\right)}{\Delta G_{ATP}} \cdot 100\%
 \end{equation}
 
-where $\mu_i^{Na+}$ and $\mu_o^{Na+}$ are the chemical potentials of intracellular and extracellular Na\textsuperscript{+}, respectively,
-$\mu_i^{K+}$ and $\mu_o^{K+}$ are the chemical potentials of intracellular and extracellular K\textsuperscript{+}, respectively,
+where $u_i^{Na+}$ and $u_o^{Na+}$ are the chemical potentials of intracellular and extracellular Na\textsuperscript{+}, respectively,
+$u_i^{K+}$ and $u_o^{K+}$ are the chemical potentials of intracellular and extracellular K\textsuperscript{+}, respectively,
 $F$ is Faraday's constant, and $V_m$ is the membrane potential.
 
 Under physiological conditions, the membrane potential, particularly for cardiac cells, varies over time and the variation affects the thermodynamic efficiency of the \gls{nka} \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}. 
@@ -205,7 +205,7 @@ The energy flows in the \gls{nka} are shown in Figure \ref{fig:NKA}. ATP hydroly
 In this study, we perform a detailed energetic analysis of the \gls{nka} models using the bond graph framework to account for the time-varying nature of the membrane potential and other dynamic factors. The total energy supplied by \gls{atp} hydrolysis over a time interval $t$ can be calculated as:
 \begin{equation}
       \label{eq:energy_supply}
-      E_{supply} = \int_{0}^{t} \mu_{ATP} \cdot v_{ATP} \mathrm{d}t- \int_{0}^{t} \mu_{ADP} \cdot v_{ADP} \mathrm{d}t - \int_{0}^{t} \mu_{P_i} \cdot v_{P_i} \mathrm{d}t - \int_{0}^{t} \mu_{H^+} \cdot v_{H^+} \mathrm{d}t
+      E_{supply} = \int_{0}^{t} u_{ATP} \cdot v_{ATP} \mathrm{d}t- \int_{0}^{t} u_{ADP} \cdot v_{ADP} \mathrm{d}t - \int_{0}^{t} u_{P_i} \cdot v_{P_i} \mathrm{d}t - \int_{0}^{t} u_{H^+} \cdot v_{H^+} \mathrm{d}t
 \end{equation}
 
 where $v_{ATP}$, $v_{ADP}$, $v_{P_i}$, and $v_{H^+}$ are the flow rates of \gls{atp} hydrolysis, \gls{adp} production, \gls{pi} production, and proton production, respectively. 
@@ -221,11 +221,11 @@ where $A^f_{i}$ and $A^r_{i}$ are the forward and reverse affinities of reaction
  The chemical energy stored in the concentration gradients of Na\textsuperscript{+} and K\textsuperscript{+} concentration gradients across the cell membrane can be calculated as:
 \begin{equation}
       \label{eq:energy_storage_Na}
-      E_{storage}^{Na^+} = \int_{0}^{t}\mu_o^{Na+} \cdot v_o^{Na+} \mathrm{d}t- \int_{0}^{t} \mu_i^{Na+} \cdot v_i^{Na+}  \mathrm{d}t 
+      E_{storage}^{Na^+} = \int_{0}^{t}u_o^{Na+} \cdot v_o^{Na+} \mathrm{d}t- \int_{0}^{t} u_i^{Na+} \cdot v_i^{Na+}  \mathrm{d}t 
 \end{equation}
 \begin{equation}
       \label{eq:energy_storage_K}
-      E_{storage}^{K^+} =  \int_{0}^{t}\mu_i^{K+} \cdot v_i^{K+} \mathrm{d}t- \int_{0}^{t} \mu_o^{K+} \cdot v_o^{K+}  \mathrm{d}t 
+      E_{storage}^{K^+} =  \int_{0}^{t}u_i^{K+} \cdot v_i^{K+} \mathrm{d}t- \int_{0}^{t} u_o^{K+} \cdot v_o^{K+}  \mathrm{d}t 
 \end{equation}
 where $v_i^{Na+}$ and $v_o^{Na+}$ are the flow rates of intracellular and extracellular Na\textsuperscript{+}, respectively;
 $v_i^{K+}$ and $v_o^{K+}$ are the flow rates of intracellular and extracellular K\textsuperscript{+}, respectively.
@@ -239,7 +239,7 @@ The total stored chemical energy can then be calculated as:
 The electrical energy stored in the membrane potential can be calculated as:
 \begin{equation}  
       \label{eq:electrical_energy}
-      E_{storage}^{electrical} = \int_{0}^{t} V_m \cdot i_{m} \mathrm{d}t
+      E_{storage}^{electrical} = \int_{0}^{t} u_m^e \cdot v_m^e \mathrm{d}t
 \end{equation}
 where $V_m$ is the membrane potential and $i_{m}$ is the current mediated by the \gls{nka}.
 
@@ -285,15 +285,15 @@ Since \gls{atp} hydrolysis serves as the energy source for the \gls{nka}, the fr
 The $\Delta G_{ATP}$ depends on the concentrations of \gls{atp}, \gls{adp}, \gls{pi}, and $H^+$ (i.e, pH value).
 
 The intracellular\gls{atp} concentration ranges from 1.92–7.47 $mM$ with average of 4.4 $mM$ \cite{greiner_intracellular_2021},
-while the recent study showed lower diastolic cytosolic \gls{atp} levels around 457 $\pm 47\mu M$ (less than 1 mM) than previously estimated and fluctuations during excitation-contraction coupling \cite{rhana_fueling_2024}.
+while the recent study showed lower diastolic cytosolic \gls{atp} levels around 457 $\pm 47u M$ (less than 1 mM), which is less than previously estimated, and fluctuations during excitation-contraction coupling \cite{rhana_fueling_2024}.
 
-The cytosolic \gls{adp} concentrations of in situ mouse, rat and guinea pig heart is 13, 18 and 22 $\mu M$ \cite{dobson_heart_2002}, respectively, while the extrapolated value in human heart is 45.66 $\mu M$  with 70 kg body weight.
+The cytosolic \gls{adp} concentrations of in situ mouse, rat and guinea pig heart are 13, 18 and 22 $u M$ \cite{dobson_heart_2002}, respectively, while the extrapolated value in human heart is 45.66 $u M$  with 70 kg body weight.
 The experimental observation of \gls{pi} in the heart in vivo has not been studied yet, while the baseline \gls{pi} of a model prediction in the canine myocyte cytoplasm is around 0.29 mM and increases with work rate in heart cells \cite{wu_phosphate_2008}.
 
 
-The model simulation reported the \gls{atp}, \gls{adp}, \gls{pi} and pH values of 5.61 mM, 25.4 $\mu M$, 1.16 mM and 7.15 in \cite{tran_regulation_2015}. In general, the physiological intracellular pH ranges from 7.15 to 7.25 \cite{orlowski_intracellular_2025}
+The model simulation \cite{tran_regulation_2015} reported \gls{atp}, \gls{adp}, \gls{pi} and pH values of 5.61 mM, 25.4 $u M$, 1.16 mM and 7.15, respectively. In general, the physiological intracellular pH ranges from 7.15 to 7.25 \cite{orlowski_intracellular_2025}
 
-Intracellular Na\textsuperscript{+} concentration is normally from 4 to 16 mM \cite{bers_intracellular_2003}, while the level can rise to 3 mM higher in heart failure conditions \cite{despa_intracellular_2002}. This increase was due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged \cite{despa_intracellular_2002}.
+Intracellular Na\textsuperscript{+} concentration is normally from 4 to 16 mM \cite{bers_intracellular_2003}, while the level can rise by 3 mM above this value in heart failure conditions \cite{despa_intracellular_2002}. This increase was due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged \cite{despa_intracellular_2002}.
 Around 98 \% potassium (K\textsuperscript{+}) resides in the cytosol at 140-150 mM and the extracellular K\textsuperscript{+} concentration ranges from 3.5 to 5 mM \cite{zacchia_potassium_2016}.
 
 We use the simulation conditions as shown in Table \ref{tab:default_parameters} to examine the distribution of energy flows in different \gls{nka} models. In addition, we vary one parameter at a time to investigate its effect on the function and energetics of the \gls{nka} and varied values are shown in the results section.
@@ -343,7 +343,7 @@ We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-s
       \includegraphics[width=\linewidth]{figures/NKE_BG_6_state_fig3c_fit.eps}
       \caption{Data from Figure 3c in \cite{pan_cardiac_2020}}
 \end{subfigure}
-\caption{Fit of \gls{nka} models to experimental data and Terkildsen model after correction in \cite{pan_cardiac_2020}. The solid lines are simulated data from kinetic model in \cite{pan_cardiac_2020}, while the solid dots are experimental data. The dashed lines are simulated data from the steady-state 6-state bond graph model, and the crossed dots are produced by the full 6-state bond graph model. (a) \gls{nka} current-voltage relationship at different extracellular Na\textsuperscript{+} concentrations; (b) \gls{nka} current as a function of intracellular Na\textsuperscript{+} concentration; (c) \gls{nka} current as a function of extracellular K\textsuperscript{+} concentration;  (d) \gls{nka} current as a function of ATP concentration. The simulation conditions are the same as in \cite{pan_cardiac_2020}.}
+\caption{Fit of \gls{nka} models to experimental data and Terkildsen model after correction in \cite{pan_cardiac_2020}. The solid lines are simulated data from the kinetic model in \cite{pan_cardiac_2020}, while the solid dots are experimental data. The dashed lines are simulated data from the steady-state 6-state bond graph model, and the '+' symbols are produced by the full 6-state bond graph model. (a) \gls{nka} current-voltage relationship at different extracellular Na\textsuperscript{+} concentrations; (b) \gls{nka} current as a function of intracellular Na\textsuperscript{+} concentration; (c) \gls{nka} current as a function of extracellular K\textsuperscript{+} concentration;  (d) \gls{nka} current as a function of ATP concentration. The simulation conditions are the same as in \cite{pan_cardiac_2020}.}
 \label{fig:model_fit} 
 \end{figure}
 

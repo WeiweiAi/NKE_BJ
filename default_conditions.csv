@@ -1,9 +1,9 @@
 Parameter,Description,Value,Units,References
-$c_{Nai}$,Intracellular Sodium Concentration,10.0,mM,"despa_intracellular_2002,bers_intracellular_2003"
-$c_{Nao}$,Extracellular Sodium Concentration,140.0,mM,"despa_intracellular_2002,bers_intracellular_2003"
-$c_{Ki}$,Intracellular Potassium Concentration,145,mM,zacchia_potassium_2016
-$c_{Ko}$,Extracellular Potassium Concentration,4.5,mM,zacchia_potassium_2016
-$c_{ATP}$,Intracellular ATP Concentration,1,mM,rhana_fueling_2024
-$c_{ADP}$,Intracellular ADP Concentration,0.035,mM,dobson_heart_2002
-$c_{Pi}$,Intracellular Inorganic Phosphate Concentration,0.8,mM,tran_regulation_2015
+$c_{Nai}$,Intracellular sodium concentration,10.0,mM,"despa_intracellular_2002,bers_intracellular_2003"
+$c_{Nao}$,Extracellular sodium concentration,140.0,mM,"despa_intracellular_2002,bers_intracellular_2003"
+$c_{Ki}$,Intracellular potassium concentration,145,mM,zacchia_potassium_2016
+$c_{Ko}$,Extracellular potassium concentration,4.5,mM,zacchia_potassium_2016
+$c_{ATP}$,Intracellular ATP concentration,1,mM,rhana_fueling_2024
+$c_{ADP}$,Intracellular ADP concentration,0.035,mM,dobson_heart_2002
+$c_{Pi}$,Intracellular inorganic phosphate concentration,0.8,mM,tran_regulation_2015
 pH,Intracellular pH,7.2,dimensionless,orlowski_intracellular_2025

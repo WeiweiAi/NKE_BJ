@@ -78,13 +78,9 @@
 }
 
 \node[rectred,left=\sepp of left-7-1] (Ko)  {$q_o^{K^+}$} ;
-\node[bluecycle,right=2mm of Ko] (zko)   {\textcolor{white}{$2$}} ;
 \node[rectred,below=13mm of Ko] (Nao)  {$q_o^{Na^+}$} ;
-\node[bluecycle,right=6mm of Nao] (zNao)   {\textcolor{white}{$3$}} ;
 \node[rectred,right=\sepp of right-1-1] (Nai)   {$q_i^{Na^+}$} ;
-\node[bluecycle,left=2mm of Nai] (z3)   {\textcolor{white}{$3$}} ;
 \node[rectred,above=16mm of Nai] (Ki)  {$q_i^{K^+}$} ;
-\node[bluecycle,left=6mm of Ki] (zki)   {\textcolor{white}{$2$}} ;
 \node[rectred,right=\sepp of left-1-1] (Pi)  {$q_i^{P_i}$} ;
 \node[rectred,below=\sep of Pi] (H)  {$q_i^{H}$} ;
 \node[rectred,below=\sep of Nai] (ATP)  {$q_i^{ATP}$} ;
@@ -104,7 +100,10 @@
 \draw[arrow] (left-1-1) -- (Pi);
 \draw[arrow] (left-1-1) -- (H);
 \draw[arrow] (ATP) -- (right-1-1);
-
+\node[bluecycle,right=2mm of Ko] (zko)   {\textcolor{white}{$2$}} ;
+\node[bluecycle,right=6mm of Nao] (zNao)   {\textcolor{white}{$3$}} ;
+\node[bluecycle,left=2mm of Nai] (z3)   {\textcolor{white}{$3$}} ;
+\node[bluecycle,left=6mm of Ki] (zki)   {\textcolor{white}{$2$}} ;
 %=========================
 % Background shading
 %=========================

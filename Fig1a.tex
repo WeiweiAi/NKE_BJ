@@ -4,27 +4,27 @@
 
 \begin{subfigure}[b]{0.2\textwidth}
 \begin{tikzpicture}
-% Add an arrow from (0,0) to (3,0) and the above text at the midpoint is $\mu$ (in red) and below text at the midpoint is $v$( in green)
+% Add an arrow from (0,0) to (3,0) and the above text at the midpoint is $u$ (in red) and below text at the midpoint is $v$( in green)
 % 
-    \draw[arrow] (0,0) -- (3,0) node[midway, above, red] {$\mu$} node[midway, below, green] {$v$};
+    \draw[arrow] (0,0) -- (3,0) node[midway, above, red] {$u$} node[midway, below, green] {$v$};
 \end{tikzpicture}
 \caption{}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.2\textwidth}
-% one junction- a ellipse (0:\mu_j^i) with five arrows pointing into it
+% one junction- a ellipse (0:u_j^i) with five arrows pointing into it
 % at the start of each arrow, only showing u_j^0, v_j^1, v_j^2, v_j^3, v_j^4, not the end of the arrow
-% not showing the \mu_j^i at the start of each arrow
+% not showing the u_j^i at the start of each arrow
 % the arrows should point towards the ellipse
 % the arrows should be evenly spaced out around the ellipse
 \begin{tikzpicture}
   % Arrows first, aimed at node 'zero'
-  \node[greencycle, inner sep=3pt] (one) {1:$v_j^c$};
-  \node[red](u0) at ($(one) + (90:2cm)$) {$\mu_j^0$};
-  \node[red](u1) at ($(one) + (162:2cm)$) {$\mu_j^1$};
-  \node[red](u2) at ($(one) + (234:2cm)$) {$\mu_j^2$};
-  \node[red](u3) at ($(one) + (306:2cm)$) {$\mu_j^3$};
-  \node[red](u4) at ($(one) + (18:2cm)$) {$\mu_j^4$};
+  \node[greencycle, inner sep=3pt] (one) {1:$v_j$};
+  \node[red](u0) at ($(one) + (90:2cm)$) {$u_j^0$};
+  \node[red](u1) at ($(one) + (162:2cm)$) {$u_j^1$};
+  \node[red](u2) at ($(one) + (234:2cm)$) {$u_j^2$};
+  \node[red](u3) at ($(one) + (306:2cm)$) {$u_j^3$};
+  \node[red](u4) at ($(one) + (18:2cm)$) {$u_j^4$};
     \draw[arrow] (u0) -- (one);
     \draw[arrow] (u1) -- (one);
     \draw[arrow] (u2) -- (one);
@@ -36,13 +36,13 @@
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.2\textwidth}
-% zero junction- a ellipse (0:\mu_j^i) with five arrows pointing into it
+% zero junction- a ellipse (0:u_j^i) with five arrows pointing into it
 % at the start of each arrow, only showing v_j^0, v_j^1, v_j^2, v_j^3, v_j^4, not the end of the arrow
-% not showing the \mu_j^i at the start of each arrow
+% not showing the u_j^i at the start of each arrow
 % the arrows should point towards the ellipse
 % the arrows should be evenly spaced out around the ellipse
 \begin{tikzpicture}
-  \node[fill=red!80!black!10, thick, rounded corners, inner sep=3pt] (zero) {0:$\mu_j^c$};
+  \node[fill=red!80!black!10, thick, rounded corners, inner sep=3pt] (zero) {0:$u_j$};
   \node[green](v0) at ($(zero) + (90:2cm)$) {$v_j^0$};
   \node[green](v1) at ($(zero) + (162:2cm)$) {$v_j^1$};
   \node[green](v2) at ($(zero) + (234:2cm)$) {$v_j^2$};
@@ -60,15 +60,15 @@
 \hfill
 \begin{subfigure}[b]{0.2\textwidth}
 \begin{tikzpicture}[node distance=12mm ]
-\node[fill=red!80!black!10, thick, rounded corners, inner sep=3pt] (zero) {0:$\mu_j^c$};
+\node[fill=red!80!black!10, thick, rounded corners, inner sep=3pt] (zero) {0:$u_j$};
 % a node above the zero node
-\node[fill=green!80!black!10, thick, rounded corners, inner sep=3pt, above of=zero] (C) {C:$q_c^1$};
+\node[fill=green!80!black!10, thick, rounded corners, inner sep=3pt, above of=zero] (C) {C:$q_j$};
 \draw[arrow] (zero) -- (C);
 % two arrows pointing into the zero node from left and another two pointing out of the zero node to the right
-\node[green](vL1) at ($(zero) + (180:2cm)$) {$v_j^1$};
-\node[green](vL2) at ($(zero) + (150:2cm)$) {$v_j^2$};
-\node[green](vR1) at ($(zero) + (0:2cm)$) {$v_j^3$};
-\node[green](vR2) at ($(zero) + (30:2cm)$) {$v_j^4$};
+\node[green](vL1) at ($(zero) + (180:2cm)$) {$v_j^0$};
+\node[green](vL2) at ($(zero) + (150:2cm)$) {$v_j^1$};
+\node[green](vR1) at ($(zero) + (0:2cm)$) {$v_j^2$};
+\node[green](vR2) at ($(zero) + (30:2cm)$) {$v_j^3$};
 \draw[arrow] (vL1) -- (zero);
 \draw[arrow] (vL2) -- (zero);
 \draw[arrow] (zero) -- (vR1);
@@ -80,12 +80,12 @@
 \begin{subfigure}[b]{0.2\textwidth}
 \begin{tikzpicture}[node distance=12mm ]
 % node at the right of the zero and C nodes, in the middle vertically
-\node[rectred] (combined) {$q_c^1$};
+\node[rectred] (combined) {$q_j$};
 % similar layout of the arrows around the combined node
-\node[green](vL1b) at ($(combined) + (180:2cm)$) {$v_j^1$};
-\node[green](vL2b) at ($(combined) + (150:2 cm)$) {$v_j^2$};
-\node[green](vR1b) at ($(combined) + (0:2cm)$) {$v_j^3$};
-\node[green](vR2b) at ($(combined) + (30:2cm)$) {$v_j^4$};
+\node[green](vL1b) at ($(combined) + (180:2cm)$) {$v_j^0$};
+\node[green](vL2b) at ($(combined) + (150:2 cm)$) {$v_j^1$};
+\node[green](vR1b) at ($(combined) + (0:2cm)$) {$v_j^2$};
+\node[green](vR2b) at ($(combined) + (30:2cm)$) {$v_j^3$};
 \draw[arrow] (vL1b) -- (combined);  
 \draw[arrow] (vL2b) -- (combined);
 \draw[arrow] (combined) -- (vR1b);
