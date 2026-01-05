@@ -50,7 +50,7 @@
 \begin{frontmatter}
 
 \begin{abstract}
-The sodium-potassium ATPase (NKA) consumes 19–28\% of cellular ATP and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions, approximately 65\% of energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps. Energetic profiles serve as quantitative biomarkers for assessing NKA function and may inform therapeutic strategies for ion pump dysfunction in heart failure and other diseases. 
+The sodium-potassium ATPase (NKA) consumes 19–28\% of cellular ATP and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions, approximately 65\% of the energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps.
 \end{abstract}
 
 \begin{sigstatement}
@@ -70,7 +70,7 @@ In this paper we use a bond graph approach to examine a number of models of \gls
 We examine a previously published 15-state bond graph model,
 and then show how a much simpler 6-state model captures the biophysics of the pump and matches experimental data.
 We then examine the energy expenditure of the \Gls{nka} and energy storage and dissipation under different conditions.
-These enegergetic analyses are important to understand the efficiency of the \gls{nka} and its role in cellular energetics.
+These energetic analyses are important to understand the efficiency of the \gls{nka} and its role in cellular energetics.
 We also discuss how the energetic analysis can provide insights into the physiological function of the \gls{nka} and its implications for cellular health and disease.
 We show how energetic profiles of \gls{nka} under physiological and pathophysiological conditions can be used for model validation, model comparison and model selection for different applications.
 
@@ -90,7 +90,7 @@ cytoplasmic side-open (\textit{E1})\cite{nguyen_structural_2022}, ATP bound cyto
 (\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP})\cite{guo_cryo-em_2022}.
 Na\textsuperscript{+}-occluded (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}) \cite{nyblom_crystal_2013,kanai_crystal_2013,nguyen_structural_2022},
 and (\textit{E1\textperiodcentered [3Na]})\cite{guo_cryo-em_2022}.
-While these structural studies have provided insights into the molecular mechanism of \Gls{nka}, Wagoner et al. \cite{wagoner_mechanisms_2019} discorvered that \gls{nka} achieved high speed and efficiency by ustilizing theses multiple conformational states.
+While these structural studies have provided insights into the molecular mechanism of \Gls{nka}, Wagoner et al. \cite{wagoner_mechanisms_2019} discovered that \gls{nka} achieved high speed and efficiency by ustilizing theses multiple conformational states.
 
 Since the \Gls{nka} transports three Na\textsuperscript{+} ions outward and two K\textsuperscript{+} ions inward,
 the process gives rise to a net outward current and is therefore electrogenic \cite{apell_electrogenic_1989,glitsch_electrophysiology_2001}.
@@ -107,7 +107,7 @@ It also explicitly included the proton to enable the study of the effect of pH o
 which was found to be significant in ischemic conditions.
 The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model using a bond graph approach to ensure thermodynamic consistency.
 
-The \Gls{nka} consumes 19-28\% of the total ATP consumption in mammals, and up to 50-60\% in brain and kidney \cite{rolfe_cellular_1997}.
+The \Gls{nka} consumes 19-28\% of the total ATP consumption in mammals, and up to 50-60\% in the brain and kidney \cite{rolfe_cellular_1997}.
 The experimental study in guinea-pig cardiac ventricular muscle showed that the \Gls{nka} is responsible for 10\% of myocardial heat production during contraction, and 17\% at rest \cite{schramm1994energy}.
 It is therefore important to guarantee thermodynamic consistency in \Gls{nka} model development. Hence, the bond graph is also used in this study, and we demonstrate how this approach facilitates energy-based analysis.
 
@@ -120,7 +120,7 @@ They showed that bond graphs can be used to model metabolic networks while adher
 The modularity of bond graphs was further explored to enable model composition with guaranteed thermodynamic consistency in \cite{gawthrop_hierarchical_2015,shahidi_hierarchical_2021,shahidi_sbml_2022,safaei_bond_2018}.
 The bond graph has been extended to include chemoelectrical transduction \cite{gawthrop_bond_2017-1}, which illustrates how the energy-based approach can explicitly account for the energy flows in excitable membranes.
 Pan et al. \cite{pan_bond_2018,pan_bond_2019} developed bond graph models of cardiac action potentials, demonstrating how the bond graph framework can be used to examine the conservation of physics and explain the model drift and non-unique steady states.
-In \cite{gawthrop_energy-based_2017}, they domonstrated how bond graphs can facilitate analysis of energy transduction in single transporters. More complex bond graph models with feedback control have been used in \cite{gawthrop_energy-based_2021}, where the authors integrate linear control theory with bond graph modelling to analyse energy flows in biochemical networks with cyclic flow modulation.
+In \cite{gawthrop_energy-based_2017}, they demonstrated how bond graphs can facilitate analysis of energy transduction in single transporters. More complex bond graph models with feedback control have been used in \cite{gawthrop_energy-based_2021}, where the authors integrate linear control theory with bond graph modelling to analyse energy flows in biochemical networks with cyclic flow modulation.
 These studies highlight the versatility and power of bond graphs in systems biology, particularly in ensuring thermodynamic consistency and facilitating energy-based analysis \cite{gawthrop_network_2022}.
 
 \section*{Methods}
@@ -154,8 +154,18 @@ The total energy storage and dissipation of the system can then be determined by
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\linewidth]{6state_1.pdf}
-\caption{Bond graph model of \Gls{nka} with 6 states and substeps of reaction. (1) The enzyme ($E_i$) binds three intracellular Na\textsuperscript{+} ions from the cytoplasm and ATP binds to the enzyme-3Na\textsuperscript{+} complex, leading to ($E_i\cdot ATP \cdot 3Na^+$); (2) The enzyme-3Na\textsuperscript{+}-ATP complex undergoes phosphorylation and ADP is released, leading to the formation of the enzyme-3Na\textsuperscript{+}-P complex ($E_i\cdot P_i \cdot 3Na^+$); (3) The enzyme-3Na\textsuperscript{+}-P complex undergoes a conformational change to the exoplasmic side-open state, releasing three Na\textsuperscript{+} ions to the extracellular space ($E_o\cdot P_i$); (4) Two extracellular K\textsuperscript{+} ions bind to the enzyme in the exoplasmic side-open state, leading to enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$); (5) The enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$) undergoes dephosphorylation, releasing $P_i$ and $H^+$, ending up with the enzyme-2K\textsuperscript{+} complex ($E_o\cdot 2K^+$); (6) The enzyme-2K\textsuperscript{+} complex ($E_o\cdot 2K^+$) undergoes a conformational change to the cytoplasmic side-open state ($E_i$), leading to the release of two K\textsuperscript{+} ions into the cytoplasm.}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{6state_1_chem.pdf}
+      \caption{Reacation scheme.}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.55\textwidth}
+      \centering
+\includegraphics[width=\linewidth]{6state_1.pdf}
+\caption{Bond graph representation.}
+\end{subfigure}
+\caption{ The reaction scheme and bond graph representation of the \gls{nka}. (1) The enzyme ($E_i$) binds three intracellular Na\textsuperscript{+} ions from the cytoplasm and ATP binds to the enzyme-3Na\textsuperscript{+} complex, leading to ($E_i\cdot ATP \cdot 3Na^+$); (2) The enzyme-3Na\textsuperscript{+}-ATP complex undergoes phosphorylation and ADP is released, leading to the formation of the enzyme-3Na\textsuperscript{+}-P complex ($E_i\cdot P_i \cdot 3Na^+$); (3) The enzyme-3Na\textsuperscript{+}-P complex undergoes a conformational change to the exoplasmic side-open state, releasing three Na\textsuperscript{+} ions to the extracellular space ($E_o\cdot P_i$); (4) Two extracellular K\textsuperscript{+} ions bind to the enzyme in the exoplasmic side-open state, leading to enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$); (5) The enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$) undergoes dephosphorylation, releasing $P_i$ and $H^+$, ending up with the enzyme-2K\textsuperscript{+} complex ($E_o\cdot 2K^+$); (6) The enzyme-2K\textsuperscript{+} complex ($E_o\cdot 2K^+$) undergoes a conformational change to the cytoplasmic side-open state ($E_i$), leading to the release of two K\textsuperscript{+} ions into the cytoplasm.}
 \label{fig:6state_v1}
 \end{figure}
 
@@ -170,11 +180,17 @@ while splitting the release of \gls{adp} and Na\textsuperscript{+} into two step
 The \gls{nka} extrudes three Na\textsuperscript{+} ions from the intracellular space and imports two K\textsuperscript{+} ions into the cell per molecule of \gls{atp} hydrolyzed. The overall reaction can be summarised as:
 \begin{equation}
       \label{eq:nka_reaction}
-      ATP + 3Na^+_i + 2K^+_o \rightarrow ADP + P_i + 3Na^+_o + 2K^+_i + H^+
+      ATP + 3Na^+_i + 2K^+_o \rightleftharpoons  ADP + P_i + 3Na^+_o + 2K^+_i + H^+
 \end{equation}
 where the subscripts $i$ and $o$ denote intracellular and extracellular species, respectively.
 
-The energy released from \gls{atp} hydrolysis is used to drive the transport of Na\textsuperscript{+} and K\textsuperscript{+} ions against their electrochemical gradients. The Gibbs free energy change associated with \gls{atp} hydrolysis can be expressed as:
+The \gls{atp} hydrolysis reaction is exergonic under physiological conditions, releasing free energy that drives the active transport of Na\textsuperscript{+} and K\textsuperscript{+} ions against their electrochemical gradients. The chemical reaction for \gls{atp} hydrolysis is given by:
+\begin{equation}
+      \label{eq:atp_hydrolysis_reaction}
+      ATP + H_2O \rightleftharpoons  ADP + P_i + H^+
+\end{equation}
+
+The Gibbs free energy change associated with \gls{atp} hydrolysis can be expressed as:
 \begin{equation}
       \label{eq:atp_hydrolysis}
       \Delta G_{ATP} =  u_{ADP} + u_{P_i} + u_{H^+} - u_{ATP}
@@ -319,7 +335,7 @@ Parameter & Description & Value & Units & References\\
 
 \section*{Results}
 \subsection*{Fit 6-state \gls{nka} models to experimental data}
-We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-state bond graph model to the experimental data, shown in Figure \ref{fig:model_fit}. 
+We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-state bond graph model to the experimental data using the differential evolution method in SciPy, shown in Figure \ref{fig:model_fit}. 
 
 \begin{figure}[htbp]
 \centering
