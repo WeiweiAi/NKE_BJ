@@ -37,6 +37,130 @@ v_m^6 &= \kappa_6\left( K_6 q_m^6
          - K_7 q_m^7 (K_i^{K} q_i^{K+})^2
          \exp\left( \frac{z_1 F u_m^e}{RT} \right)\right)
 \end{alignat*}
+
+To derive an analytic formula for the steady state behaviour of the 6-state model,
+we make the assumption that the substrates are present in much higher quantities than the membrane-bound transporter (the Briggs-Haldane assumption \cite{briggs1925note}),
+and that the cycle is therefore transitioning through the 6 states at a constant steady-state rate $v$.
+Under these assumptions, the steady state flux of the 6-state model can be derived as:
+\begin{equation}
+\label{eq:flux_6state} 
+  v^{\mathrm{NKE}} =
+\frac{K_6 \kappa_6 q_{\mathrm{tot}}}{C - AD}
+\left[
+\left(
+\frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}
+\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}
+{\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+-
+\left(
+\frac{\bar{q}_i^{\mathrm{K}^+}}{\bar{q}_o^{\mathrm{K}^+}}
+\right)^2
+e^{-\frac{F u_m^e}{R T}}
+\right]  
+\end{equation}
+where
+\begin{equation}
+A =
+\left(
+\frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}
+\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}
+{\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+-
+\left(
+\frac{\bar{q}_i^{\mathrm{K}^+}}{\bar{q}_o^{\mathrm{K}^+}}
+\right)^2
+e^{-\frac{F u_m^e}{R T}}
+\end{equation}
+
+\begin{equation}
+ B =
+\left(
+\frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}
+\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}
+{\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+\, e^{-\frac{z_2 F u_m^e}{R T}}
+\left[
+\Lambda_4 +
+\left(
+\Lambda_5 +
+\frac{1}{\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+\right)
+\left(
+\bar{q}_o^{\mathrm{K}^+}
+\right)^2
+\right]
+\end{equation}
+
+\begin{equation}
+      C =
+\left\{
+\frac{\Lambda_1}{\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
++
+\left(
+\Lambda_2 \, \bar{q}_i^{\mathrm{ADP}} + \Lambda_3
+\right)
+\left(
+\bar{q}_i^{\mathrm{Na}^+}
+\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}
+{\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
++
+B
+\right\}
+\left\{
+\frac{\lambda_1 + \lambda_2}
+{\bar{q}_i^{\mathrm{ADP}} \left( \bar{q}_o^{\mathrm{Na}^+} \right)^3}
++
+\frac{\lambda_3}
+{\left( \bar{q}_o^{\mathrm{Na}^+} \right)^3}
++
+\left(
+\lambda_4 + \lambda_5 + \bar{q}_i^{P_i} \, \bar{q}_i^{H}
+\right)
+\left(
+\bar{q}_o^{\mathrm{K}^+}
+\right)^{-2}
+e^{\frac{z_2 F u_m^e}{R T}}
+\right\}
+\end{equation}
+
+\begin{equation}
+D =
+\Lambda_2 \lambda_1
++
+\Lambda_5 \lambda_4
++
+\frac{\lambda_4 + \lambda_5}
+{\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
++
+\Lambda_3
+\frac{\lambda_1 + \lambda_2}
+{\bar{q}_i^{\mathrm{ADP}}}
++
+\left[
+\frac{(\lambda_1 + \lambda_2)\,
+\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+{\bar{q}_i^{\mathrm{ATP}}}
++
+\frac{\lambda_3 \,
+\bar{q}_i^{\mathrm{ADP}} \,
+\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+{\bar{q}_i^{\mathrm{ATP}}}
+\right]
+\frac{B}
+{\left( \bar{q}_i^{\mathrm{Na}^+} \right)^3}
+\end{equation}
+
+$\lambda_i=\frac{\kappa_6}{\kappa_i}$, and $\Lambda_i=\frac{K_6}{K_i}$ for $i=1,2,...,5$.
+
+\begin{align*}
+\bar{q}_i^{\mathrm{K}^+} & = K_i^Kq_i^{K+} & \bar{q}_i^{\mathrm{Na}^+} & = K_i^{Na}q_i^{Na+} & \bar{q}_o^{\mathrm{Na}^+} & = K_o^{Na}q_o^{Na+} & \bar{q}_o^{\mathrm{K}^+} & = K_o^{K}q_o^{K+}\\
+\bar{q}_i^{\mathrm{ATP}} & = K_i^{ATP}q_i^{ATP} & \bar{q}_i^{\mathrm{ADP}} & = K_i^{ADP}q_i^{ADP} & \bar{q}_i^{P_i} & = K_i^{P_i}q_i^{P_i} & \bar{q}_i^{H} & = K_i^{H}q_i^{H} \\
+\end{align*}
+
 \begin{comment}
 where $z_1$ and $z_2$ are the effective charge movements associated with the binding and unbinding of intracellular and extracellular sodium respectively.
 The constraint on the thermodynamicparameters of reaction $Rx_m^1$ is as follows:
