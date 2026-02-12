@@ -20,13 +20,13 @@ The flow rates are given by:
 
 \begin{alignat*}{2}
 v_m^1 &= \kappa_1\left( K_1 q_m^1 (K_i^{Na} q_i^{Na+})^3 K_i^{ATP} q_i^{ATP}
-         - K_2 q_m^2 \right)
-&\qquad
+         - K_2 q_m^2 \right) 
+&\qquad  
 v_m^2 &= \kappa_2\left( K_2 q_m^2
          - K_3 q_m^3 K_i^{ADP} q_i^{ADP} \right) \\[6pt]
-v_m^3 &= \kappa_3\left( K_3 q_m^3
+v_m^3 &= \kappa_3\left( K_3 q_m^3 \exp\left( \frac{z_1 F u_m^e}{RT} \right)
          - K_4 q_m^4 (K_o^{Na} q_o^{Na+})^3
-         \exp\left( \frac{z_2 F u_m^e}{RT} \right)\right)
+         \right)
 &\qquad
 v_m^4 &= \kappa_4\left( K_4 q_m^4 (K_o^{K} q_o^{K+})^2
          - K_5 q_m^5 \right) \\[6pt]
@@ -35,29 +35,256 @@ v_m^5 &= \kappa_5\left( K_5 q_m^5
 &\qquad
 v_m^6 &= \kappa_6\left( K_6 q_m^6
          - K_7 q_m^7 (K_i^{K} q_i^{K+})^2
-         \exp\left( \frac{z_1 F u_m^e}{RT} \right)\right)
+         \exp\left( \frac{z_2 F u_m^e}{RT} \right)\right)
 \end{alignat*}
 
 To derive an analytic formula for the steady state behaviour of the 6-state model,
-we make the assumption that the substrates are present in much higher quantities than the membrane-bound transporter (the Briggs-Haldane assumption \cite{briggs1925note}),
-and that the cycle is therefore transitioning through the 6 states at a constant steady-state rate $v$.
-Under these assumptions, the steady state flux of the 6-state model can be derived as:
+we make the assumption that the substrates are present in much higher quantities than the membrane-bound transporter (i.e., the Briggs-Haldane assumption \cite{briggs1925note}),
+and that the cycle is therefore transitioning through the six states at a constant steady-state rate $v$, i.e., 
 \begin{equation}
-\label{eq:flux_6state} 
-  v^{\mathrm{NKE}} =
-\frac{K_6 \kappa_6 q_{\mathrm{tot}}}{C - AD}
-\left[
+      \label{steady_state_assumption}
+      v_m^1 = v_m^2 = v_m^3 = v_m^4 = v_m^5 = v_m^6 = v.
+\end{equation}
+
+These equations are supplemented with the constraint on the total amount of protein:
+\begin{equation}
+      \label{total_protein_constraint}
+      q_{\mathrm{tot}} = q_m^1 + q_m^2 + q_m^3 + q_m^4 + q_m^5 + q_m^6
+\end{equation}
+
+or 
+\begin{equation}
+\label{eq:total_q}
+\frac{\bar{q}_m^{1}}{K_1} + 
+\frac{\bar{q}_m^{2}}{K_2} + 
+\frac{\bar{q}_m^{3}}{K_3} + 
+\frac{\bar{q}_m^{4}}{K_4} + 
+\frac{\bar{q}_m^{5}}{K_5} + 
+\frac{\bar{q}_m^{6}}{K_6} 
+= q_{\text{tot}}
+\end{equation}
+where $\bar{q}_m^{i} = K_i q_m^{i}$ for $i=1,2,...,6$.
+
+
+Rewriting the flow equations under the steady state assumption (Eq. \ref{steady_state_assumption}) allows us to express the quantities of each state in terms of the steady state flux $v$.
+
+\begin{equation}
+\label{eq:qm2} 
+  \bar{q}_m^{\,2}
+=
+\bar{q}_m^{\,1}
+\cdot
+\left(\bar{q}_i^{\mathrm{Na}^+}\right)^3
+\cdot
+\bar{q}_i^{\mathrm{ATP}}
+-
+\frac{v}{\kappa_1}
+\end{equation}
+
+\begin{equation}
+\label{eq:qm3}
+\bar{q}_m^{\,3}
+=
+\frac{\bar{q}_m^{\,2} - \dfrac{v}{\kappa_2}}{\bar{q}_i^{\mathrm{ADP}}}
+\end{equation}
+
+With Eq.\ref{eq:qm2}, we can express Eq.\ref{eq:qm3} as:
+\begin{equation}
+\label{eq:qm3_2}
+\bar{q}_m^{\,3}
+=
+\bar{q}_m^{\,1}
+\cdot
+\left(\bar{q}_i^{\mathrm{Na}^+}\right)^3
+\cdot
+\frac{\bar{q}_i^{\mathrm{ATP}}}{\bar{q}_i^{\mathrm{ADP}}}
+-
+\frac{\dfrac{v}{\kappa_1} + \dfrac{v}{\kappa_2}}{\bar{q}_i^{\mathrm{ADP}}}
+\end{equation}
+
+\begin{equation}
+      \label{eq:qm4}
+ \bar{q}_m^{\,4}
+=
+\left(
+\bar{q}_m^{\,3}
+\, e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{v}{\kappa_3}
+\right)
+\left(\bar{q}_o^{\mathrm{Na}^+}\right)^{-3}     
+\end{equation}
+
+With Eq.\ref{eq:qm3_2}, we can express Eq. \ref{eq:qm4} as:
+\begin{equation}
+      \label{eq:qm4_2}
+ \bar{q}_m^{\,4}
+=
+\bar{q}_m^{\,1}
 \left(
 \frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}
 \right)^3
-\frac{\bar{q}_i^{\mathrm{ATP}}}
-{\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
+\frac{\bar{q}_i^{\mathrm{ATP}}}{\bar{q}_i^{\mathrm{ADP}}}
+\, e^{\frac{z_1 F u_m^{e}}{R T}}
 -
-\left(
-\frac{\bar{q}_i^{\mathrm{K}^+}}{\bar{q}_o^{\mathrm{K}^+}}
-\right)^2
-e^{-\frac{F u_m^e}{R T}}
-\right]  
+\frac{\dfrac{v}{\kappa_1}+\dfrac{v}{\kappa_2}}
+{\bar{q}_i^{\mathrm{ADP}}\left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+\, e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{v}{\kappa_3\left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+\end{equation}
+
+\begin{equation}
+      \label{eq:qm5}
+\bar{q}_m^{\,5}
+=
+\bar{q}_m^{\,4}
+\left(\bar{q}_o^{K^+}\right)^2
+- \frac{v}{\kappa_4}
+\end{equation}
+
+With Eq.\ref{eq:qm4_2}, we can express Eq.\ref{eq:qm5} as:
+\begin{equation}
+      \label{eq:qm5_2}
+\bar{q}_m^{\,5}
+=
+\left[
+\bar{q}_m^{\,1}
+\left(\frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}{\bar{q}_i^{\mathrm{ADP}}}
+e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{\dfrac{v}{\kappa_1} + \dfrac{v}{\kappa_2}}{\bar{q}_i^{\mathrm{ADP}} \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{v}{\kappa_3 \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+\right]
+\left(\bar{q}_o^{K^+}\right)^2
+- \frac{v}{\kappa_4}
+\end{equation}
+
+\begin{equation}
+      \label{eq:qm6}
+\bar{q}_m^{\,6}
+=
+\frac{\bar{q}_m^{\,5} - \dfrac{v}{\kappa_5}}{\bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+}}
+\end{equation}
+
+With Eq.\ref{eq:qm5_2}, we can express Eq.\ref{eq:qm6} as:
+\begin{equation}
+      \label{eq:qm6_2}
+\bar{q}_m^{\,6}
+=
+\left[
+\bar{q}_m^{\,1}
+\left(\frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}{\bar{q}_i^{\mathrm{ADP}} \cdot \bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+}}
+e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{\dfrac{v}{\kappa_1} + \dfrac{v}{\kappa_2}}{\bar{q}_i^{\mathrm{ADP}} \cdot \bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+} \cdot \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{v}{\kappa_3 \cdot \bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+} \cdot \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+\right]
+\left(\bar{q}_o^{K^+}\right)^2
+-
+\frac{\dfrac{v}{\kappa_4} + \dfrac{v}{\kappa_5}}{\bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+}}
+\end{equation}
+
+From the expression of $v_m^6$, we get the relation:
+\begin{equation}
+      \label{eq:qm1_qm6}
+\bar{q}_m^{1}\,(\bar{q}_i^{K^+})^{2}\,e^{\frac{z_2 F u_m^{e}}{RT}}
+= \bar{q}_m^{6}-\frac{v}{\kappa_6}
+\end{equation}
+
+Substituting $\bar{q}_m^{\,6}$ with Eq.\ref{eq:qm6_2} in Eq.\ref{eq:qm1_qm6}, we get:
+\begin{equation}
+      \label{eq:qm1_2}
+\begin{aligned}
+\bar{q}_m^{1}\,(\bar{q}_i^{K^+})^{2}\,e^{\frac{z_2 F u_m^{e}}{RT}}
+ = & \left[
+\bar{q}_m^{\,1}
+\left(\frac{\bar{q}_i^{\mathrm{Na}^+}}{\bar{q}_o^{\mathrm{Na}^+}}\right)^3
+\frac{\bar{q}_i^{\mathrm{ATP}}}{\bar{q}_i^{\mathrm{ADP}} \cdot \bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+}}
+e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{\dfrac{v}{\kappa_1} + \dfrac{v}{\kappa_2}}{\bar{q}_i^{\mathrm{ADP}} \cdot \bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+} \cdot \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+e^{\frac{z_1 F u_m^{e}}{R T}}
+-
+\frac{v}{\kappa_3 \cdot \bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+} \cdot \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+\right] \\
+& \left(\bar{q}_o^{K^+}\right)^2
+-
+\frac{\dfrac{v}{\kappa_4} + \dfrac{v}{\kappa_5}}{\bar{q}_i^{P_i} \cdot \bar{q}_i^{\mathrm{H}^+}} - \frac{v}{\kappa_6}
+\end{aligned}
+\end{equation}
+
+Reorganizing Eq.\ref{eq:qm1_2} gives:
+\begin{equation}
+\label{eq:complex_expression}
+\bar{q}_m^{1} \left\{ \left( \frac{\bar{q}_i^{\text{Na}^+}}{\bar{q}_o^{\text{Na}^+}} \right)^3 \frac{\bar{q}_i^{\text{ATP}}}{\bar{q}_i^{\text{ADP}} \bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}} e^{\frac{z_1 F u_m^{e}}{RT}} \left( \bar{q}_o^{\text{K}^+} \right)^{2} - \left( \bar{q}_i^{\text{K}^+} \right)^{2} e^{\frac{z_2 F u_m^{e}}{RT}} \right\}
+= \left[ \frac{\frac{v}{\kappa_1} + \frac{v}{\kappa_2}}{\bar{q}_i^{\text{ADP}} \bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+} \left( \bar{q}_o^{\text{Na}^+} \right)^3} e^{\frac{z_1 F u_m^{e}}{RT}} + \frac{\frac{v}{\kappa_3}}{\bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+} \left( \bar{q}_o^{\text{Na}^+} \right)^3} \right] \left( \bar{q}_o^{\text{K}^+} \right)^{2} + \frac{\frac{v}{\kappa_4} + \frac{v}{\kappa_5}}{\bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}} + \frac{v}{\kappa_6}
+\end{equation}
+
+Multiplying trought by $e^{\frac{-z_1 F u_m^{e}}{RT}} \left( \bar{q}_o^{\text{K}^+} \right)^{-2}$ and using the net charge movement relation $z_1-z_2=1$, we can express the Eq. \ref{eq:complex_expression} as:
+\begin{equation}
+      \label{qm1_v}
+\bar{q}_m^{1} \left\{ \left( \frac{\bar{q}_i^{\text{Na}^+}}{\bar{q}_o^{\text{Na}^+}} \right)^3 \frac{\bar{q}_i^{\text{ATP}}}{\bar{q}_i^{\text{ADP}} \bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}} - \left( \frac{\bar{q}_i^{\text{K}^+}}{\bar{q}_o^{\text{K}^+}} \right)^2 e^{\frac{-F u_m^{e}}{RT}} \right\}
+=\frac{\frac{v}{\kappa_1} + \frac{v}{\kappa_2}}{\bar{q}_i^{\text{ADP}} \bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+} \left( \bar{q}_o^{\text{Na}^+} \right)^3} + \frac{\frac{v}{\kappa_3}}{\bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}\left( \bar{q}_o^{\text{Na}^+} \right)^3} e^{\frac{-z_1 F u_m^{e}}{RT}} + \left[ \frac{\frac{v}{\kappa_4} + \frac{v}{\kappa_5}}{\bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}} + \frac{v}{\kappa_6} \right] \left( \bar{q}_o^{\text{K}^+} \right)^{-2} e^{\frac{-z_1 F u_m^{e}}{RT}}
+\end{equation}
+
+Rearranging the terms gives an expression for $\bar{q}_m^{1}$:
+\begin{equation}
+\label{eq:qm1_final}
+\bar{q}_m^{1}
+=
+\frac{1}{A}
+\left\{
+\frac{\frac{v}{\kappa_1} + \frac{v}{\kappa_2}}
+{\bar{q}_i^{\text{ADP}} \bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}
+\left( \bar{q}_o^{\text{Na}^+} \right)^3}
++
+\frac{\frac{v}{\kappa_3}}
+{\bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}\left( 
+\bar{q}_o^{\text{Na}^+} \right)^3}
+e^{\frac{-z_1 F u_m^{e}}{RT}}
++
+\left[
+\frac{\frac{v}{\kappa_4} + \frac{v}{\kappa_5}}
+{\bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}}
++
+\frac{v}{\kappa_6}
+\right]
+\left( \bar{q}_o^{\text{K}^+} \right)^{-2}
+e^{\frac{-z_1 F u_m^{e}}{RT}}
+\right\}
+\end{equation}
+where
+\begin{equation}
+\label{eq:A_definition}
+A
+=
+\left( \frac{\bar{q}_i^{\text{Na}^+}}{\bar{q}_o^{\text{Na}^+}} \right)^3
+\frac{\bar{q}_i^{\text{ATP}}}
+{\bar{q}_i^{\text{ADP}} \bar{q}_i^{\text{P}_i} \bar{q}_i^{\text{H}^+}}
+-
+\left( \frac{\bar{q}_i^{\text{K}^+}}{\bar{q}_o^{\text{K}^+}} \right)^2
+e^{\frac{-F u_m^{e}}{RT}}
+\end{equation}
+
+Substituting $\bar{q}_m^{1}$ (Eq.\ref{eq:qm1_final}), $\bar{q}_m^{2}$ (Eq.\ref{eq:qm2}), $\bar{q}_m^{3}$ (Eq.\ref{eq:qm3_2}), $\bar{q}_m^{4}$ (Eq.\ref{eq:qm4_2}), $\bar{q}_m^{5}$ (Eq.\ref{eq:qm5_2}), and $\bar{q}_m^{6}$ (Eq.\ref{eq:qm6_2}) into the total protein constraint (Eq.\ref{eq:total_q}) allows us to solve for the steady state flux $v$.
+To simplify the analysis, we define the following:
+\begin{equation}
+\label{eq:Lambda_i}
+\Lambda_i = \frac{K_6}{K_i}, \quad \text{for } i = 1, 2, 3, 4, 5
+\end{equation}
+
+After rearranging the terms and simplifying, the final expression for the steady state flux of the 6-state model is given by:
+\begin{equation}
+\label{eq:flux_6state} 
+  v^{\mathrm{NKE}} =
+\frac{K_6 \kappa_6 q_{\mathrm{tot}}}{C - AD}A
 \end{equation}
 where
 \begin{equation}
@@ -81,7 +308,7 @@ e^{-\frac{F u_m^e}{R T}}
 \right)^3
 \frac{\bar{q}_i^{\mathrm{ATP}}}
 {\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
-\, e^{-\frac{z_2 F u_m^e}{R T}}
+\, e^{\frac{z_1 F u_m^e}{R T}}
 \left[
 \Lambda_4 +
 \left(
@@ -95,63 +322,52 @@ e^{-\frac{F u_m^e}{R T}}
 \end{equation}
 
 \begin{equation}
-      C =
-\left\{
-\frac{\Lambda_1}{\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
-+
-\left(
-\Lambda_2 \, \bar{q}_i^{\mathrm{ADP}} + \Lambda_3
-\right)
-\left(
-\bar{q}_i^{\mathrm{Na}^+}
-\right)^3
-\frac{\bar{q}_i^{\mathrm{ATP}}}
-{\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H}}
-+
-B
-\right\}
-\left\{
+\begin{aligned}
+C ={}&
+\left[ \frac{\Lambda_1}{\bar{q}_i^{P_i} \, \bar{q}_i^{H^+}}
++ \Lambda_2 \,
+\frac{\left(\bar{q}_i^{\mathrm{Na}^+}\right)^3 \, \bar{q}_i^{\mathrm{ATP}}}
+     {\bar{q}_i^{P_i} \, \bar{q}_i^{H^+}}
++ \Lambda_3 \,
+\frac{\left(\bar{q}_i^{\mathrm{Na}^+}\right)^3 \, \bar{q}_i^{\mathrm{ATP}}}
+     {\bar{q}_i^{\mathrm{ADP}} \, \bar{q}_i^{P_i} \, \bar{q}_i^{H^+}}
++ B \right]\\
+&\quad \times \Bigg[
 \frac{\lambda_1 + \lambda_2}
-{\bar{q}_i^{\mathrm{ADP}} \left( \bar{q}_o^{\mathrm{Na}^+} \right)^3}
-+
-\frac{\lambda_3}
-{\left( \bar{q}_o^{\mathrm{Na}^+} \right)^3}
-+
-\left(
-\lambda_4 + \lambda_5 + \bar{q}_i^{P_i} \, \bar{q}_i^{H}
-\right)
-\left(
-\bar{q}_o^{\mathrm{K}^+}
-\right)^{-2}
-e^{\frac{z_2 F u_m^e}{R T}}
-\right\}
+     {\bar{q}_i^{\mathrm{ADP}} \, \left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
++ \frac{\lambda_3}
+       {\left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+  \exp\!\left(-\frac{z_1 F u_m^{e}}{R T}\right) \\
+&\qquad\qquad
++ \left(\lambda_4 + \lambda_5
+       + \bar{q}_i^{P_i} \, \bar{q}_i^{H^+}\right)
+  \left(\bar{q}_o^{\mathrm{K}^+}\right)^{-2}
+  \exp\!\left(-\frac{z_1 F u_m^{e}}{R T}\right)
+\Bigg].
+\end{aligned}
 \end{equation}
 
 \begin{equation}
-D =
-\Lambda_2 \lambda_1
-+
-\Lambda_5 \lambda_4
-+
-\frac{\lambda_4 + \lambda_5}
-{\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
-+
-\Lambda_3
-\frac{\lambda_1 + \lambda_2}
-{\bar{q}_i^{\mathrm{ADP}}}
-+
-\left[
-\frac{(\lambda_1 + \lambda_2)\,
-\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
-{\bar{q}_i^{\mathrm{ATP}}}
-+
-\frac{\lambda_3 \,
-\bar{q}_i^{\mathrm{ADP}} \,
-\bar{q}_i^{P_i} \, \bar{q}_i^{H}}
-{\bar{q}_i^{\mathrm{ATP}}}
-\right]
-\frac{B}
-{\left( \bar{q}_i^{\mathrm{Na}^+} \right)^3}
+\begin{aligned}
+D ={}& \Lambda_2 \lambda_1
+      + \Lambda_5 \lambda_4
+      + \frac{\lambda_4 + \lambda_5}{\bar{q}_i^{P_i} \, \bar{q}_i^{H^+}}
+      + \Lambda_3 \frac{\lambda_1 + \lambda_2}{\bar{q}_i^{\mathrm{ADP}}} \\
+&\quad + \left(
+      \frac{\lambda_1 + \lambda_2}{\bar{q}_i^{\mathrm{ADP}}}
+      \exp\!\left(\frac{z_1 F u_m^{e}}{R T}\right)
+      + \lambda_3
+      \right)
+      \frac{1}{\left(\bar{q}_o^{\mathrm{Na}^+}\right)^3}
+      \left[
+      \Lambda_4
+      + \left(
+        \Lambda_5
+        + \frac{1}{\bar{q}_i^{P_i} \, \bar{q}_i^{H^+}}
+        \right)
+        \left(\bar{q}_o^{\mathrm{K}^+}\right)^2
+      \right].
+\end{aligned}
 \end{equation}
 
 $\lambda_i=\frac{\kappa_6}{\kappa_i}$, and $\Lambda_i=\frac{K_6}{K_i}$ for $i=1,2,...,5$.
@@ -161,35 +377,4 @@ $\lambda_i=\frac{\kappa_6}{\kappa_i}$, and $\Lambda_i=\frac{K_6}{K_i}$ for $i=1,
 \bar{q}_i^{\mathrm{ATP}} & = K_i^{ATP}q_i^{ATP} & \bar{q}_i^{\mathrm{ADP}} & = K_i^{ADP}q_i^{ADP} & \bar{q}_i^{P_i} & = K_i^{P_i}q_i^{P_i} & \bar{q}_i^{H} & = K_i^{H}q_i^{H} \\
 \end{align*}
 
-\begin{comment}
-where $z_1$ and $z_2$ are the effective charge movements associated with the binding and unbinding of intracellular and extracellular sodium respectively.
-The constraint on the thermodynamicparameters of reaction $Rx_m^1$ is as follows:
-\begin{equation}
-      \label{eq:constraint1}
-\dfrac{K_1(K_i^{Na}W_i)^3K_i^{ATP}W_i}{K_2} = \dfrac{1}{(K_{d,Na_i})^2 K_{d,Na_i}^0K_{d,ATP}}
-\end{equation}
-where $K_{d,Na_i}$ and $K_{d,Na_i}^0$ are voltage-independent dissociation constant and voltage-dependent dissociation constant of intracellular sodium respectively,
-$K_{d,ATP}$ is the dissociation constant of intracellular ATP.
-
-The constraint on the parameters of reaction $Rx_m^3$ is as follows:
-\begin{equation}
-      \label{eq:constraint2}
-\dfrac{K_3}{K_4(K_o^{Na}W_o)^3} = \dfrac{(K_{d,Na_o})^2K_{d,Na_o}^0}{1}
-\end{equation}
-where $K_{d,Na_o}$ are voltage-independent dissociation constant of extracellular sodium.
-
-The constraint on the parameters of reaction $Rx_m^4$ is as follows:
-\begin{equation}
-      \label{eq:constraint3}
-\dfrac{K_4(K_o^{K}W_o)^2}{K_5} = \dfrac{1}{(K_{d,K_o})^2}
-\end{equation}
-where $K_{d,K_o}$ is the dissociation constant of extracellular potassium.
-
-The constraint on the parameters of reaction $Rx_m^6$ is as follows:
-\begin{equation}
-      \label{eq:constraint4}
-\dfrac{K_6}{K_1(K_i^{K}W_i)^2} = \dfrac{(K_{d,K_i})^2}{1}
-\end{equation}
-where $K_{d,K_i}$ is the dissociation constant of intracellular potassium.
-\end{comment}
 

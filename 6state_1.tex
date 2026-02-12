@@ -86,12 +86,12 @@
 \node[rectred,below=\sep of Nai] (ATP)  {$q_i^{ATP}$} ;
 \node[rectred,right=\sepp of right-7-1] (ADP)  {$q_i^{ADP}$} ;
 \node[rectred,above=20mm of bottom-1-2] (um)  {$u_m^{e}$} ;
-\node[bluecycle,above=\sep of um] (z1)  {\textcolor{white}{$z_1F$}} ;
-\node[bluecycle,below=\sep of um] (z2)  {\textcolor{white}{$z_2F$}} ;
-\draw[arrow] (z1) -- (um);
+\node[bluecycle,above=\sep of um] (z2)  {\textcolor{white}{$z_2F$}} ;
+\node[bluecycle,below=\sep of um] (z1)  {\textcolor{white}{$z_1F$}} ;
+\draw[arrow]  (um) --(z1);
 \draw[arrow] (z2) -- (um);
-\draw[arrow] (top-1-4) |- (z1);
-\draw[arrow] (bottom-1-1) |- (z2);
+\draw[arrow] (top-1-4) |- (z2);
+\draw[arrow] (z1) -|(bottom-1-3);
 \draw[arrow] (Ko) -- (left-7-1);
 \draw[arrow] (bottom-1-1) |- (Nao);
 \draw[arrow] (top-1-4) |- (Ki);
