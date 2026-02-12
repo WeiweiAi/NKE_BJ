@@ -207,6 +207,12 @@ where $u_i^{Na+}$ and $u_o^{Na+}$ are the chemical potentials of intracellular a
 $u_i^{K+}$ and $u_o^{K+}$ are the chemical potentials of intracellular and extracellular K\textsuperscript{+}, respectively,
 $F$ is Faraday's constant, and $V_m$ is the membrane potential.
 
+The Gibbs free energy change of the overall \gls{nka} reaction can be calculated as:
+\begin{equation}
+      \label{eq:deltaG_nka}
+      \Delta G_{NKA} =  u_{ADP} + u_{P_i} + u_{H^+} - u_{ATP} + 3(u_o^{Na^+}-u_i^{Na^+}) + 2(u_i^{K^+}-u_o^{K^+}) - FV_m
+\end{equation}
+
 Under physiological conditions, the membrane potential, particularly for cardiac cells, varies over time and the variation affects the thermodynamic efficiency of the \gls{nka} \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}. 
 
 The energy flows in the \gls{nka} are shown in Figure \ref{fig:NKA}. ATP hydrolysis release energy to drive the transport of Na\textsuperscript{+} and K\textsuperscript{+} ions. Some energy is dissipated as heat, while the rest is stored as chemical energy in the concentration gradients of Na\textsuperscript{+} and K\textsuperscript{+} across the cell membrane and electrical energy in the membrane potential.
@@ -369,7 +375,7 @@ In the following sections, we will focus on the comparison of the 15-state and 6
 
 \subsection*{Energy flows through \gls{nka}}
 
-We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls {nka} models. The action potentials were simulated using the Faber-Ludy model\cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014} , which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over six cycles of the action potential. We plot the results in Figure \ref{fig:energy_flow} (a and b). 
+We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls {nka} models. The action potentials were simulated using the Faber-Ludy model\cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014} , which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plot the results in Figure \ref{fig:energy_flow} (a and b). 
 
 \begin{figure}[htbp]
 \centering
@@ -426,7 +432,7 @@ The corresponding $\Delta G_{ATP}$ values range from -46 kJ/mol to -62 kJ/mol, i
 \hfill
 \begin{subfigure}{0.48\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6state_Thermodynamic_efficiency.png}
+      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6stateV2_Thermodynamic_efficiency.png}
       \caption{6-state model}    
 \end{subfigure}
 \caption{Thermodynamic efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model). The right y-axis shows the corresponding $\Delta G_{ATP}$ values, indicated by the blue dots in the plots.}
@@ -452,17 +458,19 @@ From the figures, we can see that the \gls{atp}, \gls{adp}, \gls{pi} concentrati
 \end{subfigure}
 \begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6state_Thermodynamic_efficiency_deltaATP.png}
+      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6stateV2_Thermodynamic_efficiency_deltaATP.png}
       \caption{6-state model}    
 \end{subfigure}
 \caption{Thermodynamic efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model) under different $\Delta G_{ATP}$ values.}
 \label{fig:thermodynamic_efficiency_AP_deltaGATP} 
 \end{figure}
 
-We can see that the thermodynamic efficiency of both models increases with lower $\Delta G_{ATP}$ values (less negative), and there is a drop in full bond graph models after the $\Delta G_{ATP}$ reaches around -48 kJ/mol. This seems alighned with the study \cite{kammermeier_high_1987,glitsch_change_1995}. Kammermeier estimated that the \gls{nka} in the heart requires a minimum $\Delta G_{ATP}$ of $-46~kJ/mol$, while the study \cite{glitsch_change_1995} found that when $\Delta G_{ATP}$ was approximately $-49~kJ/mol$, little activity of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed in sheep Purkinje cells.
+We can see that the thermodynamic efficiency of both models increases with lower $\Delta G_{ATP}$ values (less negative), and there is a drop in full bond graph models after the $\Delta G_{ATP}$ reaches around -48 kJ/mol. 
+We calculated the combined free energy for the chemical and electrical stores at resting potential (85 mV) $\Delta G_{NKA}$ using Equation \ref{eq:deltaG_nka}, which becomes positive when $\Delta G_{ATP}=-46~kJ/mol$.
+This seems alighned with the study \cite{kammermeier_high_1987,glitsch_change_1995}. Kammermeier estimated that the \gls{nka} in the heart requires a minimum $\Delta G_{ATP}$ of $-46~kJ/mol$, while the study \cite{glitsch_change_1995} found that when $\Delta G_{ATP}$ was approximately $-49~kJ/mol$, little activity of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed in sheep Purkinje cells.
 
-To investigate the meachinisim behind the drop in thermodynamic efficiency at low $\Delta G_{ATP}$ values, we computed biochemical conversions efficiency $\eta_{ch}$ and electrical conversion efficiency $\eta_{e}$ using equations \ref{eq:chemical_efficiency} and \ref{eq:electrical_efficiency}, respectively.
-We found out that the drop mainly due to decreased electrical conversion efficiency, as shown in Figure \ref{fig:electrical_efficiency_AP_deltaGATP}.
+Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls{nka}, it cannot explain the differences between the 15-state and 6-state models or the drop at different \gls{bcl} values. To investigate the meachinisim behind the drop in thermodynamic efficiency at low $\Delta G_{ATP}$ values, we computed biochemical conversions efficiency $\eta_{ch}$ and electrical conversion efficiency $\eta_{e}$ using equations \ref{eq:chemical_efficiency} and \ref{eq:electrical_efficiency}, respectively.
+We found out that the drop mainly due to decreased electrical conversion efficiency, as shown in Figure \ref{fig:electrical_efficiency_AP_deltaGATP}, which explains why the \gls{bcl} of action potential has an effect on the drop in thermodynamic efficiency.
 
 \begin{figure}[htbp]
 \centering
@@ -473,7 +481,7 @@ We found out that the drop mainly due to decreased electrical conversion efficie
 \end{subfigure}
 \begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6state_Electrical_conversion_efficiency_deltaATP.png}
+      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6stateV2_Electrical_conversion_efficiency_deltaATP.png}
       \caption{6-state model}    
 \end{subfigure}
 \caption{Electrical conversion efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model) under different $\Delta G_{ATP}$ values.}
@@ -512,7 +520,7 @@ We ploted the mean turnover rate of \gls{nka} under different $\Delta G_{ATP}$ v
 \end{subfigure}
 \begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6state_Mean_flow_rate_deltaATP.png}
+      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6stateV2_Mean_flow_rate_deltaATP.png}
       \caption{6-state model}    
 \end{subfigure}
 \caption{Mean flow rate of \gls{nka} (a) (15-state model) and (b) (6-state model) under different $\Delta G_{ATP}$ values.}
@@ -537,7 +545,7 @@ To understand how the inhibition of \gls{nka} activity affects its thermodynamic
 \end{subfigure}
 \begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6state_Thermodynamic_efficiency_flowRate.png}
+      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6stateV2_Thermodynamic_efficiency_flowRate.png}
       \caption{6-state model}    
 \end{subfigure}
 \caption{Thermodynamic efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model) under different mean turnover rates.}
@@ -573,7 +581,7 @@ To investigate the response of \gls{nka} to changes in intracellular Na\textsupe
 \end{subfigure}
 \begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6state_Thermodynamic_efficiency_Nak.png}
+      \includegraphics[width=\linewidth]{figures/EA_2D_combine_6stateV2_Thermodynamic_efficiency_Nak.png}
       \caption{6-state model}    
 \end{subfigure}
 \caption{Thermodynamic efficiency and mean turnover rate of \gls{nka} (a) (15-state model) and (b) (6-state model) under different intracellular Na\textsuperscript{+} and extracellular K\textsuperscript{+} concentrations.}
@@ -589,19 +597,17 @@ The thermodynamics efficiency of both models decreases with increased turnover r
 In this study, we have demonstrated the application of bond graph modeling approach to investigate the energetics of \gls{nka} under physiological conditions.
 Since bond graph models are thermodynamically consistent by construction, they allow us to analyze the energy flows through the \gls{nka} and calculate its thermodynamic efficiency. We can also investigate how different parameters affect the energetics of the \gls{nka}, providing insights into its energy transduction mechanisms. 
 
-The ability to compute and compare the energetics of different \gls{nka} models can help scientists select appropriate models for their research.
-Our simulation results show that the full bond graph models (15-state and 6-state) present different trends in thermodynamic efficiency at low $\Delta G_{ATP}$ values compared to the steady-state models. This highlights the importance of considering the full dynamics of the \gls{nka} when studying its energetics, especially under pathological conditions where $\Delta G_{ATP}$ may be reduced or the \gls{nka} activity was inhibited.
+The ability to compute and compare the energetics of different \gls{nka} models can help scientists select appropriate models for their research. The estimated thermodynamic efficiency at steady-state using equation \ref{eq:efficiency_estimate} cannot capture the differences in dynamic behavior between models, as it does not account for the transient dynamics of the \gls{nka}. In contrast, the analysis methods (equations \ref{eq:energy_supply} -- \ref{eq:energy_distribution} ) incorporate these dynamic aspects and provide a more accurate quantification of the energetics. Our simulation results show that the full bond graph models (15-state and 6-state) present different trends in thermodynamic efficiency at low $\Delta G_{ATP}$ values compared to the steady-state models. This highlights the importance of considering the full dynamics of the \gls{nka} when studying its energetics, especially under pathological conditions where $\Delta G_{ATP}$ may be reduced or the \gls{nka} activity was inhibited.
 
 The work rates affect the electrical conversion efficiency of \gls{nka}, with lower efficiency at higher work rates when the $\Delta G_{ATP}$ is sufficiently high. However, at low $\Delta G_{ATP}$ values, the electrical conversion efficiency drops to negative regardless of the work rates. Beta-blockers are commonly used in the treatment of heart failure, which reduce the heart rate and thus increase the diastolic interval. If the $\Delta G_{ATP}$ is still sufficiently high, the reduced heart rate may lead to increased electrical conversion efficiency of \gls{nka}, which could potentially improve its function in maintaining ion homeostasis. However, if the $\Delta G_{ATP}$ is low, the effect of heart rate on electrical conversion efficiency may be negligible.
 
+The comparison of 15-state and 6-state models here is used to illustrateste the application of energetic analysis to compare different models. While Figure \ref{fig:model_fit} shows the kinetics similarities, the thermodynamic analysis reveals differences in the energetics of the two models. This suggests that the thermodynamic analysis can provide additional insights into the behavior of the models that may not be apparent from kinetic analysis alone, and can help guide model selection based on the specific research questions being addressed. 
 
 The theoretical study in \cite{wagoner_mechanisms_2019} suggested that more substeps in the transport cycle lead to higher efficiency.
 Our simulation results also show that the 15-state model has slightly higher thermodynamic efficiency than the 6-state model at most conditions, which aligns with their findings. 
 However, what remains unclear is how many substeps are necessary to accurately capture the energetics of \gls{nka} without making the model overly complex. 
 Further research is needed to explore this question and determine the optimal level of detail for modeling \gls{nka} energetics.
 More experimental data on the energetics of \gls{nka} would also be beneficial to validate and refine the models.
-What we learned from this study is that enegergetic profiles can be used to compare different \gls{nka} models and select appropriate ones for specific research questions. 
-
 
 \section*{Conclusion}
 
