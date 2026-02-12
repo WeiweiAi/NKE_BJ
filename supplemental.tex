@@ -94,8 +94,8 @@ $K_3$ & 46639.870922646594 & $fmol^{-1}$ \\
 $K_4$ & 720.5754433721395  & $fmol^{-1}$ \\
 $K_5$ & 1.6068992551751866 & $fmol^{-1}$ \\
 $K_6$ & 30254.315059094864 & $fmol^{-1}$ \\
-$z_1$ & -0.054951 & dimensionless \\
-$z_2$ & -0.945049 & dimensionless \\
+$z_1$ & 0.945049 & dimensionless \\
+$z_2$ & -0.054951 & dimensionless \\
 \hline
 \end{tabular}
 \end{table}
@@ -111,17 +111,17 @@ Table \ref{tab:6state-files} lists and describes the files related to the 6-stat
 File name & Description \\
 \hline
 \hline
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free.cellml} & CellML code of the 6-state model \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_SS.cellml} & CellML code of the steady state flux of the 6-state model \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_fixedV.cellml} & CellML code of the 6-state model with fixed membrane potential \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_fixedV\_SS.cellml} & CellML code of the steady state flux of the 6-state model with fixed membrane potential \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_param\_free.cellml} & Parameters for the 6-state model \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_sedmls.json} & The list of sedml files for the 6-state model \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_fixedV\_sedmls.json} & The list of sedml files for the 6-state model with fixed membrane potential \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_ss\_sedmls.json} & The list of sedml files for the steady state flux of the 6-state model \\
-\textit{NKE\_BG\_6\_state\_ATPNaZK\_free\_fixedV\_ss\_sedmls.json} & The list of sedml files for the steady state flux of the 6-state model with fixed membrane potential \\
-\textit{edit\_sedmls\_NKE\_BG\_6\_state\_ATPNaZK\_free.py} & Python script to edit the sedml files for the 6-state model \\
-\textit{run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZK\_free.py} & Python script to run the sedml files for the 6-state model \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2.cellml} & CellML code of the 6-state model \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_SS.cellml} & CellML code of the steady state flux of the 6-state model \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_fixedV.cellml} & CellML code of the 6-state model with fixed membrane potential \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_SS\_fixedV.cellml} & CellML code of the steady state flux of the 6-state model with fixed membrane potential \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_param.cellml} & Parameters for the 6-state model \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_sedmls.json} & The list of sedml files for the 6-state model \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_fixedV\_sedmls.json} & The list of sedml files for the 6-state model with fixed membrane potential \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_SS\_sedmls.json} & The list of sedml files for the steady state flux of the 6-state model \\
+\textit{NKE\_BG\_6\_state\_ATPNaZKV2\_SS\_fixedV\_sedmls.json} & The list of sedml files for the steady state flux of the 6-state model with fixed membrane potential \\
+\textit{edit\_sedmls\_NKE\_BG\_6\_state\_ATPNaZKV2.py} & Python script to edit the sedml files for the 6-state model \\
+\textit{run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZKV2.py} & Python script to run the sedml files for the 6-state model \\
 \hline
 \end{tabularx}     
 \end{table}
@@ -138,15 +138,15 @@ The procedures to run the simulations and reproduce the figures are described be
 \begin{enumerate}
     \item Run \textit{run\_sedmls\_Terkildsen\_NaK\_kinetic\_modular\_V.py} to get the data of the steady state flux of the 15-state model under varying conditions.
     \item Run \textit{run\_sedmls\_NKE\_BG\_15\_state.py} to get the data of the full bond graph of the 15-state model under varying conditions.
-    \item Run \textit{run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZK\_free.py} to run the simulations of the 6-state models under varying conditions.
-    \item Run \textit{EA\_calc\_6state.py} to calculate the energetic quantities of the 6-state model under varying conditions.
+    \item Run \textit{run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZKV2.py} to run the simulations of the 6-state models under varying conditions.
+    \item Run \textit{EA\_calc\_6stateV2.py} to calculate the energetic quantities of the 6-state model under varying conditions.
     \item Run \textit{EA\_calc\_15state.py} to calculate the energetic quantities of the 15-state model under varying conditions.
-    \item Run \textit{plot\_original\_ss.py} to reproduce Figure 4 in the main paper.
-    \item Run \textit{plot\_EA\_flow\_6state.py}, \textit{plot\_EA\_flow\_15state.py} and \textit{plot\_EA\_bar\_heat.py} to reproduce Figure 5 in the main paper.
-    \item Run \textit{plot\_EA\_2D\_combine15state.py} and \textit{plot\_EA\_2D\_combine6state.py} to reproduce Figure 6 in the main paper.
-    \item  Run \textit{plot\_EA\_2D\_combine15state\_deltaATP.py} and \textit{plot\_EA\_2D\_combine6state\_deltaATP.py} to reproduce Figures 7,8 and 9 in the main paper.
-    \item  Run \textit{plot\_EA\_2D\_combine15state\_flowRate.py} and \textit{plot\_EA\_2D\_combine6state\_flowRate.py} to reproduce Figure 10 in the main paper. 
-    \item  Run \textit{plot\_EA\_2D\_combine15state\_NaK.py} and \textit{plot\_EA\_2D\_combine6state\_NaK.py} to reproduce Figure 10 in the main paper.  
+    \item Run \textit{plot\_original\_ssV2.py} to reproduce Figure 4 in the main paper.
+    \item Run \textit{plot\_EA\_flow\_6stateV2.py}, \textit{plot\_EA\_flow\_15state.py} and \textit{plot\_EA\_bar\_heatV2.py} to reproduce Figure 5 in the main paper.
+    \item Run \textit{plot\_EA\_2D\_combine15state.py} and \textit{plot\_EA\_2D\_combine6stateV2.py} to reproduce Figure 6 in the main paper.
+    \item  Run \textit{plot\_EA\_2D\_combine15state\_deltaATP.py} and \textit{plot\_EA\_2D\_combine6stateV2\_deltaATP.py} to reproduce Figures 7,8 and 9 in the main paper.
+    \item  Run \textit{plot\_EA\_2D\_combine15state\_flowRate.py} and \textit{plot\_EA\_2D\_combine6stateV2\_flowRate.py} to reproduce Figure 10 in the main paper. 
+    \item  Run \textit{plot\_EA\_2D\_combine15state\_NaK.py} and \textit{plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure 10 in the main paper.  
 \end{enumerate}  
 
 % Uncomment if using bibtex (default)
