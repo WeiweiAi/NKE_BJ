@@ -52,7 +52,7 @@
 \begin{frontmatter}
 
 \begin{abstract}
-The sodium-potassium ATPase (NKA) consumes 19–28\% of cellular ATP and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions, approximately 65\% of the energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps.
+The sodium-potassium ATPase (NKA) consumes 19–28\% of the total ATP consumption in mammals and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions for the mammalian cardiac cell, approximately 65\% of the energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps.
 \end{abstract}
 
 \begin{sigstatement}
@@ -62,7 +62,7 @@ The sodium-potassium ATPase is one of the body's most energy-consuming enzymes, 
 
 \section*{Introduction}
 
-The \gls{nka} is an ubiquitous enzyme that uses the energy of the hydrolysis of \gls{atp} to move Na\textsuperscript{+} ions out of the cell and K\textsuperscript{+} ions into the cell,
+The \gls{nka} is a ubiquitous enzyme that uses the energy of the hydrolysis of \gls{atp} to move Na\textsuperscript{+} ions out of the cell and K\textsuperscript{+} ions into the cell,
 in both cases against steep concentration gradients. 
 \Gls{atp} hydrolysis can be thought of as the energy source that tops up the cell's `sodium' battery,
 since the the majority of transmembrane transport processes are driven by this sodium gradient.
@@ -82,17 +82,17 @@ The \Gls{nka} was discovered in 1957\cite{skou_influence_1957},
 and is a chemical molecular machine responsible for the movement of Na\textsuperscript{+} and K\textsuperscript{+} ions across the cell membrane against their concentration gradients.
 The Albers–Post kinetic scheme \cite{albers_role_1963,post_activation_1972} was proposed to describe the transport mechanism of the \Gls{nka} \cite{apell_electrogenic_1989},
 where the \Gls{nka} undergoes Na\textsuperscript{+}-dependent phosphorylation and K\textsuperscript{+}-dependent dephosphorylation reactions and alternates between two main conformations, 
-\textit{E1} and \textit{E2}, which expose the transport sites to the intracellular and extracellular sides of the membrane, respectively.
+\textrm{E1} and \textrm{E2}, which expose the transport sites to the intracellular and extracellular sides of the membrane, respectively.
 
 The cryo-electron microscopy (cryo-EM) structures of \Gls{nka} in different conformational states were reported,
-including exoplasmic side-open (\textit{E2\textperiodcentered P})\cite{kanai_binding_2021,nguyen_structural_2022},
-K\textsuperscript{+}-occluded (\textit{E2\textperiodcentered [2K] \textperiodcentered Pi}) \cite{morth_crystal_2007,shinoda_crystal_2009,nguyen_structural_2022},
-(\textit{E2\textperiodcentered [2K]})\cite{guo_cryo-em_2022},
-cytoplasmic side-open (\textit{E1})\cite{nguyen_structural_2022}, ATP bound cytoplasmic side-open (\textit{E1\textperiodcentered ATP})\cite{nguyen_structural_2022},
-(\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP})\cite{guo_cryo-em_2022}.
-Na\textsuperscript{+}-occluded (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}) \cite{nyblom_crystal_2013,kanai_crystal_2013,nguyen_structural_2022},
-and (\textit{E1\textperiodcentered [3Na]})\cite{guo_cryo-em_2022}.
-While these structural studies have provided insights into the molecular mechanism of \Gls{nka}, Wagoner et al. \cite{wagoner_mechanisms_2019} discovered that \gls{nka} achieved high speed and efficiency by ustilizing theses multiple conformational states.
+including exoplasmic side-open (\textrm{E2\textperiodcentered P})\cite{kanai_binding_2021,nguyen_structural_2022},
+K\textsuperscript{+}-occluded (\textrm{E2\textperiodcentered [2K] \textperiodcentered Pi}) \cite{morth_crystal_2007,shinoda_crystal_2009,nguyen_structural_2022},
+(\textrm{E2\textperiodcentered [2K]})\cite{guo_cryo-em_2022},
+cytoplasmic side-open (\textrm{E1})\cite{nguyen_structural_2022}, ATP bound cytoplasmic side-open (\textrm{E1\textperiodcentered ATP})\cite{nguyen_structural_2022},
+(\textrm{E1\textperiodcentered [3Na]\textperiodcentered ATP})\cite{guo_cryo-em_2022}.
+Na\textsuperscript{+}-occluded (\textrm{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}) \cite{nyblom_crystal_2013,kanai_crystal_2013,nguyen_structural_2022},
+and (\textrm{E1\textperiodcentered [3Na]})\cite{guo_cryo-em_2022}.
+While these structural studies have provided insights into the molecular mechanism of \Gls{nka}, Wagoner et al. \cite{wagoner_mechanisms_2019} discovered that \gls{nka} achieved high speed and efficiency by ustilizing these multiple conformational states.
 
 Since the \Gls{nka} transports three Na\textsuperscript{+} ions outward and two K\textsuperscript{+} ions inward,
 the process gives rise to a net outward current and is therefore electrogenic \cite{apell_electrogenic_1989,glitsch_electrophysiology_2001}.
@@ -133,9 +133,9 @@ Bond graphs provide a useful way of formulating and visualising a thermodynamica
 In this article, we use a slightly different notation to that used in previous bond graph papers \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} to make the bond graph more accessible to a wider audience. 
 We refer the reader to \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} for more details of the bond graph methodology.
 Here, we only briefly introduce the key concepts of bond graph modelling relevant to this paper and explain the new notation used in the bond graph models of \Gls{nka}, as shown in in Figure~\ref{fig:bg_concepts}.
-Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $u$, and the product of flux $v$ and potential $u$ is power, i.e., $P=u\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power flow. In a dynamic system, the energy flow  $P(t)=u(t)\cdot v(t)$ direction may change over time, while a postive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
+Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $u$, and the product of flux $v$ and potential $u$ is power, i.e., $P=u\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power flow (Figure~\ref{fig:bg_concepts}(a)). In a dynamic system, the energy flow  $P(t)=u(t)\cdot v(t)$ direction may change over time, while a postive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
 
-If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux. Alternatively, if they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation.  
+If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux (Figure~\ref{fig:bg_concepts}(b)). Alternatively, if they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation (Figure~\ref{fig:bg_concepts}(c)).  
 
 \begin{figure}[H]  
 \centering  
@@ -174,8 +174,8 @@ The total energy storage and dissipation of the system can then be determined by
 We here explain the construction of 6-state bond graph model of \Gls{nka} using the new notation,
 while the 15-state model is explained in \cite{pan_cardiac_2020} and the graph using the new notation is in the supplementary material.
 The bond graph mode of \Gls{nka} with 6 states is based on the scheme proposed in Fig. 1b of \cite{nguyen_structural_2022} with slight modifications.
-We merged (\textit{E1\textperiodcentered [3Na]\textperiodcentered ATP}) and (\textit{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}), 
-while splitting the release of \gls{adp} and Na\textsuperscript{+} into two steps. The graphic representation of the model is shown in Figure \ref{fig:6state_v1} with the steps of the transporters, where we label the cytoplasmic side-open state (\textit{E1}) as $E_i$  and the exoplasmic side-open state \textit{E2} as $E_o$. We also derived the analytical steady state equations of this model in the supplementary material, which will be used to check when the instantaneous dynamics of the model differ from the steady state. 
+We merged (\textrm{E1\textperiodcentered [3Na]\textperiodcentered ATP}) and (\textrm{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}), 
+while splitting the release of \gls{adp} and Na\textsuperscript{+} into two steps. The graphic representation of the model is shown in Figure \ref{fig:6state_v1} with the steps of the transporters, where we label the cytoplasmic side-open state (\textrm{E1}) as $E_i$  and the exoplasmic side-open state \textrm{E2} as $E_o$. We also derived the analytical steady state equations of this model in the supplementary material, which will be used to check when the instantaneous dynamics of the model differ from the steady state. 
 
 \subsection*{Energetic analysis of \gls{nka} models}
 
@@ -215,7 +215,7 @@ The Gibbs free energy change of the overall \gls{nka} reaction can be calculated
       \Delta G_{NKA} =  u_{ADP} + u_{P_i} + u_{H^+} - u_{ATP} + 3(u_o^{Na^+}-u_i^{Na^+}) + 2(u_i^{K^+}-u_o^{K^+}) - FV_m
 \end{equation}
 
-Under physiological conditions, the membrane potential, particularly for cardiac cells, varies over time and the variation affects the thermodynamic efficiency of the \gls{nka} \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}. 
+Under physiological conditions, the membrane potential, particularly for cardiac cells, varies over time and this variation affects the thermodynamic efficiency of the \gls{nka} \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}. 
 
 The energy flows in the \gls{nka} are shown in Figure \ref{fig:NKA}. ATP hydrolysis release energy to drive the transport of Na\textsuperscript{+} and K\textsuperscript{+} ions. Some energy is dissipated as heat, while the rest is stored as chemical energy in the concentration gradients of Na\textsuperscript{+} and K\textsuperscript{+} across the cell membrane and electrical energy in the membrane potential.
 
@@ -304,7 +304,7 @@ The ratio of chemical energy stored to electrical energy stored can be calculate
 \end{equation}
 \subsection*{Simulation conditions}
 
-In this paper, we focus on the energetic analysis of \gls{nka} under physiological conditions, and we set up the simulation conditions based on the literature review as follows.
+In this paper, we focus on the energetic analysis of \gls{nka} under physiological conditions for cardiac cells, and we set up the simulation conditions based on the literature review as follows.
 Since \gls{atp} hydrolysis serves as the energy source for the \gls{nka}, the free energy change of \gls{atp} hydrolysis ($\Delta G_{ATP}$) plays a crucial role in determining the activity of the \gls{nka}.
 The $\Delta G_{ATP}$ depends on the concentrations of \gls{atp}, \gls{adp}, \gls{pi}, and $H^+$ (i.e, pH value).
 
@@ -377,7 +377,7 @@ In the following sections, we will focus on the comparison of the 15-state and 6
 
 \subsection*{Energy flows through \gls{nka}}
 
-We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls {nka} models. The action potentials were simulated using the Faber-Ludy model\cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014} , which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plot the results in Figure \ref{fig:energy_flow} (a and b). 
+We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls {nka} models while keeping the Na\textsuperscript{+} and K\textsuperscript{+} concentrations constant. The action potentials were simulated using the Faber-Rudy model\cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014} , which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plot the results in Figure \ref{fig:energy_flow} (a and b). 
 
 \begin{figure}[htbp]
 \centering
@@ -405,10 +405,10 @@ We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls
 \label{fig:energy_flow} 
 \end{figure}
 
-We can see that around 25\% of the energy supplied by ATP hydrolysis is dissipated as heat, 10\% is stored as electrical energy, and 65\% is stored as chemical energy in both models under physiological conditions. The thermodynamic efficiency of both models is around 75\%, which is consistent with previous theoretical studies \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}.
+We observe that around 25\% of the energy supplied by ATP hydrolysis is dissipated as heat, 10\% is stored as electrical energy, and 65\% is stored as chemical energy in both models under physiological conditions. The thermodynamic efficiency of both models is around 75\%, which is consistent with previous theoretical studies \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}.
 We also calculated the heat production rates of both models, shown in Figure \ref{fig:energy_flow} (c and d).
-In 15-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^6$ when \gls{adp} is released, and $Rx_m^{13}$ when $P_i$ and $H^+$ are released and $Rx_m^{15}$ when the enzyme is translocated from extracellular to intracellular after \gls{atp} binding.
-In 6-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^2$ when \gls{adp} is released, and $Rx_m^{5}$ when $P_i$ and $H^+$ are released.
+In the 15-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^6$ when \gls{adp} is released, and $Rx_m^{13}$ when $P_i$ and $H^+$ are released and $Rx_m^{15}$ when the enzyme is translocated from extracellular to intracellular after \gls{atp} binding.
+In the 6-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^2$ when \gls{adp} is released, and $Rx_m^{5}$ when $P_i$ and $H^+$ are released.
 
 According to the theoretical study in \cite{wagoner_mechanisms_2019}, the \gls{nka} is a highly efficient molecular machine due to the micro conformational changes that minimize energy loss during ion transport. The data in their study showed that the efficiency of \gls{nka} ranges from around 50\% to 88\% depending on operating conditions.
 
@@ -469,9 +469,9 @@ From the figures, we can see that the \gls{atp}, \gls{adp}, \gls{pi} concentrati
 
 We can see that the thermodynamic efficiency of both models increases with lower $\Delta G_{ATP}$ values (less negative), and there is a drop in full bond graph models after the $\Delta G_{ATP}$ reaches around -48 kJ/mol. 
 We calculated the combined free energy for the chemical and electrical stores at resting potential (85 mV) $\Delta G_{NKA}$ using Equation \ref{eq:deltaG_nka}, which becomes positive when $\Delta G_{ATP}=-46~kJ/mol$.
-This seems alighned with the study \cite{kammermeier_high_1987,glitsch_change_1995}. Kammermeier estimated that the \gls{nka} in the heart requires a minimum $\Delta G_{ATP}$ of $-46~kJ/mol$, while the study \cite{glitsch_change_1995} found that when $\Delta G_{ATP}$ was approximately $-49~kJ/mol$, little activity of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed in sheep Purkinje cells.
+This seems aligned with the study \cite{kammermeier_high_1987,glitsch_change_1995}. Kammermeier estimated that the \gls{nka} in the heart requires a minimum $\Delta G_{ATP}$ of $-46~kJ/mol$, while the study \cite{glitsch_change_1995} found that when $\Delta G_{ATP}$ was approximately $-49~kJ/mol$, little activity of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed in sheep Purkinje cells.
 
-Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls{nka}, it cannot explain the differences between the 15-state and 6-state models or the drop at different \gls{bcl} values. To investigate the meachinisim behind the drop in thermodynamic efficiency at low $\Delta G_{ATP}$ values, we computed biochemical conversions efficiency $\eta_{ch}$ and electrical conversion efficiency $\eta_{e}$ using equations \ref{eq:chemical_efficiency} and \ref{eq:electrical_efficiency}, respectively.
+Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls{nka}, it cannot explain the differences between the 15-state and 6-state models or the drop at different \gls{bcl} values. To investigate the mechanism behind the drop in thermodynamic efficiency at low $\Delta G_{ATP}$ values, we computed biochemical conversions efficiency $\eta_{ch}$ and electrical conversion efficiency $\eta_{e}$ using equations \ref{eq:chemical_efficiency} and \ref{eq:electrical_efficiency}, respectively.
 We found out that the drop mainly due to decreased electrical conversion efficiency, as shown in Figure \ref{fig:electrical_efficiency_AP_deltaGATP}, which explains why the \gls{bcl} of action potential has an effect on the drop in thermodynamic efficiency.
 
 \begin{figure}[htbp]
@@ -566,7 +566,7 @@ This finding agreed with the experimental observation that little activity of of
 These observations are consistent with our simulation results, shown in Figure \ref{fig:Mean_flow_rate_AP_deltaGATP}, where the decrease in mean turnover rate of both models are more significant at lower $\Delta G_{ATP}$ values (less negative).
 
 Despa et al. \cite{despa_intracellular_2002} reported that the resting intracellular Na\textsuperscript{+} concentration is higher in heart failure conditions due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged.
-They also reported increased intracellular Na\textsuperscript{+} during stimulation in rabit ventricular myocytes.
+They also reported increased intracellular Na\textsuperscript{+} during stimulation in rabbit ventricular myocytes.
 Nelson et al.\cite{nelson_heart_2022} reported increasing stimulation rate from 60 bpm to 180 bpm lead a transient Na\textsuperscript{+} peak followed by a lower Na\textsuperscript{+} level in both rat and human ventricular myocardium.
 As the cardiac action potential is initiated by Na\textsuperscript{+} influx, the increased stimulation rate leads to increased Na\textsuperscript{+} influx. The peak is due to the initial accumulation of intracellular Na\textsuperscript{+} ions, while the subsequent lower Na\textsuperscript{+} level is due to the increased \gls{nka} activity to extrude more Na\textsuperscript{+} ions.
 
