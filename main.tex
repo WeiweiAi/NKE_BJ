@@ -52,7 +52,7 @@
 \begin{frontmatter}
 
 \begin{abstract}
-The sodium-potassium ATPase (NKA) consumes 19–28\% of the total ATP consumption in mammals and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions for the mammalian cardiac cell, approximately 65\% of the energy from ATP hydrolysis is stored as chemical energy in ion gradients, 10\% as electrical energy in the membrane potential, and 25\% is dissipated as heat, yielding an overall efficiency of $\sim$75\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps.
+The sodium-potassium ATPase (NKA) accounts for 19–28\% of the total ATP consumption in mammals and is critical for maintaining ion homeostasis. Understanding its energetic efficiency is essential for comprehending cellular physiology and pathophysiology. We develop bond graph models of the NKA that ensure thermodynamic consistency by enforcing conservation of mass, charge, and energy. A simplified 6-state model captures biophysics comparable to a 15-state model while remaining computationally tractable. Through detailed energetic analysis, we demonstrate that under physiological conditions for the mammalian cardiac cell, approximately 66\% of the energy from ATP hydrolysis is stored as chemical energy in ion gradients, 12\% as electrical energy in the membrane potential, and 22\% is dissipated as heat, yielding an overall efficiency of $\sim$78\%. We investigate how the free energy of ATP hydrolysis ($\Delta G_{ATP}$), intracellular Na$^+$, and extracellular K$^+$ affect NKA efficiency and activity. A critical threshold exists at $\Delta G_{ATP} \approx -48$ kJ/mol below which chemoelectrical transduction drops dramatically, consistent with NKA inhibition under ischemic conditions. The bond graph framework enables quantitative comparison of different NKA models and provides a systematic approach for analyzing ion pumps.
 \end{abstract}
 
 \begin{sigstatement}
@@ -71,7 +71,8 @@ The \gls{nka} is therefore critical to cellular function in all cell types and r
 In this paper we use a bond graph approach to examine a number of models of \gls{nka} in which mass, charge and energy are each conserved.
 We examine a previously published 15-state bond graph model,
 and then show how a much simpler 6-state model captures the biophysics of the pump and matches experimental data.
-We then examine the energy expenditure of the \Gls{nka} and energy storage and dissipation under different conditions.
+The reaction scheme of these two models are both based on the Albers-Post scheme \cite{albers_role_1963,post_activation_1972}, but the reaction steps and orders are quite different. Usually, the comparison of different models is based on the steady state fluxes of the models, while the bond graph approach allows us to directly compare the energetic behavior of different models under dynamic conditions.
+We examine the energy expenditure of the \Gls{nka} and energy storage and dissipation under different conditions.
 These energetic analyses are important to understand the efficiency of the \gls{nka} and its role in cellular energetics.
 We also discuss how the energetic analysis can provide insights into the physiological function of the \gls{nka} and its implications for cellular health and disease.
 We show how energetic profiles of \gls{nka} under physiological and pathophysiological conditions can be used for model validation, model comparison and model selection for different applications.
@@ -111,7 +112,7 @@ The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to ad
 
 The \Gls{nka} consumes 19-28\% of the total ATP consumption in mammals, and up to 50-60\% in the brain and kidney \cite{rolfe_cellular_1997}.
 The experimental study in guinea-pig cardiac ventricular muscle showed that the \Gls{nka} is responsible for 10\% of myocardial heat production during contraction, and 17\% at rest \cite{schramm1994energy}.
-It is therefore important to guarantee thermodynamic consistency in \Gls{nka} model development. Hence, the bond graph is also used in this study, and we demonstrate how this approach facilitates energy-based analysis.
+It is therefore important to guarantee thermodynamic consistency in \Gls{nka} model development so that heat production can be quantified and compared to available experimental data. Hence, the bond graph is also used in this study, and we demonstrate how this approach facilitates energy-based analysis.
 
 \subsection*{Bond graph in systems biology}
 
@@ -135,7 +136,7 @@ We refer the reader to \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2
 Here, we only briefly introduce the key concepts of bond graph modelling relevant to this paper and explain the new notation used in the bond graph models of \Gls{nka}, as shown in in Figure~\ref{fig:bg_concepts}.
 Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $u$, and the product of flux $v$ and potential $u$ is power, i.e., $P=u\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power flow (Figure~\ref{fig:bg_concepts}(a)). In a dynamic system, the energy flow  $P(t)=u(t)\cdot v(t)$ direction may change over time, while a postive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
 
-If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux (Figure~\ref{fig:bg_concepts}(b)). Alternatively, if they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation (Figure~\ref{fig:bg_concepts}(c)).  
+If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation (Figure~\ref{fig:bg_concepts}(b)). Alternatively, if they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux (Figure~\ref{fig:bg_concepts}(c)).  
 
 \begin{figure}[H]  
 \centering  
@@ -279,6 +280,9 @@ The thermodynamic efficiency of the \gls{nka} can be defined as the ratio of the
       \label{eq:efficiency}
       \eta = \frac{E_{storage}^{chemical} + E_{storage}^{electrical}}{E_{supply}}\cdot 100\%
 \end{equation}
+The efficiency defined in Equation \ref{eq:efficiency} is different from the efficiency estimated by Equation \ref{eq:efficiency_estimate}, which is based on the steady state assumption and does not account for the time-varying nature of the membrane potential and other dynamic factors. The efficiency defined in Equation \ref{eq:efficiency} provides a more comprehensive and accurate measure of the energetic efficiency of the \gls{nka} under dynamic conditions. This eficiency can be used to assess the performance of the \gls{nka} under different physiological and pathophysiological conditions, and to compare the energetic efficiency of different \gls{nka} models.
+
+Please note that the normal range of \gls{nka} efficiency is between 0 and 100\%, where the \gls{atp} hydrolysis is the only source of energy. When the calculated efficiency is greater than 100\%, it indicates that there are other sources of energy contributing to the transport process, such as the energy stored in the concentration gradients of Na\textsuperscript{+} and K\textsuperscript{+} or the electrical energy stored in the membrane potential. In such cases, the efficiency can be interpreted as the ratio of useful energy stored to the total energy supplied from \gls{atp} hydrolysis, and it may exceed 100\% due to the additional energy contributions from other sources. At extreme conditions, the calculated efficiency can be negative, which indicates that the \gls{atp} starts to be synthesized rather than hydrolyzed, and the \gls{nka} operates in reverse mode, using the energy stored in the concentration gradients of Na\textsuperscript{+} and K\textsuperscript{+} or the electrical energy stored in the membrane potential to drive the synthesis of \gls{atp}.
 
 The chemical energy conversion efficiency of the \gls{nka} can be defined as the ratio of chemical energy stored to the total energy supplied:
 \begin{equation}
@@ -349,22 +353,22 @@ We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-s
 \centering
 \begin{subfigure}{0.35\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/NKE_BG_6_state_fig2b_fit.eps}
+      \includegraphics[width=\linewidth]{figures/NKE_BG_6_stateV2_fig2b_fit.eps}
       \caption{Data from Figure 2b in \cite{pan_cardiac_2020}}
 \end{subfigure}
 \begin{subfigure}{0.35\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/NKE_BG_6_state_fig3a_fit.eps}
+      \includegraphics[width=\linewidth]{figures/NKE_BG_6_stateV2_fig3a_fit.eps}
       \caption{Data from Figure 3a in \cite{pan_cardiac_2020}}
 \end{subfigure}
 \begin{subfigure}{0.35\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/NKE_BG_6_state_fig3b_fit.eps}
+      \includegraphics[width=\linewidth]{figures/NKE_BG_6_stateV2_fig3b_fit.eps}
       \caption{Data from Figure 3b in \cite{pan_cardiac_2020}}
 \end{subfigure}
 \begin{subfigure}{0.35\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/NKE_BG_6_state_fig3c_fit.eps}
+      \includegraphics[width=\linewidth]{figures/NKE_BG_6_stateV2_fig3c_fit.eps}
       \caption{Data from Figure 3c in \cite{pan_cardiac_2020}}
 \end{subfigure}
 \caption{Fit of \gls{nka} models to experimental data and Terkildsen model after correction in \cite{pan_cardiac_2020}. The solid lines are simulated data from the kinetic model in \cite{pan_cardiac_2020}, while the solid dots are experimental data. The dashed lines are simulated data from the steady-state 6-state bond graph model, and the '+' symbols are produced by the full 6-state bond graph model. (a) \gls{nka} current-voltage relationship at different extracellular Na\textsuperscript{+} concentrations; (b) \gls{nka} current as a function of intracellular Na\textsuperscript{+} concentration; (c) \gls{nka} current as a function of extracellular K\textsuperscript{+} concentration;  (d) \gls{nka} current as a function of ATP concentration. The simulation conditions are the same as in \cite{pan_cardiac_2020}.}
@@ -376,6 +380,7 @@ The 6-state model has higher current density when the extracellular Na\textsuper
 In the following sections, we will focus on the comparison of the 15-state and 6-state bond graph models with regard to thermodynamic aspects, which is the main focus of this study.
 
 \subsection*{Energy flows through \gls{nka}}
+\label{sec:energy_flow}
 
 We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls {nka} models while keeping the Na\textsuperscript{+} and K\textsuperscript{+} concentrations constant. The action potentials were simulated using the Faber-Rudy model\cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014} , which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plot the results in Figure \ref{fig:energy_flow} (a and b). 
 
@@ -388,7 +393,7 @@ We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls
 \end{subfigure}
 \begin{subfigure}{0.4\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/EA_report_task_NKE_BG_6_state_ATPNaZK_free_default_Sankey.png}
+      \includegraphics[width=\linewidth]{figures/EA_report_task_NKE_BG_6_state_ATPNaZKV2_default_Sankey.png}
       \caption{6-state model}
 \end{subfigure}
 \begin{subfigure}{0.6\textwidth}
@@ -405,12 +410,12 @@ We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls
 \label{fig:energy_flow} 
 \end{figure}
 
-We observe that around 25\% of the energy supplied by ATP hydrolysis is dissipated as heat, 10\% is stored as electrical energy, and 65\% is stored as chemical energy in both models under physiological conditions. The thermodynamic efficiency of both models is around 75\%, which is consistent with previous theoretical studies \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}.
+We observe that around 22\% of the energy supplied by ATP hydrolysis is dissipated as heat, 12\% is stored as electrical energy, and 66\% is stored as chemical energy in both models under physiological conditions. The thermodynamic efficiency of both models is around 78\%, which is consistent with previous theoretical studies \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}.
 We also calculated the heat production rates of both models, shown in Figure \ref{fig:energy_flow} (c and d).
 In the 15-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^6$ when \gls{adp} is released, and $Rx_m^{13}$ when $P_i$ and $H^+$ are released and $Rx_m^{15}$ when the enzyme is translocated from extracellular to intracellular after \gls{atp} binding.
 In the 6-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^2$ when \gls{adp} is released, and $Rx_m^{5}$ when $P_i$ and $H^+$ are released.
 
-According to the theoretical study in \cite{wagoner_mechanisms_2019}, the \gls{nka} is a highly efficient molecular machine due to the micro conformational changes that minimize energy loss during ion transport. The data in their study showed that the efficiency of \gls{nka} ranges from around 50\% to 88\% depending on operating conditions.
+According to the theoretical study in \cite{wagoner_mechanisms_2019}, the \gls{nka} is a highly efficient molecular machine due to the micro conformational changes that minimize energy loss during ion transport. The data in their study showed that the efficiency of \gls{nka} ranges from around 50\% to 88\% depending on operating conditions. The simulation results in our study are within this range, which further supports the notion that \gls{nka} operates with high thermodynamic efficiency under physiological conditions.
 
 Another theoretical study in \cite{peluffo_nak-atpase_2023} speculated that the ratio of Na\textsuperscript{+} to K\textsuperscript{+} transport is optimized to achieve maximum efficiency, cell volume homeostasis, and stable electrochemical gradients. 
 
@@ -422,7 +427,7 @@ In the following section, we will further investigate the thermodynamic efficien
 To investigate the thermodynamic efficiency of the \gls{nka} under physiological conditions, we applied the action potential with different \gls{bcl} to simulate the \gls{nka} models, and calculated the thermodynamic efficiency over one six cycles.
 We also vary the \gls{atp}, \gls{adp}, \gls{pi} concentrations and pH values to examine their effects on the thermodynamic efficiency of the \gls{nka}.
 When varying one parameter, the other parameters are set to the default values in Table \ref{tab:default_parameters}.
-The corresponding $\Delta G_{ATP}$ values range from -46 kJ/mol to -62 kJ/mol, indicated by the blue dots in the plots, shown in Figure \ref{fig:thermodynamic_efficiency_AP}.
+The corresponding $\Delta G_{ATP}$ values range from -46 kJ/mol to -62 kJ/mol.
 
 \begin{figure}[htbp]
 \centering
@@ -441,10 +446,10 @@ The corresponding $\Delta G_{ATP}$ values range from -46 kJ/mol to -62 kJ/mol, i
 \label{fig:thermodynamic_efficiency_AP} 
 \end{figure} 
 
-With increased \gls{atp} concentrations, the thermodynamic efficiency of both models rapidly increases intially and then drops to a relatively stable level around 70\%.
-The 15-state model has slightly higher efficiency than the 6-state model at most \gls{atp} concentrations, which is consistent with the theoretical study in \cite{wagoner_mechanisms_2019} that more substeps in the transport cycle lead to higher efficiency.
+With increased \gls{atp} concentrations, the thermodynamic efficiency of both models rapidly increases intially and then drops to a relatively stable level around 70\%. When the \gls{atp} concentration is very low, the \gls{nka} operates in reverse mode, using the energy stored in the concentration gradients of Na\textsuperscript{+} and K\textsuperscript{+} or the electrical energy stored in the membrane potential to drive the synthesis of \gls{atp}, which results in negative efficiency. As the \gls{atp} concentration increases, the \gls{nka} starts to hydrolyze \gls{atp} and transport ions, leading to a rapid increase in efficiency. However, at very high \gls{atp} concentrations, the efficiency drops slightly due to increased energy dissipation as heat.
 
-With increased \gls{adp} concentrations and \gls{pi} concentrations, the thermodynamic efficiency of both models increases rapidly at low concentrations and then reaches a plateau. Afterward, the full bond graph models present a decrease in efficiency at high concentrations, while the steady-state models maintains relatively stable efficiency.
+With increased \gls{adp} concentrations and \gls{pi} concentrations, the thermodynamic efficiency of both models increases rapidly at low concentrations and then reaches a plateau. Afterward, the full 15-state bond graph models present a decrease in efficiency at high concentrations, while the steady-state models maintains relatively stable efficiency. The 6-state full bond graph model and its steady-state model show similar trends under most conditions. The drop in efficiency at high \gls{adp} and \gls{pi} concentrations is due to that the \gls{nka} starts to systherize \gls{atp} instead of hydrolyzing \gls{atp}.
+
 The study \cite{wu_phosphate_2008} showed the free \gls{adp} slightly increases from 0.042 mM to 0.064 mM , while the \gls{pi} concentration is approximately 0.29 mM and increases to 2.3 mM at high work rate. According to our simulation, the increased \gls{adp} and \gls{pi} concentrations during high work rate will make the \gls{nka} operate at a higher efficiency.
 
 In majority of the pH range (5.5-8), the thermodynamic efficiency of both models decreases linearly with increased pH values. 
@@ -471,8 +476,7 @@ We can see that the thermodynamic efficiency of both models increases with lower
 We calculated the combined free energy for the chemical and electrical stores at resting potential (85 mV) $\Delta G_{NKA}$ using Equation \ref{eq:deltaG_nka}, which becomes positive when $\Delta G_{ATP}=-46~kJ/mol$.
 This seems aligned with the study \cite{kammermeier_high_1987,glitsch_change_1995}. Kammermeier estimated that the \gls{nka} in the heart requires a minimum $\Delta G_{ATP}$ of $-46~kJ/mol$, while the study \cite{glitsch_change_1995} found that when $\Delta G_{ATP}$ was approximately $-49~kJ/mol$, little activity of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed in sheep Purkinje cells.
 
-Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls{nka}, it cannot explain the differences between the 15-state and 6-state models or the drop at different \gls{bcl} values. To investigate the mechanism behind the drop in thermodynamic efficiency at low $\Delta G_{ATP}$ values, we computed biochemical conversions efficiency $\eta_{ch}$ and electrical conversion efficiency $\eta_{e}$ using equations \ref{eq:chemical_efficiency} and \ref{eq:electrical_efficiency}, respectively.
-We found out that the drop mainly due to decreased electrical conversion efficiency, as shown in Figure \ref{fig:electrical_efficiency_AP_deltaGATP}, which explains why the \gls{bcl} of action potential has an effect on the drop in thermodynamic efficiency.
+Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls{nka}, it cannot explain the differences between the 15-state and 6-state models or the drop at different \gls{bcl} values. To investigate the mechanism behind the drop in thermodynamic efficiency at low $\Delta G_{ATP}$ values, we computed biochemical conversions efficiency $\eta_{ch}$ and electrical conversion efficiency $\eta_{e}$ using equations \ref{eq:chemical_efficiency} and \ref{eq:electrical_efficiency}, respectively. Both $\eta_{ch}$ and $\eta_{e}$ contribute to the overall thermodynamic efficiency drop, while the \gls{bcl} of action potential has more obvious effect on $\eta_{e}$, as shown in Figure \ref{fig:electrical_efficiency_AP_deltaGATP}.
 
 \begin{figure}[htbp]
 \centering
@@ -493,7 +497,7 @@ We found out that the drop mainly due to decreased electrical conversion efficie
 We can see that the electrical conversion efficiency of both models slightly increases with lower $\Delta G_{ATP}$ values (less negative), and there is a drop to negative in full bond graph models after the $\Delta G_{ATP}$ reaches around -48 kJ/mol, which aligns with the drop in thermodynamic efficiency. 
 
 The trends of the electrical conversion efficiency of both models are similar under varying \gls{atp}, \gls{pi} concentrations, but different with varied  \gls{adp} and pH values.
-With varied \gls{adp}, the electrical conversion efficiency of 6-state model starts to decrease earlier than the 15-state model;
+With varied \gls{adp}, the electrical conversion efficiency of 15-state model starts to decrease earlier than the 6-state model;
 with varied pH, the electrical conversion efficiency of 15-state steady-state model does not drop at all.
 Theese differences may be due to the different confirguration of multiple reaction steps of the two models.
 
@@ -601,21 +605,20 @@ Since bond graph models are thermodynamically consistent by construction, they a
 
 The ability to compute and compare the energetics of different \gls{nka} models can help scientists select appropriate models for their research. The estimated thermodynamic efficiency at steady-state using equation \ref{eq:efficiency_estimate} cannot capture the differences in dynamic behavior between models, as it does not account for the transient dynamics of the \gls{nka}. In contrast, the analysis methods (equations \ref{eq:energy_supply} -- \ref{eq:energy_distribution} ) incorporate these dynamic aspects and provide a more accurate quantification of the energetics. Our simulation results show that the full bond graph models (15-state and 6-state) present different trends in thermodynamic efficiency at low $\Delta G_{ATP}$ values compared to the steady-state models. This highlights the importance of considering the full dynamics of the \gls{nka} when studying its energetics, especially under pathological conditions where $\Delta G_{ATP}$ may be reduced or the \gls{nka} activity was inhibited.
 
-The work rates affect the electrical conversion efficiency of \gls{nka}, with lower efficiency at higher work rates when the $\Delta G_{ATP}$ is sufficiently high. However, at low $\Delta G_{ATP}$ values, the electrical conversion efficiency drops to negative regardless of the work rates. Beta-blockers are commonly used in the treatment of heart failure, which reduce the heart rate and thus increase the diastolic interval. If the $\Delta G_{ATP}$ is still sufficiently high, the reduced heart rate may lead to increased electrical conversion efficiency of \gls{nka}, which could potentially improve its function in maintaining ion homeostasis. However, if the $\Delta G_{ATP}$ is low, the effect of heart rate on electrical conversion efficiency may be negligible.
+The work rates affect the electrical conversion efficiency of \gls{nka}, with lower efficiency at higher work rates when the $\Delta G_{ATP}$ is sufficiently high. However, at low $\Delta G_{ATP}$ values, the electrical conversion efficiency drops to negative regardless of the work rates. Beta-blockers are commonly used in the treatment of heart failure, which reduce the heart rate and thus increase the diastolic interval. If the $\Delta G_{ATP}$ is still sufficiently high, the reduced heart rate may lead to increased electrical conversion efficiency of \gls{nka}, which could potentially improve its function in maintaining ion homeostasis. 
 
-The comparison of 15-state and 6-state models here is used to illustrateste the application of energetic analysis to compare different models. While Figure \ref{fig:model_fit} shows the kinetics similarities, the thermodynamic analysis reveals differences in the energetics of the two models. This suggests that the thermodynamic analysis can provide additional insights into the behavior of the models that may not be apparent from kinetic analysis alone, and can help guide model selection based on the specific research questions being addressed. 
+The comparison of 15-state and 6-state models here is used to illustrateste the application of energetic analysis to compare different models. While Figure \ref{fig:model_fit} shows the kinetics similarities at steady state, the thermodynamic analysis reveals differences in the dynamic energetics of the two models, especially at low $\Delta G_{ATP}$ values. Lower $\Delta G_{ATP}$ values usually happen under pathophysiological conditions, such as heart failure. This suggests that the thermodynamic analysis can provide additional insights into the behavior of the models that may not be apparent from kinetic analysis alone, and can help guide model selection based on the specific research questions being addressed. 
 
 The theoretical study in \cite{wagoner_mechanisms_2019} suggested that more substeps in the transport cycle lead to higher efficiency.
-Our simulation results also show that the 15-state model has slightly higher thermodynamic efficiency than the 6-state model at most conditions, which aligns with their findings. 
-However, what remains unclear is how many substeps are necessary to accurately capture the energetics of \gls{nka} without making the model overly complex. 
+Our simulation results do not show a clear trend in efficiency as a function of the number of substeps. 
 Further research is needed to explore this question and determine the optimal level of detail for modeling \gls{nka} energetics.
-More experimental data on the energetics of \gls{nka} would also be beneficial to validate and refine the models.
+More experimental data on the energetics of \gls{nka} would also be beneficial to validate and refine the models. In Section \ref{sec:energy_flow}, we identified the reaction steps that contribute most significantly to energy dissipation in the 6-state model and the 15-state model, which could be potential targets for experimental investigation to further understand the mechanisms of energy transduction in \gls{nka} and which model is more energetically realistic.
 
 \section*{Conclusion}
 
 In this study, we have demonstrated a comprehensive energetic analysis of the \gls{nka} using bond graph modeling, which ensures thermodynamic consistency and enables detailed tracking of energy flows through the pump. Our work highlights three key findings:
 
-First, both the 15-state and 6-state bond graph models reveal that under physiological conditions, approximately 65\% of the energy from \gls{atp} hydrolysis is stored as chemical energy in ion concentration gradients, 10\% is converted to electrical energy via the membrane potential, and 25\% is dissipated as heat. This overall thermodynamic efficiency of $\sim$75\% is consistent with theoretical predictions and experimental observations, confirming that the \gls{nka} operates as a highly efficient molecular machine.
+First, both the 15-state and 6-state bond graph models reveal that under physiological conditions, approximately 66\% of the energy from \gls{atp} hydrolysis is stored as chemical energy in ion concentration gradients, 12\% is converted to electrical energy via the membrane potential, and 22\% is dissipated as heat. This overall thermodynamic efficiency of $\sim$78\% is consistent with theoretical predictions and experimental observations, confirming that the \gls{nka} operates as a highly efficient molecular machine.
 
 Second, our analysis demonstrates that the thermodynamic efficiency of the \gls{nka} is sensitive to the free energy available from \gls{atp} hydrolysis ($\Delta G_{ATP}$), which depends on the concentrations of \gls{atp}, \gls{adp}, \gls{pi}, and intracellular pH. Under conditions where $\Delta G_{ATP}$ is reduced below $\sim$-48 kJ/mol, the electrical conversion efficiency drops significantly and may even reverse, consistent with experimental observations of reduced \gls{nka} activity and accumulation of intracellular Na\textsuperscript{+}. This suggests that energetic profiles can serve as quantities for assessing \gls{nka} function under pathophysiological conditions.
 
@@ -623,7 +626,7 @@ Third, we show that the \gls{nka} activity responds dynamically to changes in in
 
 The bond graph framework proved invaluable for this analysis, as it simultaneously enforces conservation of mass, charge, and energy, enabling us to identify which reaction steps and energy flows contribute most significantly to the overall thermodynamic behavior of the system. By comparing the 15-state and 6-state models, we demonstrate that energetic analysis can aid in model selection and validation, guiding the choice of model complexity appropriate for specific research questions.
 
-Future work should extend this energetic analysis to other ion pumps and transporters, investigate how genetic mutations or pharmacological interventions affect \gls{nka} energetics, and develop more energetically realistic models informed by recent cryo-EM structures. Integration of these energetic models with whole-cell and tissue-level simulations will provide deeper insights into the role of \gls{nka} in cellular energy metabolism and its dysfunction in diseases such as heart failure and stroke.
+Future work should extend this energetic analysis to other ion pumps and transporters, investigate how genetic mutations or pharmacological interventions affect \gls{nka} energetics, and develop more energetically realistic models informed by recent cryo-EM structures \cite{kanai_binding_2021,nguyen_structural_2022,morth_crystal_2007,shinoda_crystal_2009,guo_cryo-em_2022,nyblom_crystal_2013,kanai_crystal_2013}. Integration of these energetic models with whole-cell and tissue-level simulations will provide deeper insights into the role of \gls{nka} in cellular energy metabolism and its dysfunction in diseases such as heart failure and stroke.
  
 
 \section*{Author Contributions}
