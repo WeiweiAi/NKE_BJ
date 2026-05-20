@@ -82,18 +82,18 @@ Table \ref{tab:6state-params} lists the parameters used in the 6-state model.
 Parameter & Value & Unit \\
 \hline
 \hline
-$\kappa_1$ & 2838.887577221678 & $fmol \cdot s^{-1}$ \\
-$\kappa_2$ & 51.10219437844171 & $fmol \cdot s^{-1}$\\
-$\kappa_3$ & 469.3484263577967& $fmol \cdot s^{-1}$ \\
-$\kappa_4$ & 619068.2941716437 & $fmol \cdot s^{-1}$ \\
-$\kappa_5$ & 35.86695382215395& $fmol \cdot s^{-1}$ \\
-$\kappa_6$ & 868.3565212763533 & $fmol \cdot s^{-1}$ \\
-$K_1$ & 0.01672750157200864 & $fmol^{-1}$ \\
-$K_2$ & 4477.021060951143  & $fmol^{-1}$ \\
-$K_3$ & 46639.870922646594 & $fmol^{-1}$ \\
-$K_4$ & 720.5754433721395  & $fmol^{-1}$ \\
-$K_5$ & 1.6068992551751866 & $fmol^{-1}$ \\
-$K_6$ & 30254.315059094864 & $fmol^{-1}$ \\
+$\kappa_1$ & 62051.4 & $fmol \cdot s^{-1}$ \\
+$\kappa_2$ & 0.549906 & $fmol \cdot s^{-1}$\\
+$\kappa_3$ & 474.926& $fmol \cdot s^{-1}$ \\
+$\kappa_4$ & 910019 & $fmol \cdot s^{-1}$ \\
+$\kappa_5$ & 384.851& $fmol \cdot s^{-1}$ \\
+$\kappa_6$ & 3412.49 & $fmol \cdot s^{-1}$ \\
+$K_1$ & 3.64797 & $fmol^{-1}$ \\
+$K_2$ & 80.1178  & $fmol^{-1}$ \\
+$K_3$ & 99322.9 & $fmol^{-1}$ \\
+$K_4$ & 49.0681  & $fmol^{-1}$ \\
+$K_5$ & 84.2138 & $fmol^{-1}$ \\
+$K_6$ & 727440 & $fmol^{-1}$ \\
 $z_1$ & 0.945049 & dimensionless \\
 $z_2$ & -0.054951 & dimensionless \\
 \hline
@@ -136,7 +136,7 @@ git clone https://github.com/WeiweiAi/EA_NKE.git --recurse-submodules
 
 The procedures to run the simulations and reproduce the figures are described below:
 \begin{enumerate}
-    \item Run \textit{run\_sedmls\_Terkildsen\_NaK\_kinetic\_modular\_V.py} to get the data of the steady state flux of the 15-state model under varying conditions.
+    \item Run \textit{run\_sedmls\_Terkildsen\_NaK\_kinetic\_V.py} to get the data of the steady state flux of the 15-state model under varying conditions.
     \item Run \textit{run\_sedmls\_NKE\_BG\_15\_state.py} to get the data of the full bond graph of the 15-state model under varying conditions.
     \item Run \textit{run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZKV2.py} to run the simulations of the 6-state models under varying conditions.
     \item Run \textit{EA\_calc\_6stateV2.py} to calculate the energetic quantities of the 6-state model under varying conditions.
@@ -149,6 +149,34 @@ The procedures to run the simulations and reproduce the figures are described be
     \item  Run \textit{plot\_EA\_2D\_combine15state\_NaK.py} and \textit{plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure 10 in the main paper.  
 \end{enumerate}  
 
+\subsection*{Parameters used in the 6-state model for enterocyte simulation}
+
+\begin{table}[h]
+\centering
+\caption{Parameters used in the 6-state model for enterocyte simulation.}
+\label{tab:6state-paramsV3}
+\begin{tabular}{l l l}
+\hline
+Parameter & Value & Unit \\
+\hline
+\hline
+$\kappa_1$ & 2838.887577221678 & $fmol \cdot s^{-1}$ \\
+$\kappa_2$ & 51.10219437844171 & $fmol \cdot s^{-1}$\\
+$\kappa_3$ & 469.3484263577967& $fmol \cdot s^{-1}$ \\
+$\kappa_4$ & 619068.2941716437 & $fmol \cdot s^{-1}$ \\
+$\kappa_5$ & 35.86695382215395& $fmol \cdot s^{-1}$ \\
+$\kappa_6$ & 868.3565212763533 & $fmol \cdot s^{-1}$ \\
+$K_1$ & 0.01672750157200864 & $fmol^{-1}$ \\
+$K_2$ & 4477.021060951143  & $fmol^{-1}$ \\
+$K_3$ & 46639.870922646594 & $fmol^{-1}$ \\
+$K_4$ & 720.5754433721395  & $fmol^{-1}$ \\
+$K_5$ & 1.6068992551751866 & $fmol^{-1}$ \\
+$K_6$ & 30254.315059094864 & $fmol^{-1}$ \\
+$z_1$ & 0.945049 & dimensionless \\
+$z_2$ & -0.054951 & dimensionless \\
+\hline
+\end{tabular}
+\end{table}
 % Uncomment if using bibtex (default)
 \bibliography{sample}
 
