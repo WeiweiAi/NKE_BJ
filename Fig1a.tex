@@ -1,8 +1,9 @@
 
 
 % subfigures (a)--(d)
-
-\begin{subfigure}[b]{0.2\textwidth}
+\begin{minipage}{0.8\textwidth}
+  \centering
+\begin{subfigure}[b]{0.1\linewidth}
 \begin{tikzpicture}
 % Add an arrow from (0,0) to (3,0) and the above text at the midpoint is $u$ (in red) and below text at the midpoint is $v$( in green)
 % 
@@ -11,7 +12,7 @@
 \caption{}
 \end{subfigure}
 \hfill
-\begin{subfigure}[b]{0.2\textwidth}
+\begin{subfigure}[b]{0.3\linewidth}
 % one junction- a ellipse (0:u_j^i) with five arrows pointing into it
 % at the start of each arrow, only showing u_j^0, v_j^1, v_j^2, v_j^3, v_j^4, not the end of the arrow
 % not showing the u_j^i at the start of each arrow
@@ -35,7 +36,7 @@
 \caption{}
 \end{subfigure}
 \hfill
-\begin{subfigure}[b]{0.2\textwidth}
+\begin{subfigure}[b]{0.3\linewidth}
 % zero junction- a ellipse (0:u_j^i) with five arrows pointing into it
 % at the start of each arrow, only showing v_j^0, v_j^1, v_j^2, v_j^3, v_j^4, not the end of the arrow
 % not showing the u_j^i at the start of each arrow
@@ -57,8 +58,10 @@
 \end{tikzpicture}
 \caption{}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.2\textwidth}
+
+\vspace{10pt}
+\mbox{} \hfill
+\begin{subfigure}[b]{0.3\linewidth}
 \begin{tikzpicture}[node distance=12mm ]
 \node[fill=red!80!black!10, thick, rounded corners, inner sep=3pt] (zero) {0:$u_j$};
 % a node above the zero node
@@ -76,8 +79,8 @@
 \end{tikzpicture}
 \caption{}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.2\textwidth}
+\hspace{5em}
+\begin{subfigure}[b]{0.3\linewidth}
 \begin{tikzpicture}[node distance=12mm ]
 % node at the right of the zero and C nodes, in the middle vertically
 \node[rectred] (combined) {$q_j$};
@@ -93,4 +96,6 @@
 \end{tikzpicture}
 \caption{}
 \end{subfigure}
+\end{minipage}
+
 
