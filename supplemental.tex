@@ -133,20 +133,23 @@ Since the Github repository includes sumbodules, please clone the repository usi
 \begin{verbatim}
 git clone https://github.com/WeiweiAi/EA_NKE.git --recurse-submodules
 \end{verbatim}
-
-The procedures to run the simulations and reproduce the figures are described below:
+It is recommended to use Python version 3.11. Please create a virtual environment and install the required packages using the command:
+\begin{verbatim}
+pip install -r requirements.txt
+\end{verbatim}
+Please move to the scripts directory: \textit{cd scripts} and the procedures to run the simulations and reproduce the figures are described below:
 \begin{enumerate}
-    \item Run \textit{run\_sedmls\_Terkildsen\_NaK\_kinetic\_V.py} to get the data of the steady state flux of the 15-state model under varying conditions.
-    \item Run \textit{run\_sedmls\_NKE\_BG\_15\_state.py} to get the data of the full bond graph of the 15-state model under varying conditions.
-    \item Run \textit{run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZKV2.py} to run the simulations of the 6-state models under varying conditions.
-    \item Run \textit{EA\_calc\_6stateV2.py} to calculate the energetic quantities of the 6-state model under varying conditions.
-    \item Run \textit{EA\_calc\_15state.py} to calculate the energetic quantities of the 15-state model under varying conditions.
-    \item Run \textit{plot\_original\_ssV2.py} to reproduce Figure 4 in the main paper.
-    \item Run \textit{plot\_EA\_flow\_6stateV2.py}, \textit{plot\_EA\_flow\_15state.py} and \textit{plot\_EA\_bar\_heatV2.py} to reproduce Figure 5 in the main paper.
-    \item Run \textit{plot\_EA\_2D\_combine15state.py} and \textit{plot\_EA\_2D\_combine6stateV2.py} to reproduce Figure 6 in the main paper.
-    \item  Run \textit{plot\_EA\_2D\_combine15state\_deltaATP.py} and \textit{plot\_EA\_2D\_combine6stateV2\_deltaATP.py} to reproduce Figures 7,8 and 9 in the main paper.
-    \item  Run \textit{plot\_EA\_2D\_combine15state\_flowRate.py} and \textit{plot\_EA\_2D\_combine6stateV2\_flowRate.py} to reproduce Figure 10 in the main paper. 
-    \item  Run \textit{plot\_EA\_2D\_combine15state\_NaK.py} and \textit{plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure 10 in the main paper.  
+    \item \textit{python run\_sedmls\_Terkildsen\_kinetic.py} to get the data of the steady state flux of the 15-state model under varying conditions.
+    \item \textit{python run\_sedmls\_NKE\_BG\_15\_state.py} to get the data of the full bond graph of the 15-state model under varying conditions.
+    \item \textit{python run\_sedmls\_NKE\_BG\_6\_state\_ATPNaZKV2.py} to run the simulations of the 6-state models under varying conditions.
+    \item \textit{python EA\_calc\_6stateV2.py} to calculate the energetic quantities of the 6-state model under varying conditions.
+    \item \textit{python EA\_calc\_15state.py} to calculate the energetic quantities of the 15-state model under varying conditions.
+    \item \textit{python plot\_original\_ssV2.py} to reproduce Figure 4 in the main paper.
+    \item \textit{python plot\_EA\_flow\_6stateV2.py}, \textit{python plot\_EA\_flow\_15state.py} and \textit{python plot\_EA\_bar\_heatV2.py} to reproduce Figure 5 in the main paper.
+    \item \textit{python plot\_EA\_2D\_combine15state.py} and \textit{python plot\_EA\_2D\_combine6stateV2.py} to reproduce Figure 6 in the main paper.
+    \item \textit{python plot\_EA\_2D\_combine15state\_deltaATP.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_deltaATP.py} to reproduce Figures 7,8 and 9 in the main paper.
+    \item \textit{python plot\_EA\_2D\_combine15state\_flowRate.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_flowRate.py} to reproduce Figure 10 in the main paper. 
+    \item \textit{python plot\_EA\_2D\_combine15state\_NaK.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure 10 in the main paper.  
 \end{enumerate}  
 
 \subsection*{Parameters used in the 6-state model for enterocyte simulation}
