@@ -173,11 +173,11 @@ The total energy storage and dissipation of the system can then be determined by
 \label{fig:6state_v1}
 \end{figure}
 
-We here explain the construction of 6-state bond graph model of \Gls{nka} using the new notation,
+Here, we explain the construction of a 6-state bond graph model of \Gls{nka} using the new notation,
 while the 15-state model is explained in \cite{pan_cardiac_2020} and the graph using the new notation is in the supplementary material.
-The bond graph mode of \Gls{nka} with 6 states is based on the scheme proposed in Fig. 1b of \cite{nguyen_structural_2022} with slight modifications.
+The bond graph model of \Gls{nka} with 6 states is based on the scheme proposed in Fig. 1b of \cite{nguyen_structural_2022} with slight modifications.
 We merged (\textrm{E1\textperiodcentered [3Na]\textperiodcentered ATP}) and (\textrm{E1\textperiodcentered [3Na]\textperiodcentered P\text{-}ADP}), 
-while splitting the release of \gls{adp} and Na\textsuperscript{+} into two steps. The graphic representation of the model is shown in Figure \ref{fig:6state_v1} with the steps of the transporters, where we label the cytoplasmic side-open state (\textrm{E1}) as $E_i$  and the exoplasmic side-open state \textrm{E2} as $E_o$. We also derived the analytical steady state equations of this model in the supplementary material, which will be used to check when the instantaneous dynamics of the model differ from the steady state. 
+while splitting the release of \gls{adp} and Na\textsuperscript{+} into two steps. The graphic representation of the model is shown in Figure \ref{fig:6state_v1} with the steps of the transporters, where we label the cytoplasmic side-open state (\textrm{E1}) as $E_i$ and the exoplasmic side-open state \textrm{E2} as $E_o$. We also derived the analytical steady state equations of this model in the supplementary material, which will be used to check when the instantaneous dynamics of the model differ from the steady state. 
 
 \subsection*{Energetic analysis of \gls{nka} models}
 
@@ -313,19 +313,19 @@ In this paper, we focus on the energetic analysis of \gls{nka} under physiologic
 Since \gls{atp} hydrolysis serves as the energy source for the \gls{nka}, the free energy change of \gls{atp} hydrolysis ($\Delta G_{ATP}$) plays a crucial role in determining the activity of the \gls{nka}.
 The $\Delta G_{ATP}$ depends on the concentrations of \gls{atp}, \gls{adp}, \gls{pi}, and $H^+$ (i.e, pH value).
 
-The intracellular \gls{atp} concentration ranges from 1.92–7.47 $mM$ with average of 4.4 $mM$ \cite{greiner_intracellular_2021},
-while the recent study showed lower diastolic cytosolic \gls{atp} levels around 457 $\pm 47u M$ (less than 1 mM), which is less than previously estimated, and the \gls{atp} concentration fluctuates during excitation-contraction coupling \cite{rhana_fueling_2024}.
+The intracellular \gls{atp} concentration ranges from 1.92–7.47 mM with an average of 4.4 mM \cite{greiner_intracellular_2021},
+while the recent study showed lower diastolic cytosolic \gls{atp} levels around 457 $\pm 47$ $\mu$M (less than 1 mM), which is less than previously estimated, and the \gls{atp} concentration fluctuates during excitation-contraction coupling \cite{rhana_fueling_2024}.
 
-The cytosolic \gls{adp} concentrations of in situ mouse, rat and guinea pig heart are 13, 18 and 22 $u M$ \cite{dobson_heart_2002}, respectively, while the extrapolated value in human heart is 45.66 $u M$  with 70 kg body weight.
+The cytosolic \gls{adp} concentrations of in situ mouse, rat and guinea pig heart are 13, 18 and 22 $\mu$M \cite{dobson_heart_2002}, respectively, while the extrapolated value in human heart is 45.66 $\mu$M with 70 kg body weight.
 The experimental observation of \gls{pi} in the heart in vivo has not been studied yet, while the baseline \gls{pi} of a model prediction in the canine myocyte cytoplasm is around 0.29 mM and increases with work rate in heart cells \cite{wu_phosphate_2008}.
 
 
-The model simulation \cite{tran_regulation_2015} reported \gls{atp}, \gls{adp}, \gls{pi} and pH values of 5.61 mM, 25.4 $u M$, 1.16 mM and 7.15, respectively. In general, the physiological intracellular pH ranges from 7.15 to 7.25 \cite{orlowski_intracellular_2025}
+The model simulation \cite{tran_regulation_2015} reported \gls{atp}, \gls{adp}, \gls{pi} and pH values of 5.61 mM, 25.4 $\mu$M, 1.16 mM and 7.15, respectively. In general, the physiological intracellular pH ranges from 7.15 to 7.25 \cite{orlowski_intracellular_2025}.
 
-Intracellular Na\textsuperscript{+} concentration is normally from 4 to 16 mM \cite{bers_intracellular_2003}, while the level can rise by 3 mM above this value in heart failure conditions \cite{despa_intracellular_2002}. This increase was due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged \cite{despa_intracellular_2002}.
-Around 98 \% potassium (K\textsuperscript{+}) resides in the cytosol at 140-150 mM and the extracellular K\textsuperscript{+} concentration ranges from 3.5 to 5 mM \cite{zacchia_potassium_2016}.
+Intracellular Na\textsuperscript{+} concentration is normally from 4 to 16 mM \cite{bers_intracellular_2003}, while the level can rise by 3 mM above this value in heart failure conditions \cite{despa_intracellular_2002}. This increase is due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged \cite{despa_intracellular_2002}.
+Around 98\% potassium (K\textsuperscript{+}) resides in the cytosol at 140-150 mM and the extracellular K\textsuperscript{+} concentration ranges from 3.5 to 5 mM \cite{zacchia_potassium_2016}.
 
-We use the simulation conditions as shown in Table \ref{tab:default_parameters} to examine the distribution of energy flows in different \gls{nka} models. In addition, we vary one parameter at a time to investigate its effect on the function and energetics of the \gls{nka} and varied values are shown in the results section.
+We use the simulation conditions as shown in Table \ref{tab:default_parameters} to examine the distribution of energy flows in different \gls{nka} models. In addition, we vary one parameter at a time to investigate its effect on the function and energetics of the \gls{nka} and the varied values are shown in the results section.
 
 \begin{table}[htbp]
 \centering
@@ -378,12 +378,12 @@ We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-s
 
 The simulated data are comparable to the kinetic model in \cite{pan_cardiac_2020} and experimental data under most conditions, except for the low extracellular Na\textsuperscript{+} concentration (50 mM) in Figure \ref{fig:model_fit} (a).
 The 6-state model has higher current density when the extracellular Na\textsuperscript{+} concentration is 50 mM compared to the kinetic model in \cite{pan_cardiac_2020}, while extracellular Na\textsuperscript{+} concentration is normally around 140 mM \cite{bers_intracellular_2003} under physiological conditions.
-In the following sections, we will focus on the comparison of the 15-state and 6-state bond graph models with regard to thermodynamic aspects, which is the main focus of this study.
+In the following sections, we will focus on the comparison of the 15-state and 6-state bond graph models with regard to thermodynamic aspects.
 
 \subsection*{Energy flows through \gls{nka}}
 \label{sec:energy_flow}
 
-We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls {nka} models while keeping the Na\textsuperscript{+} and K\textsuperscript{+} concentrations constant. The action potentials were simulated using the Faber-Rudy model \cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014}, which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plotted the results in Figure \ref{fig:energy_flow} (a and b). 
+We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls{nka} models while keeping the Na\textsuperscript{+} and K\textsuperscript{+} concentrations constant. The action potentials were simulated using the Faber-Rudy model \cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014}, which were retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plotted the results in Figure \ref{fig:energy_flow} (a and b). 
 
 \begin{figure}[htbp]
 \centering
@@ -567,8 +567,8 @@ The drop in thermodynamic efficiency at very low mean turnover rates in full bon
 
 The reduction of free energy available from ATP hydrolysis results in an accumulation of intracellular Na\textsuperscript{+} ions \cite{jansen2003energy}.
 The increase was noted when $\Delta G_{ATP}$ fell below $-52$ kJ/mol and larger increases were noted when $\Delta G_{ATP}$ dropped below $-48$ kJ/mol.
-This finding agreed with the experimental observation that little activity of of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed when $\Delta G_{ATP}$ was approximately $-49$ kJ/mol \cite{glitsch_change_1995}.
-These observations are consistent with our simulation results, shown in Figure \ref{fig:Mean_flow_rate_AP_deltaGATP}, where the decrease in mean turnover rate of both models are more significant at lower $\Delta G_{ATP}$ values (less negative).
+This finding agreed with the experimental observation that little activity of \gls{nka} at membrane potentials more negative than $-75~mV$ was observed when $\Delta G_{ATP}$ was approximately $-49$ kJ/mol \cite{glitsch_change_1995}.
+These observations are consistent with our simulation results, shown in Figure \ref{fig:Mean_flow_rate_AP_deltaGATP}, where the decrease in mean turnover rate of both models is more significant at lower $\Delta G_{ATP}$ values (less negative).
 
 Despa et al. \cite{despa_intracellular_2002} reported that the resting intracellular Na\textsuperscript{+} concentration is higher in heart failure conditions due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged.
 They also reported increased intracellular Na\textsuperscript{+} during stimulation in rabbit ventricular myocytes.
