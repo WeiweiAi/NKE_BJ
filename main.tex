@@ -14,6 +14,8 @@
 \usepackage{natbib}
 \usetikzlibrary{matrix, positioning,calc,arrows.meta, backgrounds,fit}
 \usepackage[dvipsnames]{xcolor}
+%\newcommand{\rev}[1]{{#1}}
+\newcommand{\rev}[1]{{\color{blue} #1}}
 \usetikzlibrary{shapes.geometric}
 \tikzset{
     every node/.style={font=\small},
@@ -86,8 +88,7 @@ The Albers–Post kinetic scheme \cite{albers_role_1963,post_activation_1972} wa
 where the \Gls{nka} undergoes Na\textsuperscript{+}-dependent phosphorylation and K\textsuperscript{+}-dependent dephosphorylation reactions and alternates between two main conformations, 
 \textrm{E1} and \textrm{E2}, which expose the transport sites to the intracellular and extracellular sides of the membrane, respectively.
 
-The cryo-electron microscopy (cryo-EM) structures of \Gls{nka} in different conformational states were reported,
-including exoplasmic side-open (\textrm{E2\textperiodcentered P})\cite{kanai_binding_2021,nguyen_structural_2022},
+\rev{Cryo-electron microscopy (cryo-EM) and X-ray crystallography have revealed structures of \Gls{nka} in different conformational states}, including exoplasmic side-open (\textrm{E2\textperiodcentered P})\cite{kanai_binding_2021,nguyen_structural_2022},
 K\textsuperscript{+}-occluded (\textrm{E2\textperiodcentered [2K] \textperiodcentered Pi}) \cite{morth_crystal_2007,shinoda_crystal_2009,nguyen_structural_2022},
 (\textrm{E2\textperiodcentered [2K]})\cite{guo_cryo-em_2022},
 cytoplasmic side-open (\textrm{E1})\cite{nguyen_structural_2022}, ATP bound cytoplasmic side-open (\textrm{E1\textperiodcentered ATP})\cite{nguyen_structural_2022},
@@ -109,7 +110,9 @@ Terkildsen et al. \cite{terkildsen_balance_2007} developed a kinetic model of th
 This model detailed the binding and release of Na\textsuperscript{+} and K\textsuperscript{+} ions and their voltage dependence.
 It also explicitly included the proton to enable the study of the effect of pH on pump function,
 which was found to be significant in ischemic conditions.
-The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model using a bond graph approach to ensure thermodynamic consistency.
+The model was subsequently corrected by Pan et al. \cite{pan_cardiac_2020} to address inconsistencies in the original model using a bond graph approach to ensure thermodynamic consistency. \rev{More recently, Guerra et al. \cite{guerra_multistate_2025} proposed a more detailed twenty-state model, in which the microscopic states are characterised by their free energies and the incremental displacement charges associated with state transitions, enabling the potential integration of molecular dynamics (MD) simulation data \cite{roux2008membrane}. They successfully fitted a simplified six-state model to the experimental data of \cite{nakao1989and} by optimising the free energy profile. This explicit formulation of free energy facilitates the integration of MD simulation data while ensuring thermodynamic consistency. The authors also discussed the challenges associated with experimentally investigating and validating such a detailed model.
+
+Although single Albers--Post transport cycle has been the predominant formulation of \gls{nka} models, the transport process may involve complex parallel pathways and slippage reactions \cite{karlish_conformational_1978}. In addition to ion transport, \gls{nka} has been shown to perform other physiological functions, such as cell signalling \cite{xie2002na}. More recent studies have demonstrated that proton transport occurs through the C-terminal pathway of \gls{nka}, and that this pathway is associated with neurological disease mutations \cite{poulsen2010neurological} as well as physiological conditions \cite{vedovato2014route}.}
 
 The \Gls{nka} consumes 19-28\% of the total ATP consumption in mammals, and up to 50-60\% in the brain and kidney \cite{rolfe_cellular_1997}.
 The experimental study in guinea-pig cardiac ventricular muscle showed that the \Gls{nka} is responsible for 10\% of myocardial heat production during contraction, and 17\% at rest \cite{schramm1994energy}.
@@ -137,7 +140,12 @@ We refer the reader to \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2
 Here, we only briefly introduce the key concepts of bond graph modelling relevant to this paper and explain the new notation used in the bond graph models of \Gls{nka}, as shown in Figure~\ref{fig:bg_concepts}.
 Lines of power transmission called \emph{bonds} always have an associated flux $v$ and potential $u$, and the product of flux $v$ and potential $u$ is power, i.e., $P=u\cdot v$. The arrow direction specifies the positive reference direction of the energy flow, i.e., the direction of power flow (Figure~\ref{fig:bg_concepts}(a)). In a dynamic system, the energy flow  $P(t)=u(t)\cdot v(t)$ direction may change over time, while a positive power $P(t)>0$ indicates the energy is released at the tail at time $t$. 
 
-If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation (Figure~\ref{fig:bg_concepts}(b)). Alternatively, if they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux (Figure~\ref{fig:bg_concepts}(c)).  
+If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure power conservation. If they share a common flux $v$ (called a \emph{1 node}), power conservation  becomes just $\sum u=0$ (for non-zero v), which is energy conservation (Figure~\ref{fig:bg_concepts}(b)). Alternatively, if they share a common potential $u$ (called a \emph{0 node}), power conservation becomes just $\sum v=0$ (for non-zero u), which is mass conservation if $v$ is a molar flux or mechanical flow and charge conservation if $v$ is an electrical flux (Figure~\ref{fig:bg_concepts}(c)). \rev{For simplicity, the notation shown Figure~\ref{fig:bg_concepts} (e) is used in this paper, to represent a 0 node associated with capacitive energy storage (Figure~\ref{fig:bg_concepts}(d)). 
+
+An example of biochemical reaction is shown in Figure~\ref{fig:bg_concepts}(e). The chemical species are energy stores, represented as nonlinear capacitive components with the constitutive relationship $u=RTln(Kq)$, where $R= 8.314$ (J/mol/K) is the universal gas constant, $T$ (K) is the absolute temperature, $q$ (mol) is the molar amount of the species, and $K$ (mol$^{-1}$) is the thermodynamic constant of the chemical species. The sum of chemical potentials of the reatants, i.e., the forward affinity, $A^f=2u_A+u_B=2RTln(K_Aq_m^A)+RTln(K_Bq_m^B)$, while the sum of chemical potentials of the products, i.e., the reverse affinity, 
+$A^r=2u_C+u_D=2RTln(K_Cq_m^C)+RTln(K_Dq_m^D)$.
+
+A chemical reaction is represented as two-port dissipative component $Rx$, and its constitutive relationship is $v=\kappa [e^{A^f/(RT)}-e^{A^r/(RT)}]$, where $\kappa$ (mol/s) is a reaction-specific constant. The reaction proceeds in the direction of decreasing potential, that is, the flow rate $v_m^j$ (mol/s) will be positive only if $A^f-A^r>0$. Please note that all the reactions in bond graph are reversible, and the arrow in the graph only indicates the convention of positive sign.} 
 
 \begin{figure}[htbp]  
 \centering  
@@ -146,11 +154,12 @@ If these bonds meet, the sum of powers must be zero $\sum u\cdot v=0$, to ensure
 (b) a 1 node is a bond junction, where the flow is the same for all bonds and therefore the sum of potentials is zero (conservation of energy);
 (c) a 0 node is a bond junction, where the potential is the same for all bonds and therefore the sum of flows is zero (conservation of mass or charge);
 (d) a 0 node is usually associated with capacitive energy storage;
-(e) a concise way to be more succinctly expressed by the red-bordered box where the potential $u_j$ is given by an empirically defined capacitive storage relationship $u_j=f(q_j)$.}
+(e) a concise way to be more succinctly expressed by the red-bordered box where the potential $u_j$ is given by an empirically defined capacitive storage relationship $u_j=f(q_j)$\rev{, where $q_j$ represents the quantity of the species. (e) Bond graph representation of the chemical reaction $2A + B \rightleftharpoons  2C + D$.    
+}}
 \label{fig:bg_concepts}
 \end{figure}
 
-The explicit expression of energy flows in bond graphs makes them particularly suitable for thermodynamic analysis of biochemical systems. For each component $j$ in the bond graph, the energy flow can be calculated as the sum of the power transmitted by each of its bonds, that is $P_j=\sum_{i = 1}^{k}  u_j^i \cdot v_j^i$ with $i=1,2,\ldots,k$ indicating the number of bonds connected to the component. For dynamic systems, the power can be integrated over time to give the total energy stored or dissipated by the component over the time interval $t_0$ to $t_1$, that is $E_j=\int_{t_0}^{t_1} P_j(t) \mathrm{d}t$.
+The explicit expression of energy flows in bond graphs makes them particularly suitable for thermodynamic analysis of biochemical systems. For each component $j$ in the bond graph, the energy flow can be calculated as the sum of the power transmitted by each of its bonds, that is $P_j=\sum_{i = 1}^{k}  u_j^i \cdot v_j^i$ with $i=1,2,\ldots,k$ indicating the number of bonds connected to the component. For dynamic systems, the power can be integrated over time to give the total energy stored or dissipated by the component over the time interval $t_0$ to $t_1$, that is $E_j=\int_{t_0}^{t_1} P_j(t) \mathrm{d}t$. \rev{For example, the energy dissipation by the reaction in Figure~\ref{fig:bg_concepts}(f) is expressed as $E=\int_{t_0}^{t_1}( A^f(t)-A^r(t))\cdot v_m^j(t) \mathrm{d}t$.}
 
 The total energy storage and dissipation of the system can then be determined by summing the energy flows of all components. This allows for a detailed analysis of the energy budget of the system, including identifying which components are storing or dissipating the most energy, and how changes in system parameters affect the overall energy balance.
 
@@ -161,7 +170,7 @@ The total energy storage and dissipation of the system can then be determined by
 \begin{subfigure}{0.4\textwidth}
       \centering
       \includegraphics[width=\linewidth]{6state_1_chem.pdf}
-      \caption{Reacation scheme.}
+      \caption{Reaction scheme.}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.55\textwidth}
@@ -169,7 +178,7 @@ The total energy storage and dissipation of the system can then be determined by
 \includegraphics[width=\linewidth]{6state_1.pdf}
 \caption{Bond graph representation.}
 \end{subfigure}
-\caption{ The reaction scheme and bond graph representation of the \gls{nka}. (1) The enzyme ($E_i$) binds three intracellular Na\textsuperscript{+} ions from the cytoplasm and ATP binds to the enzyme-3Na\textsuperscript{+} complex, leading to ($E_i\cdot ATP \cdot 3Na^+$); (2) The enzyme-3Na\textsuperscript{+}-ATP complex undergoes phosphorylation and ADP is released, leading to the formation of the enzyme-3Na\textsuperscript{+}-P complex ($E_i\cdot P_i \cdot 3Na^+$); (3) The enzyme-3Na\textsuperscript{+}-P complex undergoes a conformational change to the exoplasmic side-open state, releasing three Na\textsuperscript{+} ions to the extracellular space ($E_o\cdot P_i$); (4) Two extracellular K\textsuperscript{+} ions bind to the enzyme in the exoplasmic side-open state, leading to enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$); (5) The enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$) undergoes dephosphorylation, releasing $P_i$ and $H^+$, ending up with the enzyme-2K\textsuperscript{+} complex ($E_o\cdot 2K^+$); (6) The enzyme-2K\textsuperscript{+} complex ($E_o\cdot 2K^+$) undergoes a conformational change to the cytoplasmic side-open state ($E_i$), leading to the release of two K\textsuperscript{+} ions into the cytoplasm.}
+\caption{ The reaction scheme \rev{(a)} and bond graph representation \rev{(b)} of the \gls{nka}. \rev{In (a), the conformational states are indicated in the reaction cycle (e.g., $E_i$), while the corresponding quantity variables in the bond graph (e.g., $q_m^1$) are shown nearby. The same conformational states can also be identified in (b), where the detailed reactions are represented as $Rx_m^1$ to $Rx_m^6$. The sequence of the reactions is as follows:} (1) \rev{Reaction $Rx_m^1$:} The enzyme (\rev{$q_m^1$:} $E_i$) binds three intracellular Na\textsuperscript{+} ions from the cytoplasm and ATP binds to the enzyme-3Na\textsuperscript{+} complex, leading to (\rev{$q_m^2$:} $E_i\cdot ATP \cdot 3Na^+$); (2) \rev{Reaction $Rx_m^2$:} The enzyme-3Na\textsuperscript{+}-ATP complex undergoes phosphorylation and ADP is released, leading to the formation of the enzyme-3Na\textsuperscript{+}-P complex (\rev{$q_m^3$:} $E_i\cdot P_i \cdot 3Na^+$); (3) \rev{Reaction $Rx_m^3$:} The enzyme-3Na\textsuperscript{+}-P complex undergoes a conformational change to the exoplasmic side-open state, releasing three Na\textsuperscript{+} ions to the extracellular space (\rev{$q_m^4$:} $E_o\cdot P_i$); (4) \rev{Reaction $Rx_m^4$:} Two extracellular K\textsuperscript{+} ions bind to the enzyme in the exoplasmic side-open state, leading to enzyme-2K\textsuperscript{+} complex (\rev{$q_m^5$:} $E_o\cdot P_i \cdot 2K^+$); (5) \rev{Reaction $Rx_m^5$:} The enzyme-2K\textsuperscript{+} complex ($E_o\cdot P_i \cdot 2K^+$) undergoes dephosphorylation, releasing $P_i$ and $H^+$, ending up with the enzyme-2K\textsuperscript{+} complex (\rev{$q_m^6$:} $E_o\cdot 2K^+$); (6) \rev{Reaction $Rx_m^6$:} The enzyme-2K\textsuperscript{+} complex (\rev{$q_m^6$:} $E_o\cdot 2K^+$) undergoes a conformational change to the cytoplasmic side-open state (\rev{$q_m^1$:} $E_i$), leading to the release of two K\textsuperscript{+} ions into the cytoplasm.}
 \label{fig:6state_v1}
 \end{figure}
 
@@ -267,14 +276,14 @@ The electrical energy stored in the membrane potential can be calculated as:
       \label{eq:electrical_energy}
       E_\text{storage}^\text{electrical} = \int_{0}^{t} u_m^e \cdot v_m^e \mathrm{d}t
 \end{equation}
-where $V_m$ is the membrane potential and $i_{m}$ is the current mediated by the \gls{nka}.
+where \rev{$u_m^e$} is the membrane potential and \rev{$v_m^e$} is the current mediated by the \gls{nka}.
 
 The total energy balance of the \gls{nka} model can be written as:
 \begin{equation}
       \label{eq:total_energy_balance}
       E_\text{total} = E_\text{supply} - E_\text{dissipation} - E_\text{storage}^\text{chemical} - E_\text{storage}^\text{electrical}
 \end{equation}
-where $E_\text{total}$ should be zero to satisfy the first law of thermodynamics.
+\rev{According to the first law of thermodynamics "the internal energy of an isolated system is constant" \cite{atkins2023physical}. That is, the energy can be transformed but conserved. In the \gls{nka} system, the free energy released by ATP hydrolysis $E_\text{supply}$ is transformed into three components: (1) the chemical potential associated with establishing the Na+ and K+ concentration gradients $E_\text{storage}^\text{chemical}$, (2) the electrical work resulting from the electrogenic 3:2 ion exchange $E_\text{storage}^\text{electrical}$, and (3) energy dissipated as heat $E_\text{dissipation}$. Therefore, the total energy balance $E_\text{total}$ is zero because all of the energy supplied by ATP hydrolysis is accounted for by these energy transformations.} 
 
 The thermodynamic efficiency of the \gls{nka} can be defined as the ratio of the useful energy stored to the total energy supplied:
 \begin{equation}
@@ -322,6 +331,8 @@ The experimental observation of \gls{pi} in the heart in vivo has not been studi
 
 The simulation in \cite{tran_regulation_2015} reported \gls{atp}, \gls{adp}, \gls{pi} and pH values of 5.61 mM, 25.4 $\mu$M, 1.16 mM and 7.15, respectively. In general, the physiological intracellular pH ranges from 7.15 to 7.25 \cite{orlowski_intracellular_2025}.
 
+\rev{The concentration of Mg\textsuperscript{2+} affects the free energy change of \gls{atp} hydrolysis ($\Delta G_{ATP}$) \cite{guynn_equilibrium_1973}. For comparison with \cite{pan_cardiac_2020}, we adopt the same value of $\Delta G_{ATP}=11.9,\mathrm{kJ/mol}$, corresponding to a fixed Mg\textsuperscript{2+} concentration of 1 mM \cite{guynn_equilibrium_1973}. Although a recent study \cite{apell2017modulation} demonstrated that Mg\textsuperscript{2+} modulates \gls{nka} activity by altering the local ionic concentrations in the electrolyte, particularly when the Mg\textsuperscript{2+} concentration exceeds 5 mM, it does not affect the transport kinetics directly. Such detailed interactions are beyond the scope of the present model, and the Mg\textsuperscript{2+} concentration is therefore fixed at 1 mM throughout this study.}
+
 Intracellular Na\textsuperscript{+} concentration is normally from 4 to 16 mM \cite{bers_intracellular_2003}, while the level can rise by 3 mM above this value in heart failure conditions \cite{despa_intracellular_2002}. This increase is due to increased Na\textsuperscript{+} influx while the \gls{nka} function is unchanged \cite{despa_intracellular_2002}.
 Around 98\% of potassium (K\textsuperscript{+}) resides in the cytosol at 140--150 mM and the extracellular K\textsuperscript{+} concentration ranges from 3.5 to 5 mM \cite{zacchia_potassium_2016}.
 
@@ -334,7 +345,7 @@ We use the simulation conditions as shown in Table \ref{tab:default_parameters} 
 ]{mydata}{default_conditions.csv}
 \begin{tabular}{lllll}
 \toprule
-Parameter & Description & Value & Units & References\\
+\rev{Constant} & Description & Value & Units & References\\
 \midrule
 \DTLforeach{mydata}{%
   \param=Parameter,\desc=Description,\val=Value,\unit=Units,\refs=References%
@@ -342,13 +353,14 @@ Parameter & Description & Value & Units & References\\
   \param & \desc & \val & \unit & \citep{\refs}\\
 }
 \end{tabular}
-\caption{Default parameters for \gls{nka}.}
+\caption{Default \rev{boundary conditions} for \gls{nka} simulations.}
 \label{tab:default_parameters}
 \end{table}
 
 \section*{Results}
 \subsection*{Fit 6-state \gls{nka} models to experimental data}
-We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-state bond graph model to the experimental data using the differential evolution method in SciPy \cite{storn1997differential}, shown in Figure \ref{fig:model_fit}. 
+
+We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-state bond graph model to the experimental data using the differential evolution method in SciPy \cite{storn1997differential}, shown in Figure \ref{fig:model_fit}. \rev{The detailed experimental conditions and data are listed in the supplemental materials.}
 
 \begin{figure}[htbp]
 \centering
@@ -372,18 +384,17 @@ We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-s
       \includegraphics[width=\linewidth]{NKE_BG_6_stateV2_fig3c_fit.eps}
       \caption{Data from Figure 3c in \cite{pan_cardiac_2020}}
 \end{subfigure}
-\caption{Fit of \gls{nka} models to experimental data and Terkildsen model after correction in \cite{pan_cardiac_2020}. The solid lines are simulated data from the kinetic model in \cite{pan_cardiac_2020}, while the solid dots are experimental data. The dashed lines are simulated data from the steady-state 6-state bond graph model, and the '+' symbols are produced by the full 6-state bond graph model. (a) \gls{nka} current-voltage relationship at different extracellular Na\textsuperscript{+} concentrations; (b) \gls{nka} current as a function of intracellular Na\textsuperscript{+} concentration; (c) \gls{nka} current as a function of extracellular K\textsuperscript{+} concentration;  (d) \gls{nka} current as a function of ATP concentration. The simulation conditions are the same as in \cite{pan_cardiac_2020}.}
+\caption{Fit of \gls{nka} models to experimental data and Terkildsen model after correction in \cite{pan_cardiac_2020}. The solid lines are simulated data from the kinetic model in \cite{pan_cardiac_2020}, while the solid dots are experimental data. The dashed lines are simulated data from the steady-state 6-state bond graph model, and the '+' symbols are produced by the full 6-state bond graph model. (a) \gls{nka} current-voltage relationship at different extracellular Na\textsuperscript{+} concentrations \rev{in guinea pig ventricular myocytes \cite{nakao1989and}}; (b) \gls{nka} current as a function of intracellular Na\textsuperscript{+} concentration \rev{in rabbit cardiac myocytes \cite{hansen2002dependence}, normalised to the cycling velocity at $[Na_i]$  = 50 mM}; (c) \gls{nka} current as a function of extracellular K\textsuperscript{+} concentration \rev{in guinea pig ventricular myocytes \cite{nakao1989and}, normalised to the cycling velocity at $[K_e]$  = 5.4 mM};  (d) \gls{nka} current as a function of ATP concentration \rev{in guinea pig ventricular myocytes \cite{friedrich1996na}, normalised to the cycling velocity at $[ATP]$  = 0.6 mM}. The simulation conditions are the same as in \cite{pan_cardiac_2020}.}
 \label{fig:model_fit} 
 \end{figure}
 
-The simulated data are comparable to the kinetic model in \cite{pan_cardiac_2020} and experimental data under most conditions, except for the low extracellular Na\textsuperscript{+} concentration (50 mM) in Figure \ref{fig:model_fit} (a).
-The 6-state model has higher current density when the extracellular Na\textsuperscript{+} concentration is 50 mM compared to the kinetic model in \cite{pan_cardiac_2020}, while extracellular Na\textsuperscript{+} concentration is normally around 140 mM \cite{bers_intracellular_2003} under physiological conditions.
+The 6-state model has higher current density when the extracellular Na\textsuperscript{+} concentration is 50 mM compared to the kinetic model in \cite{pan_cardiac_2020}. \rev{However,the physiological} extracellular Na\textsuperscript{+} concentration is normally around 140 mM \cite{bers_intracellular_2003} ( Table \ref{tab:default_parameters}),\rev{under which both models exhibit similar current-voltage relationships (Figure \ref{fig:model_fit} (a)). The 6-state model shows a more rapid increase in cycling velocity with increasing intracellular Na\textsuperscript{+} concentration, but reaches a plateau at approximately 40 mM. Under the physiological condition of $[Na_i]$  = 10 mM, the 6-state model predicts a lower transport rate than the 15-state model (Figure \ref{fig:model_fit} (b)). As a function of extracellular K\textsuperscript{+} concentration, both models exhibit very similar cycling dynamics (Figure \ref{fig:model_fit} (c)). The 6-state model also exhibits a slightly lower cycling rate with increasing ATP concentration (Figure \ref{fig:model_fit} (d)). Overall,  the simulated results are comparable to both the kinetic model in \cite{pan_cardiac_2020} and experimental data under the default physiological conditions listed in Table \ref{tab:default_parameters}.}
 In the following sections, we will focus on the comparison of the 15-state and 6-state bond graph models with regard to thermodynamic aspects.
 
 \subsection*{Energy flows through \gls{nka}}
 \label{sec:energy_flow}
 
-We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls{nka} models while keeping the Na\textsuperscript{+} and K\textsuperscript{+} concentrations constant. The action potentials were simulated using the Faber-Rudy model \cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014}, which was retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} over ten cycles of the action potential. We plotted the results in Figure \ref{fig:energy_flow} (a and b). 
+\rev{The time-varying membrane potential is explicitly accounted for in our simulations.  We generated ten cycles of action potentials (with \gls{bcl} of 1000 ms) using the Faber--Rudy model \cite{faber_action_2000} with corrected T type calcium current \cite{tong_computational_2014}. This model was retrieved from PMR (\url{https://models.physiomeproject.org/e/260}). These instantaneous membrane potentials were applied as an input to the} \gls{nka} models while keeping the Na\textsuperscript{+} and K\textsuperscript{+} concentrations constant. The other simulation conditions are shown in Table \ref{tab:default_parameters}. We then calculated the energy flows through the \gls{nka} and the results were plotted in Figure \ref{fig:energy_flow} (a and b). 
 
 \begin{figure}[htbp]
 \centering
@@ -413,7 +424,7 @@ We applied a series of action potentials (with \gls{bcl} of 1000 ms) to the \gls
 
 We observe that around 22\% of the energy supplied by ATP hydrolysis is dissipated as heat, 12\% is stored as electrical energy, and 66\% is stored as chemical energy in both models under physiological conditions. The thermodynamic efficiency of both models is around 78\%, which is consistent with previous theoretical studies \cite{wagoner_mechanisms_2019,peluffo_nak-atpase_2023}.
 We also calculated the heat production rates of both models, shown in Figure \ref{fig:energy_flow} (c and d).
-In the 15-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^6$ when \gls{adp} is released, and $Rx_m^{13}$ when $P_i$ and $H^+$ are released and $Rx_m^{15}$ when the enzyme is translocated from extracellular to intracellular after \gls{atp} binding.
+In the 15-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^6$ when \gls{adp} is released, and $Rx_m^{13}$ when $P_i$ and $H^+$ are released and $Rx_m^{15}$ when the enzyme \rev{undergoes a conformational shift from the extracellular-facing to the intracellular-facing state} after \gls{atp} binding.
 In the 6-state model, the energy dissipation mainly occurs during the reaction steps of $Rx_m^2$ when \gls{adp} is released, and $Rx_m^{5}$ when $P_i$ and $H^+$ are released.
 
 According to the theoretical study in \cite{wagoner_mechanisms_2019}, the \gls{nka} is a highly efficient molecular machine due to the micro conformational changes that minimize energy loss during ion transport. The data in their study showed that the efficiency of \gls{nka} ranges from around 50\% to 88\% depending on operating conditions. The simulation results in our study are within this range, which further supports the notion that \gls{nka} operates with high thermodynamic efficiency under physiological conditions.
@@ -433,17 +444,16 @@ The corresponding $\Delta G_{ATP}$ values range from -46 kJ/mol to -62 kJ/mol.
 \begin{figure}[htbp]
 \centering
 \begin{subfigure}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency.png}  
-      \caption{15-state model}    
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.48\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency.png}
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\caption{Thermodynamic efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model). The right y-axis shows the corresponding $\Delta G_{ATP}$ values, indicated by the blue dots in the plots.}
+\begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_2.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model).}
 \label{fig:thermodynamic_efficiency_AP} 
 \end{figure} 
 
@@ -460,16 +470,16 @@ From the figures, we can see that the \gls{atp}, \gls{adp}, \gls{pi} concentrati
 \begin{figure}[htbp]
 \centering
 \begin{subfigure}{0.4\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_deltaATP.png}  
-      \caption{15-state model}    
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_deltaATP.png}
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_deltaATP_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\caption{Thermodynamic efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model) under different $\Delta G_{ATP}$ values.}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_deltaATP_2.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different $\Delta G_{ATP}$ values.}
 \label{fig:thermodynamic_efficiency_AP_deltaGATP} 
 \end{figure}
 
@@ -482,16 +492,16 @@ Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls
 \begin{figure}[htbp]
 \centering
 \begin{subfigure}{0.4\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Electrical_conversion_efficiency_deltaATP.png}  
-      \caption{15-state model}    
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Electrical_conversion_efficiency_deltaATP.png}
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Electrical_conversion_efficiency_deltaATP_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\caption{Electrical conversion efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model) under different $\Delta G_{ATP}$ values.}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Electrical_conversion_efficiency_deltaATP_2.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Electrical conversion efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different $\Delta G_{ATP}$ values.}
 \label{fig:electrical_efficiency_AP_deltaGATP} 
 \end{figure}
 
@@ -521,16 +531,16 @@ We ploted the mean turnover rate of \gls{nka} under different $\Delta G_{ATP}$ v
 \begin{figure}[htbp]
 \centering
 \begin{subfigure}{0.4\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Mean_flow_rate_deltaATP.png}  
-      \caption{15-state model}    
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Mean_flow_rate_deltaATP.png}
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Mean_flow_rate_deltaATP_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\caption{Mean flow rate of \gls{nka} (a) (15-state model) and (b) (6-state model) under different $\Delta G_{ATP}$ values.}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Mean_flow_rate_deltaATP_2.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Mean flow rate of \gls{nka} (a) (6-state model) and (b) (15-state model) under different $\Delta G_{ATP}$ values.}
 \label{fig:Mean_flow_rate_AP_deltaGATP} 
 \end{figure}
 
@@ -546,16 +556,16 @@ To understand how the inhibition of \gls{nka} activity affects its thermodynamic
 \begin{figure}[htbp]
 \centering
 \begin{subfigure}{0.4\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_flowRate.png}  
-      \caption{15-state model}    
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_flowRate.png}
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_flowRate_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\caption{Thermodynamic efficiency of \gls{nka} (a) (15-state model) and (b) (6-state model) under different mean turnover rates.}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_flowRate_2.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different mean turnover rates.}
 \label{fig:thermodynamic_efficiency_AP_flowRate} 
 \end{figure}
 
@@ -582,16 +592,16 @@ To investigate the response of \gls{nka} to changes in intracellular Na\textsupe
 \begin{figure} [htbp]
 \centering
 \begin{subfigure}{0.4\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_NaK.png}  
-      \caption{15-state model}    
-\end{subfigure}
-\begin{subfigure}{0.4\textwidth}
       \centering  
-      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_Nak.png}
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_Nak_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\caption{Thermodynamic efficiency and mean turnover rate of \gls{nka} (a) (15-state model) and (b) (6-state model) under different intracellular Na\textsuperscript{+} and extracellular K\textsuperscript{+} concentrations. The left panels of (a) and (b) show the thermodynamic efficiency of \gls{nka} with increased  mean turnover rate due to increased intracellular Na\textsuperscript{+} concentration, while the right panels of (a) and (b) show the thermodynamic efficiency of \gls{nka} with increased  mean turnover rate due to decreased extracellular K\textsuperscript{+} concentration.}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_NaK_2.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency and mean turnover rate of \gls{nka} (a) (6-state model) and (b) (15-state model) under different intracellular Na\textsuperscript{+} and extracellular K\textsuperscript{+} concentrations. The left panels of (a) and (b) show the thermodynamic efficiency of \gls{nka} with increased  mean turnover rate due to increased intracellular Na\textsuperscript{+} concentration, while the right panels of (a) and (b) show the thermodynamic efficiency of \gls{nka} with increased  mean turnover rate due to decreased extracellular K\textsuperscript{+} concentration.}
 \label{fig:thermodynamic_efficiency_AP_NaK} 
 \end{figure}
 
@@ -631,7 +641,9 @@ Third, we show that the \gls{nka} activity responds dynamically to changes in in
 The bond graph framework proved invaluable for this analysis, as it simultaneously enforces conservation of mass, charge, and energy, enabling us to identify which reaction steps and energy flows contribute most significantly to the overall thermodynamic behavior of the system. By comparing the 15-state and 6-state models, we demonstrate that energetic analysis can aid in model selection and validation, guiding the choice of model complexity appropriate for specific research questions.
 
 Future work should extend this energetic analysis to other ion pumps and transporters, investigate how genetic mutations or pharmacological interventions affect \gls{nka} energetics, and develop more energetically realistic models informed by recent cryo-EM structures \cite{kanai_binding_2021,nguyen_structural_2022,morth_crystal_2007,shinoda_crystal_2009,guo_cryo-em_2022,nyblom_crystal_2013,kanai_crystal_2013}. Integration of these energetic models with whole-cell and tissue-level simulations will provide deeper insights into the role of \gls{nka} in cellular energy metabolism and its dysfunction in diseases such as heart failure and stroke.
- 
+
+\section*{Data Availability}
+\rev{The CellML and sedml files are in workspace \url{https://models.physiomeproject.org/workspace/cad}, while the python scripts are in Github repository \url{https://github.com/WeiweiAi/EA_NKE}. These models and code are publicly available, while the instructions reproducing the results in the manuscripts are provided in the supplemental material.}
 
 \section*{Author Contributions}
 
