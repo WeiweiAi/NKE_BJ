@@ -1,6 +1,6 @@
 Parameter,Description,Value,Units,References
-$c_{Nai}$,Intracellular sodium concentration,10.0,mM,"despa_intracellular_2002,bers_intracellular_2003"
-$c_{Nao}$,Extracellular sodium concentration,140.0,mM,"despa_intracellular_2002,bers_intracellular_2003"
+$c_{Nai}$,Intracellular sodium concentration,10,mM,"despa_intracellular_2002,bers_intracellular_2003"
+$c_{Nao}$,Extracellular sodium concentration,140,mM,"despa_intracellular_2002,bers_intracellular_2003"
 $c_{Ki}$,Intracellular potassium concentration,145,mM,zacchia_potassium_2016
 $c_{Ko}$,Extracellular potassium concentration,4.5,mM,zacchia_potassium_2016
 $c_{ATP}$,Intracellular ATP concentration,1,mM,rhana_fueling_2024

@@ -8,6 +8,11 @@
 \usepackage{subcaption}
 \usepackage{comment}
 \usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{datatool}
+\usepackage{booktabs}
+\usepackage{etoolbox}
+\newcommand{\rev}[1]{{\color{blue} #1}}
 % Uncomment if using biblatex
 % \addbibresource{sample.bib}
 \newacronym{nka}{NKA}{sodium-potassium ATPase pump}
@@ -27,6 +32,48 @@
 \papertype{Article}
 % \papertype{Computational Tools}
 
+% Define a custom command to generate tables from CSVs
+% #1 = CSV filename, #2 = Caption, #3 = Label (also used as unique DB name)
+\newcommand{\makeparametertable}[3]{%
+    % 1. Load data into a unique database named after the label (#3)
+    \DTLloadrawdb[
+      keys={u_0_Vm,c_Nai,c_Nao,c_Ki,c_Ko,c_Pi,c_ATP,c_ADP,T,pH,v_ss}
+    ]{#3}{#1}
+    
+    % 2. Clear and build the macro for the table body
+    \def\mytablebody{}
+    \DTLforeach*{#3}{%
+      \cola=u_0_Vm,\colb=c_Nai,\colc=c_Nao,\cold=c_Ki,\cole=c_Ko,\colf=c_Pi,\colg=c_ATP,\colh=c_ADP,\coli=T,\colj=pH,\colk=v_ss%
+    }{%
+      \eappto\mytablebody{\cola & \colb & \colc & \cold & \cole & \colf & \colg & \colh & \coli & \colj & \colk \noexpand\\}%
+    }
+    
+    % 3. Print the table
+    \begin{table}[htbp]
+    \centering
+    \begin{tabularx}{\textwidth}{ 
+      >{\raggedright\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+      >{\centering\arraybackslash}X 
+    }
+    \toprule
+    $V_m$(V) & $c_{Nai}$ (mM) & $c_{Nao}$ (mM) & $c_{Ki}$ (mM) & $c_{Ko}$ (mM) & $c_{Pi}$ (mM)& $c_{ATP}$ (mM)& $c_{ADP}$ (mM) & T (K) & pH & $v$ (fmol/s) \\
+    \midrule
+    \mytablebody
+    \bottomrule
+    \end{tabularx}
+    \caption{#2}
+    \label{#3}
+    \end{table}
+}
 
 \begin{document}
 
@@ -71,6 +118,22 @@ The bond graph of the 6-state model is shown in Figure \ref{fig:6state_v1}.
 \end{figure}
 
 \input{6state_eqs.tex}
+
+\rev{ The experimental conditions and corresponding data used for the parameter fitting process are listed from Table \ref{tab:volt_cond} to Table \ref{tab:ATP_cond}.}
+% Generate the first table
+\makeparametertable{Terkildsen_NaK_kinetic_volt_cond.csv}% File
+                   {The boundary conditions for Fig 2b in \cite{pan_cardiac_2020}.}% Caption
+                   {tab:volt_cond}% Label
+
+\makeparametertable{Terkildsen_NaK_kinetic_Nai_cond.csv}% File
+                   {The boundary conditions for Fig 3a in \cite{pan_cardiac_2020}.}% Caption
+                   {tab:Nai_cond}% Label
+\makeparametertable{Terkildsen_NaK_kinetic_Ke_cond.csv}% File
+                   {The boundary conditions for Fig 3b in \cite{pan_cardiac_2020}.}% Caption
+                   {tab:Ke_cond}% Label
+\makeparametertable{Terkildsen_NaK_kinetic_ATP_cond.csv}% File
+                   {The boundary conditions for Fig 3c in \cite{pan_cardiac_2020}.}% Caption
+                   {tab:ATP_cond}% Label
 
 Table \ref{tab:6state-params} lists the parameters used in the 6-state model.
 \begin{table}[h]
@@ -146,12 +209,116 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
     \item \textit{python EA\_calc\_15state.py} to calculate the energetic quantities of the 15-state model under varying conditions.
     \item \textit{python plot\_original\_ssV2.py} to reproduce Figure 4 in the main paper.
     \item \textit{python plot\_EA\_flow\_6stateV2.py}, \textit{python plot\_EA\_flow\_15state.py} and \textit{python plot\_EA\_bar\_heatV2.py} to reproduce Figure 5 in the main paper.
-    \item \textit{python plot\_EA\_2D\_combine15state.py} and \textit{python plot\_EA\_2D\_combine6stateV2.py} to reproduce Figure 6 in the main paper.
-    \item \textit{python plot\_EA\_2D\_combine15state\_deltaATP.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_deltaATP.py} to reproduce Figures 7,8 and 9 in the main paper.
-    \item \textit{python plot\_EA\_2D\_combine15state\_flowRate.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_flowRate.py} to reproduce Figure 10 in the main paper. 
-    \item \textit{python plot\_EA\_2D\_combine15state\_NaK.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure 10 in the main paper.  
+    \item \textit{python plot\_EA\_2D\_combine15state\_2.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_2.py} to reproduce Figure 6 in the main paper.
+    \item \textit{python plot\_EA\_2D\_combine15state\_deltaATP\_2.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_deltaATP\_2.py} to reproduce Figures 7,8 and 9 in the main paper.
+    \item \textit{python plot\_EA\_2D\_combine15state\_flowRate\_2.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_flowRate\_2.py} to reproduce Figure 10 in the main paper. 
+    \item \textit{python plot\_EA\_2D\_combine15state\_NaK\_2.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_NaK\_2.py} to reproduce Figure 11 in the main paper.  
 \end{enumerate}  
 
+\subsection*{Figures with more BCL options}
+\rev{The extra figures with BCL = 600, 800, 1000, 1200 ms are shown below, and the scripts to plot the figures are:
+\begin{enumerate}
+ \item \textit{python plot\_EA\_2D\_combine15state.py} and \textit{python plot\_EA\_2D\_combine6stateV2.py} to reproduce Figure \ref{fig:thermodynamic_efficiency_AP}.
+    \item \textit{python plot\_EA\_2D\_combine15state\_deltaATP.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_deltaATP.py} to reproduce Figures \ref{fig:thermodynamic_efficiency_AP_deltaGATP},\ref{fig:electrical_efficiency_AP_deltaGATP} and \ref{fig:Mean_flow_rate_AP_deltaGATP}.
+    \item \textit{python plot\_EA\_2D\_combine15state\_flowRate.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_flowRate.py} to reproduce Figure \ref{fig:thermodynamic_efficiency_AP_flowRate}. 
+    \item \textit{python plot\_EA\_2D\_combine15state\_NaK.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure \ref{fig:thermodynamic_efficiency_AP_NaK}.
+\end{enumerate}
+}
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.48\textwidth}
+      \centering  
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency.png}
+      \caption{6-state model}    
+\end{subfigure}
+\begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model).}
+\label{fig:thermodynamic_efficiency_AP} 
+\end{figure} 
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.4\textwidth}
+      \centering  
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_deltaATP.png}
+      \caption{6-state model}    
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_deltaATP.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different $\Delta G_{ATP}$ values.}
+\label{fig:thermodynamic_efficiency_AP_deltaGATP} 
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.4\textwidth}
+      \centering  
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Electrical_conversion_efficiency_deltaATP.png}
+      \caption{6-state model}    
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Electrical_conversion_efficiency_deltaATP.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Electrical conversion efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different $\Delta G_{ATP}$ values.}
+\label{fig:electrical_efficiency_AP_deltaGATP} 
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.4\textwidth}
+      \centering  
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Mean_flow_rate_deltaATP.png}
+      \caption{6-state model}    
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Mean_flow_rate_deltaATP.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Mean flow rate of \gls{nka} (a) (6-state model) and (b) (15-state model) under different $\Delta G_{ATP}$ values.}
+\label{fig:Mean_flow_rate_AP_deltaGATP} 
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.4\textwidth}
+      \centering  
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_flowRate.png}
+      \caption{6-state model}    
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_flowRate.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different mean turnover rates.}
+\label{fig:thermodynamic_efficiency_AP_flowRate} 
+\end{figure}
+
+\begin{figure} [htbp]
+\centering
+\begin{subfigure}{0.4\textwidth}
+      \centering  
+      \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_Nak.png}
+      \caption{6-state model}    
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_NaK.png}  
+      \caption{15-state model}    
+\end{subfigure}
+\caption{Thermodynamic efficiency and mean turnover rate of \gls{nka} (a) (6-state model) and (b) (15-state model) under different intracellular Na\textsuperscript{+} and extracellular K\textsuperscript{+} concentrations. The left panels of (a) and (b) show the thermodynamic efficiency of \gls{nka} with increased  mean turnover rate due to increased intracellular Na\textsuperscript{+} concentration, while the right panels of (a) and (b) show the thermodynamic efficiency of \gls{nka} with increased  mean turnover rate due to decreased extracellular K\textsuperscript{+} concentration.}
+\label{fig:thermodynamic_efficiency_AP_NaK}
+\end{figure}
 \subsection*{Parameters used in the 6-state model for enterocyte simulation}
 
 \begin{table}[h]
