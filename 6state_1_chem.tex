@@ -42,7 +42,7 @@
 }
 
 \matrix (right) [matrix of nodes,row sep=\sep, matrix anchor=north, below=\sep of top-1-2]  {
-  |[rectblue]| $E_i\cdot ATP\cdot 3Na^+$ \\ 
+  |[rectblue]| $E_i\cdot MgATP\cdot 3Na^+$ \\ 
   |[rectblue]| $E_i\cdot P_i\cdot 3Na^+$\\ 
 };
 
@@ -62,15 +62,15 @@
 \node [rectblue, left=of top-1-2, yshift=-10mm] (K2_i) {$ 2K^+$};
 \draw[bend right] (K2_i) to ([xshift=10mm,yshift=-1mm]top-1-1.east);
 
-\node [rectblue, right=of top-1-2, xshift=5mm,yshift=-10mm] (ATP) {$ ATP$};
+\node [rectblue, right=of top-1-2, xshift=5mm,yshift=-10mm] (MgATP) {$ MgATP$};
 \node [rectblue, right=of top-1-2, xshift=5mm,yshift=-15mm] (Na) {$ 3Na^+$};
-\draw[bend right]  (ATP) to ([xshift=1mm,yshift=5mm]right-1-1.north);
+\draw[bend right]  (MgATP) to ([xshift=1mm,yshift=5mm]right-1-1.north);
 \draw[bend right] (Na) to ([xshift=1mm,yshift=5mm]right-1-1.north);
 
-\node [rectblue, left=of right-2-1, yshift=10mm] (ADP) {$ ADP$};
-\draw[bend right] (ADP) to ([xshift=-1mm,yshift=-5mm]right-1-1.south);
+\node [rectblue, left=of right-2-1, yshift=12mm] (MgADP) {$ MgADP$};
+\draw[bend right] (MgADP) to ([xshift=-1mm,yshift=-5mm]right-1-1.south);
 
-\node [rectblue, right=of left-2-1, yshift=10mm] (Na_o) {$ 3Na^+$};
+\node [rectblue, right=of left-2-1, yshift=8mm] (Na_o) {$ 3Na^+$};
 \draw[bend right] (Na_o) to ([xshift=-5mm,yshift=1mm]right-2-1.west);
 
 \draw[arrow] ([xshift=-1mm]left-1-1.north) -- ([xshift=-1mm]top-1-1.south);

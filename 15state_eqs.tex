@@ -17,7 +17,7 @@ u_m^{11} & = RT\ln(K_{11}q_m^{11}) & u_m^{12} & = RT\ln(K_{12}q_m^{12}) & u_m^{1
 
 \begin{align*}
 u_i^{K+} & = RT\ln(K_i^Kq_i^{K+}) & u_i^{Na+} & = RT\ln(K_i^{Na}q_i^{Na+}) & u_o^{Na+} & = RT\ln(K_o^{Na}q_o^{Na+}) & u_o^{K+} & = RT\ln(K_o^Kq_o^{K+})\\
-u_i^{ATP} & = RT\ln(K_i^{ATP}q_i^{ATP}) & u_i^{ADP} & = RT\ln(K_i^{ADP}q_i^{ADP}) & u_i^{P_i} & = RT\ln(K_i^{P_i}q_i^{P_i}) & u_i^{H} & = RT\ln(K_i^{H}q_i^{H}) \\
+u_i^{MgATP} & = RT\ln(K_i^{MgATP}q_i^{MgATP}) & u_i^{MgADP} & = RT\ln(K_i^{MgADP}q_i^{MgADP}) & u_i^{P_i} & = RT\ln(K_i^{P_i}q_i^{P_i}) & u_i^{H} & = RT\ln(K_i^{H}q_i^{H}) \\
 \end{align*}
 
 The flow rates are given by:
@@ -32,7 +32,7 @@ v_m^{4}  &= \kappa_4 \left( K_4 q_m^4 K_i^{Na} q_i^{Na+} - K_5 q_m^5 \right) \\[
 v_m^{5}  &= \kappa_5 \left( K_5 q_m^5 K_i^{Na} q_i^{Na+}
             - K_6 q_m^6 \exp\left( \frac{z_1 F u_m^e}{RT} \right) \right)
 &\qquad
-v_m^{6}  &= \kappa_6 \left( K_6 q_m^6 - K_7 q_m^7 K_i^{ADP} q_i^{ADP} \right) \\[6pt]
+v_m^{6}  &= \kappa_6 \left( K_6 q_m^6 - K_7 q_m^7 K_i^{MgADP} q_i^{MgADP} \right) \\[6pt]
 v_m^{7}  &= \kappa_7 \left( K_7 q_m^7 - K_8 q_m^8 \right)
 &\qquad
 v_m^{8}  &= \kappa_8 \left( K_8 q_m^8 - K_9 q_m^9 K_o^{Na} q_o^{Na+}
@@ -46,7 +46,7 @@ v_m^{12} &= \kappa_{12} \left( K_{12} q_m^{12} K_o^{K} q_o^{K+} - K_{13} q_m^{13
 v_m^{13} &= \kappa_{13} \left( K_{13} q_m^{13}
              - K_{14} q_m^{14} K_i^{P_i} q_i^{P_i} K_i^{H} q_i^{H} \right)
 &\qquad
-v_m^{14} &= \kappa_{14} \left( K_{14} q_m^{14} K_i^{ATP} q_i^{ATP}
+v_m^{14} &= \kappa_{14} \left( K_{14} q_m^{14} K_i^{MgATP} q_i^{MgATP}
              - K_{15} q_m^{15} \right) \\[6pt]
 v_m^{15} &= \kappa_{15} \left( K_{15} q_m^{15} - K_{16} q_m^{16} \right)
 & &

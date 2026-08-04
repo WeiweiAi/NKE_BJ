@@ -27,7 +27,7 @@
 };
 
 \foreach \col/\text in {1/$E_o\cdot P_i\cdot 2K^+$,5/$E_o\cdot 2K^+$,
-                         9/$E_o\cdot 2K^+\cdot ATP$,13/$E_i\cdot 2K^+\cdot ATP$}{
+                         9/$E_o\cdot 2K^+\cdot MgATP$,13/$E_i\cdot 2K^+\cdot MgATP$}{
   \node[rectblue,above=2mm of top-1-\col] (top2-\col) {\text};
 }
 
@@ -53,12 +53,12 @@
  |[greencycle]| $v_m^{5}$ \\  |[yellowbox]| $Rx_m^{5}$ \\ |[greencycle]| $v_m^{5}$ \\  |[rectred]| $q_m^{6}$ \\
 };
 
-\foreach \row/\text in {4/$E_i\cdot K^+\cdot ATP$,8/$E_i\cdot ATP$,
-                         12/$E_i\cdot ATP\cdot Na^+$,16/$E_i\cdot ATP\cdot 2Na^+$}{
+\foreach \row/\text in {4/$E_i\cdot K^+\cdot MgATP$,8/$E_i\cdot MgATP$,
+                         12/$E_i\cdot MgATP\cdot Na^+$,16/$E_i\cdot MgATP\cdot 2Na^+$}{
   \node[rectblue,left=2mm of right-\row-1] (right2-\row) {\text};
 }
 
-\node[rectblue,below=2mm of  right-20-1] (right2-20)  {$E_i\cdot ATP\cdot 3Na^+$} ;
+\node[rectblue,below=2mm of  right-20-1] (right2-20)  {$E_i\cdot MgATP\cdot 3Na^+$} ;
 
 \matrix (bottom) [matrix of nodes,column sep=10mm, matrix anchor=west, right=10mm of left-20-1]  {
    |[greencycle]| $v_m^{7}$ & |[yellowbox]| $Rx_m^{7}$ & |[greencycle]| $v_m^{7}$ &  |[rectred]| $q_m^{7}$ &
@@ -98,8 +98,8 @@
 \node[rectred,right=\colsep of right-9-1] (Nai)   {$q_i^{Na^+}$} ;
 \node[rectred,below=\colsep of top-1-5] (Pi)  {$q_i^{P_i}$} ;
 \node[rectred,below=\colsepp of top-1-5] (H)  {$q_i^{H}$} ;
-\node[rectred,below=\colsep of H] (ATP)  {$q_i^{ATP}$} ;
-\node[rectred,above=\colsep of bottom-1-5] (ADP)  {$q_i^{ADP}$} ;
+\node[rectred,below=\colsep of H] (MgATP)  {$q_i^{MgATP}$} ;
+\node[rectred,above=\colsep of bottom-1-5] (MgADP)  {$q_i^{MgADP}$} ;
 \node[rectred,above=20mm of bottom-1-4] (um)  {$u_m^{e}$} ;
 \node[bluecycle,right=20mm of um] (z1)  {\textcolor{white}{$z_1F$}} ;
 \node[bluecycle,left=20mm of um] (z2)  {\textcolor{white}{$z_2F$}} ;
@@ -117,10 +117,10 @@
 \draw[arrow] (Nai) -- (right-9-1);
 \draw[arrow] (Nai) |- (right-13-1) ;
 \draw[arrow] (Nai) |- (right-17-1);
-\draw[arrow] (bottom-1-5) -- (ADP);
+\draw[arrow] (bottom-1-5) -- (MgADP);
 \draw[arrow] (top-1-4) |- (Pi);
 \draw[arrow] (top-1-4) |- (H);
-\draw[arrow] (ATP) -| (top-1-6);
+\draw[arrow] (MgATP) -| (top-1-6);
 
 %=========================
 % Background shading
