@@ -12,7 +12,8 @@
 \usepackage{datatool}
 \usepackage{booktabs}
 \usepackage{etoolbox}
-\newcommand{\rev}[1]{{\color{blue} #1}}
+\usepackage{float}
+\newcommand{\rev}[1]{{\color{black} #1}}
 % Uncomment if using biblatex
 % \addbibresource{sample.bib}
 \newacronym{nka}{NKA}{sodium-potassium ATPase pump}
@@ -136,7 +137,7 @@ The bond graph of the 6-state model is shown in Figure \ref{fig:6state_v1}.
                    {tab:ATP_cond}% Label
 
 Table \ref{tab:6state-params} lists the parameters used in the 6-state model.
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \caption{Parameters used in the 6-state model.}
 \label{tab:6state-params}
@@ -165,7 +166,7 @@ $z_2$ & -0.054951 & dimensionless \\
 
 % Table file name, description of the file
 Table \ref{tab:6state-files} lists and describes the files related to the 6-state model.
-\begin{table}
+\begin{table}[!htbp]
 \centering
 \caption{Description of the files related to the 6-state model.}
 \label{tab:6state-files}
@@ -224,14 +225,14 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
     \item \textit{python plot\_EA\_2D\_combine15state\_NaK.py} and \textit{python plot\_EA\_2D\_combine6stateV2\_NaK.py} to reproduce Figure \ref{fig:thermodynamic_efficiency_AP_NaK}.
 \end{enumerate}
 }
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency.png}  
       \caption{15-state model}    
@@ -240,14 +241,14 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
 \label{fig:thermodynamic_efficiency_AP} 
 \end{figure} 
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_deltaATP.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_deltaATP.png}  
       \caption{15-state model}    
@@ -256,14 +257,14 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
 \label{fig:thermodynamic_efficiency_AP_deltaGATP} 
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Electrical_conversion_efficiency_deltaATP.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Electrical_conversion_efficiency_deltaATP.png}  
       \caption{15-state model}    
@@ -272,14 +273,14 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
 \label{fig:electrical_efficiency_AP_deltaGATP} 
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Mean_flow_rate_deltaATP.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Mean_flow_rate_deltaATP.png}  
       \caption{15-state model}    
@@ -288,14 +289,14 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
 \label{fig:Mean_flow_rate_AP_deltaGATP} 
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_flowRate.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_flowRate.png}  
       \caption{15-state model}    
@@ -304,14 +305,14 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
 \label{fig:thermodynamic_efficiency_AP_flowRate} 
 \end{figure}
 
-\begin{figure} [htbp]
+\begin{figure} [!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_Nak.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_NaK.png}  
       \caption{15-state model}    
@@ -321,7 +322,7 @@ Please move to the scripts directory: \textit{cd scripts} and the procedures to 
 \end{figure}
 \subsection*{Parameters used in the 6-state model for enterocyte simulation}
 
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \caption{Parameters used in the 6-state model for enterocyte simulation.}
 \label{tab:6state-paramsV3}

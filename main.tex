@@ -15,7 +15,7 @@
 \usetikzlibrary{matrix, positioning,calc,arrows.meta, backgrounds,fit}
 \usepackage[dvipsnames]{xcolor}
 %\newcommand{\rev}[1]{{#1}}
-\newcommand{\rev}[1]{{\color{blue} #1}}
+\newcommand{\rev}[1]{{\color{black} #1}}
 \usetikzlibrary{shapes.geometric}
 \tikzset{
     every node/.style={font=\small},
@@ -135,6 +135,18 @@ These studies highlight the versatility and power of bond graphs in systems biol
 
 Bond graphs provide a useful way of formulating and visualising a thermodynamically valid biophysical model because they ensure that mass, charge and energy are each conserved, and they clearly distinguish the mechanisms for (i) transmission of power, (ii) energy storage (mechanically in a spring, electrically in a capacitor or chemically in a solute dissolved in a solvent), (iii) energy dissipation to heat (a mechanical damper, an electrical resistance or a chemical reaction), and (iv) energy transfer between mechanical, electrical or biochemical domains. Most importantly they distinguish between the conservation laws of physics and the empirically measured constitutive parameters that characterise particular materials.
 
+\begin{figure}[!htbp]  
+\centering  
+\input{Fig1a.tex}
+\caption{(a) a bond, which transmits energy, carries a flow $v_j$ and a potential $u_j$; \rev{Note that $v_j$ is a scalar quantity with a sign convention, where a positive flow indicates accumulation of certain quantity (such as molar amount of a species or charge) at the head of the bond;}
+(b) a 1 node is a bond junction, where the flow is the same for all bonds and therefore the sum of potentials is zero (conservation of energy);
+(c) a 0 node is a bond junction, where the potential is the same for all bonds and therefore the sum of flows is zero (conservation of mass or charge);
+(d) a 0 node is usually associated with capacitive energy storage;
+(e) a concise way to be more succinctly expressed by the red-bordered box where the potential $u_j$ is given by an empirically defined capacitive storage relationship $u_j=f(q_j)$\rev{, where $q_j$ represents the quantity of the species. (f) Bond graph representation of the chemical reaction $2A + B \rightleftharpoons  2C + D$.    
+}}
+\label{fig:bg_concepts}
+\end{figure}
+
 In this article, we use a slightly different notation to that used in previous bond graph papers \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} to make the bond graph more accessible to a wider audience. 
 We refer the reader to \cite{gawthrop_energy-based_2014,pan_bond_2018,pan_bond_2019,pan_cardiac_2020,hunter_energy-based_2025} for more details of the bond graph methodology.
 Here, we only briefly introduce the key concepts of bond graph modelling relevant to this paper and explain the new notation used in the bond graph models of \Gls{nka}, as shown in Figure~\ref{fig:bg_concepts}.
@@ -148,17 +160,7 @@ The forward and reverse affinities are the driving forces of the chemical reacti
 
 A chemical reaction is represented as two-port dissipative component $Rx$, and its constitutive relationship is $v=\kappa [e^{A^f/(RT)}-e^{A^r/(RT)}]$, where $\kappa$ (mol/s) is a reaction-specific constant. The reaction proceeds in the direction of decreasing potential, that is, the flow rate $v$ (mol/s) will be positive only if $A^f-A^r>0$ (i.e., $\Delta G <0$). Combining the constitutive relationships of the species and the reaction gives rise to the mass action relationship commonly used in the biochemical literature. That is, $ v_m^j= k^+(q_m^A)^2 q_m^B - k^-(q_m^C)^2 q_m^D$, where $k^+=\kappa K_A^2 K_B$ (mol$^{-2}$/s) and $k^-=\kappa K_C^2 K_D$ (mol$^{-2}$/s) are reaction-specific constants. Note that all the reactions in bond graph are reversible, and the arrow in the graph only indicates the convention of positive sign.} 
 
-\begin{figure}[htbp]  
-\centering  
-\input{Fig1a.tex}
-\caption{(a) a bond, which transmits energy, carries a flow $v_j$ and a potential $u_j$; \rev{Note that $v_j$ is a scalar quantity with a sign convention, where a positive flow indicates accumulation of certain quantity (such as molar amount of a species or charge) at the head of the bond;}
-(b) a 1 node is a bond junction, where the flow is the same for all bonds and therefore the sum of potentials is zero (conservation of energy);
-(c) a 0 node is a bond junction, where the potential is the same for all bonds and therefore the sum of flows is zero (conservation of mass or charge);
-(d) a 0 node is usually associated with capacitive energy storage;
-(e) a concise way to be more succinctly expressed by the red-bordered box where the potential $u_j$ is given by an empirically defined capacitive storage relationship $u_j=f(q_j)$\rev{, where $q_j$ represents the quantity of the species. (f) Bond graph representation of the chemical reaction $2A + B \rightleftharpoons  2C + D$.    
-}}
-\label{fig:bg_concepts}
-\end{figure}
+
 
 The explicit expression of energy flows in bond graphs makes them particularly suitable for thermodynamic analysis of biochemical systems. For each component $j$ in the bond graph, the energy flow can be calculated as the sum of the power transmitted by each of its bonds, that is $P_j=\sum_{i = 1}^{k}  u_j^i \cdot v_j^i$ with $i=1,2,\ldots,k$ indicating the number of bonds connected to the component. For dynamic systems, the power can be integrated over time to give the total energy stored or dissipated by the component over the time interval $t_0$ to $t_1$, that is $E_j=\int_{t_0}^{t_1} P_j(t) \mathrm{d}t$. \rev{For example, the energy dissipation by the reaction in Figure~\ref{fig:bg_concepts}(f) is expressed as $E_{Rx^j_m}=\int_{t_0}^{t_1}( A^f(t)-A^r(t))\cdot v_m^j(t) \mathrm{d}t$, while the energy stored or released in the species $A$ is expressed as $E_A=\int_{t_0}^{t_1} u_A(t)\cdot v_A(t) \mathrm{d}t$ with $u_A(t)=RT\ln(K_Aq_m^A(t))$ and $v_A(t)=-2v_m^j(t)$. Note that negative energy flow value indicates energy is released from the component.}
 
@@ -367,7 +369,7 @@ We use the simulation conditions as shown in Table \ref{tab:default_parameters} 
 
 We applied the experimental conditions in \cite{pan_cardiac_2020} to fit the 6-state bond graph model to the experimental data using the differential evolution method in SciPy \cite{storn1997differential}, shown in Figure \ref{fig:model_fit}. \rev{The detailed experimental conditions and data are listed in the supplemental materials.}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \begin{subfigure}{0.35\textwidth}
       \centering
@@ -441,18 +443,18 @@ Another theoretical study in \cite{peluffo_nak-atpase_2023} speculated that the 
 
 
 To investigate the thermodynamic efficiency of the \gls{nka} under physiological conditions, we applied the action potential with different \gls{bcl} to simulate the \gls{nka} models, and calculated the thermodynamic efficiency over ten cycles.
-We also vary the \gls{mgatp}, \gls{mgadp}, \gls{pi} concentrations and pH values to examine their effects on the thermodynamic efficiency of the \gls{nka}.
+We also vary the \gls{mgatp}, \gls{mgadp}, \gls{pi} concentrations and pH values to examine their effects on the thermodynamic efficiency of the \gls{nka} (Figure \ref{fig:thermodynamic_efficiency_AP}).
 When varying one parameter, the other parameters are set to the default values in Table \ref{tab:default_parameters}.
 The corresponding $\Delta G_{MgATP}$ values range from -46 kJ/mol to -62 kJ/mol.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_2.png}  
       \caption{15-state model}    
@@ -473,12 +475,12 @@ From the figures, we can see that the \gls{mgatp}, \gls{mgadp}, \gls{pi} concent
 
 \begin{figure}[htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_deltaATP_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_deltaATP_2.png}  
       \caption{15-state model}    
@@ -495,12 +497,12 @@ Since Equation \ref{eq:deltaG_nka} does not account for the dynamics of the \gls
 
 \begin{figure}[htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Electrical_conversion_efficiency_deltaATP_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Electrical_conversion_efficiency_deltaATP_2.png}  
       \caption{15-state model}    
@@ -534,12 +536,12 @@ We ploted the mean turnover rate of \gls{nka} under different $\Delta G_{MgATP}$
 
 \begin{figure}[htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Mean_flow_rate_deltaATP_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Mean_flow_rate_deltaATP_2.png}  
       \caption{15-state model}    
@@ -553,16 +555,14 @@ In our simulation, we can see that the inhibition of \gls{nka} activity by \gls{
 
 Increases in intracellular \gls{pi} and decreases in intracellular pH and \gls{mgatp} were associated with ischemic conditions \cite{huang1984regulation,wu_phosphate_2008}, and these changes are associated with the inhibition of \gls{nka} activity if other conditions are kept constant according to our simulation.
 
-To understand how the inhibition of \gls{nka} activity affects its thermodynamic efficiency, we plotted the thermodynamic efficiency of both models under different mean turnover rates by varying the \gls{mgatp}, \gls{mgadp}, \gls{pi} concentrations and pH values, shown in Figure \ref{fig:thermodynamic_efficiency_AP_flowRate}.
-
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_flowRate_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_flowRate_2.png}  
       \caption{15-state model}    
@@ -570,6 +570,8 @@ To understand how the inhibition of \gls{nka} activity affects its thermodynamic
 \caption{Thermodynamic efficiency of \gls{nka} (a) (6-state model) and (b) (15-state model) under different mean turnover rates.}
 \label{fig:thermodynamic_efficiency_AP_flowRate} 
 \end{figure}
+
+To understand how the inhibition of \gls{nka} activity affects its thermodynamic efficiency, we plotted the thermodynamic efficiency of both models under different mean turnover rates by varying the \gls{mgatp}, \gls{mgadp}, \gls{pi} concentrations and pH values, shown in Figure \ref{fig:thermodynamic_efficiency_AP_flowRate}.
 
 We can see that the thermodynamic efficiency of both models increases with reduced mean turnover rates, which aligns with the study in \cite{wagoner_mechanisms_2019}.
 The drop in thermodynamic efficiency at very low mean turnover rates in full bond graph models is due to the drop in electrical conversion efficiency, as discussed in the previous section.
@@ -591,14 +593,14 @@ A simulation study \cite{rodriguez_mechanistic_2002} showed that extracellular K
 
 To investigate the response of \gls{nka} to changes in intracellular Na\textsuperscript{+} concentration and extracellular K\textsuperscript{+} concentration when $\Delta G_{MgATP}$ remains constant, we varied the intracellular Na\textsuperscript{+} concentration from 4 mM to 16 mM or extracellular K\textsuperscript{+} concentration from 3.5 mM to 5.5 mM, shown in Figure \ref{fig:thermodynamic_efficiency_AP_NaK}.
 
-\begin{figure} [htbp]
+\begin{figure} [!htbp]
 \centering
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering  
       \includegraphics[width=\linewidth]{EA_2D_combine_6stateV2_Thermodynamic_efficiency_Nak_2.png}
       \caption{6-state model}    
 \end{subfigure}
-\begin{subfigure}{0.4\textwidth}
+\begin{subfigure}{0.45\textwidth}
       \centering
       \includegraphics[width=\linewidth]{EA_2D_combine_15state_Thermodynamic_efficiency_NaK_2.png}  
       \caption{15-state model}    
