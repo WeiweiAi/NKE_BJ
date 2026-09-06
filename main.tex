@@ -347,18 +347,19 @@ We use the simulation conditions as shown in Table \ref{tab:default_parameters} 
 
 \begin{table}[htbp]
 \centering
-\DTLloaddb[
-  keys={Parameter,Description,Value,Units,References}
-]{mydata}{default_conditions.csv}
 \begin{tabular}{lllll}
 \toprule
 \rev{Constant} & Description & Value & Units & References\\
 \midrule
-\DTLforeach{mydata}{%
-  \param=Parameter,\desc=Description,\val=Value,\unit=Units,\refs=References%
-}{%
-  \param & \desc & \val & \unit & \citep{\refs}\\
-}
+$c_{Nai}$ & Intracellular sodium concentration & 10 & mM & \citep{despa_intracellular_2002,bers_intracellular_2003} \\
+$c_{Nao}$ & Extracellular sodium concentration & 140 & mM & \citep{despa_intracellular_2002,bers_intracellular_2003} \\
+$c_{Ki}$ & Intracellular potassium concentration & 145 & mM & \citep{zacchia_potassium_2016} \\
+$c_{Ko}$ & Extracellular potassium concentration & 4.5 & mM & \citep{zacchia_potassium_2016} \\
+$c_{MgATP}$ & Intracellular MgATP concentration & 1 & mM & \citep{rhana_fueling_2024} \\
+$c_{MgADP}$ & Intracellular MgADP concentration & 0.035 & mM & \citep{dobson_heart_2002} \\
+$c_{Pi}$ & Intracellular inorganic phosphate concentration & 0.8 & mM & \citep{tran_regulation_2015} \\
+pH & Intracellular pH & 7.2 & dimensionless & \citep{orlowski_intracellular_2025} \\
+\bottomrule
 \end{tabular}
 \caption{Default \rev{boundary conditions} for \gls{nka} simulations.}
 \label{tab:default_parameters}
