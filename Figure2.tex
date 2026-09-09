@@ -1,0 +1,34 @@
+\documentclass[border=0pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
+\usetikzlibrary{matrix, positioning,calc,arrows.meta, backgrounds,fit,shapes.geometric}
+\tikzset{
+    every node/.style={font=\small},
+    greencycle/.style={fill=green!80!black!10,ellipse, align=center},
+    rectred/.style={draw=red, fill=green!80!black!10, thick, rounded corners, align=center},
+    rectblue/.style={draw=blue, rounded corners, align=center},
+    yellowbox/.style={draw=black, fill=Dandelion, thick, rounded corners, align=center},
+    bluecycle/.style={fill=NavyBlue, ellipse, align=center},
+    arrow/.style={-{Latex[length=3mm]}, thick},
+}
+
+\begin{document}
+\begin{minipage}{6.75in}
+\centering
+\captionsetup{type=figure}
+\begin{subfigure}[b]{0.40\linewidth}
+\centering
+\includegraphics[width=\linewidth]{6state_1_chem.pdf}
+\caption{Reaction scheme.}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.55\linewidth}
+\centering
+\includegraphics[width=\linewidth]{6state_1.pdf}
+\caption{Bond graph representation.}
+\end{subfigure}
+\end{minipage}
+\end{document}
